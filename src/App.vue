@@ -2,9 +2,7 @@
 
   <div id="app">
 
-    <img src="./assets/logo.png">
     <router-view></router-view>
-    {{ count1 }}
   </div>
 </template>
 

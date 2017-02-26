@@ -9,12 +9,47 @@ Vue.use(Vuex)
 /* eslint-disable no-new */
 const store = new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    todos: [
+    	{ id: 1,text: '...', done: true},
+    	{ id: 2,text: '...', done: false},
+    ]
   },
   mutations: {
-    increment (state) {
-      state.count++
+    increment (state,payload) {
+      state.count += payload.number
     }
+  },
+  getters: {
+  	doneTodos: state => {
+  		return state.todos.filter(todo => todo.done)
+  	},
+  	doneTodosCount:(state,getters)=>{
+  		return getters.doneTodos.length
+  	}
+  },
+  actions: {
+  	increment ({commit},payload) {
+  		setTimeout(function() {
+  			commit('increment',payload)
+  			setTimeout(function() {
+  				commit('increment',payload)
+  			}, 1000);
+  		}, 1000);
+  	},
+  	promise ({commit},payload) {
+  		return new Promise((resolve,reject)=>{
+  			setTimeout(function() {
+  				commit('increment',payload)
+  				resolve()
+  			}, 1000);
+  		})
+  	},
+  	promise2({dispatch,commit},payload) {
+  		dispatch('promise',payload).then(() => {
+      		commit('increment',payload)
+    	})
+  	}
   }
 })
 new Vue({
