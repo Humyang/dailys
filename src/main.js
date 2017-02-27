@@ -6,7 +6,12 @@ import router from './router'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-/* eslint-disable no-new */
+let sub_module = {
+  state:{},
+  mutations:{},
+  actions:{},
+  getters:{}
+}
 const store = new Vuex.Store({
   state: {
     count: 0,
@@ -50,6 +55,9 @@ const store = new Vuex.Store({
       		commit('increment',payload)
     	})
   	}
+  },
+  modules:{
+    a:sub_module
   }
 })
 new Vue({
