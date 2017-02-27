@@ -7,10 +7,25 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 let sub_module = {
-  state:{},
-  mutations:{},
-  actions:{},
-  getters:{}
+  state:{
+    count:123123
+  },
+  mutations:{
+    increment2(state){
+      state.count++
+    }
+  },
+  getters:{
+    doubleCount(state,getters,rootState){
+      return state.count*2
+    }
+  },
+  actions:{
+    increment2({state,commit,rootState}){
+      commit('increment2')
+    }
+  },
+
 }
 const store = new Vuex.Store({
   state: {

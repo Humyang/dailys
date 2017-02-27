@@ -6,6 +6,9 @@
 	doneTodosCount:{{doneTodosCount}}
 	<br/>
 	<a @click.prevent="addone" href="">mutations add one</a>
+  <br/>
+  sub_module{{submodule.count}}
+  <a @click.prevent="sub_addone" href="">sub module add one</a>
 	</div>
 </template>
 
@@ -16,6 +19,9 @@ export default {
     return {localCount: 50}
   },
   methods:{
+    sub_addone(){
+      this.increment2()
+    },
   	addone(){
   		//直接 commit Mutation
   		// this.$store.commit('increment',{
@@ -40,7 +46,7 @@ export default {
   	// ...mapMutations([
   	// 		'increment'
   	// 	]),
-  	...mapActions(['increment','promise2'])
+  	...mapActions(['increment','promise2','increment2'])
   },
   computed: {
   	
@@ -50,6 +56,7 @@ export default {
   	...mapGetters(['doneTodos','doneTodosCount']),
   	...mapState({
 	    count: state => state.count,
+      submodule:state=>state.a,
 	    countAlias: 'count',
 	    // 为了能够使用 `this` 获取局部状态，必须使用常规函数
 	    countPlusLocalState (state) {
