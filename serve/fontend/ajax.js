@@ -2,11 +2,12 @@
 require('es6-promise').polyfill();
 var fetch = require('isomorphic-fetch');
 import * as BASE from './base.js'
-var CODE = require('../../serve/constant.js').CODE
+var CODE = require('../PREDEFINED/CONSTANT.js').CODE
+var CONFIG = require('../PREDEFINED/APP_CONFIG.js')
 import {
     IP,
     HTTP_FAIL
-} from './constant.js'
+} from '../PREDEFINED/CONSTANT.js'
 
 
 // 业务逻辑错误处理
@@ -34,7 +35,7 @@ const mFetch = function(path,data,token) {
             }
         }
         let root = this
-        fetch(IP+path,
+        fetch(IP+':'+CONFIG.servePort+path,
         {
           method: 'POST',
           headers: {

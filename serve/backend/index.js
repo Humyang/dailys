@@ -6,12 +6,13 @@ var mongo = require('koa-mongo')
 
 
 
-var CONSTANT = require('./constant.js')
+// var CONSTANT = require('../PREDEFINED/CONSTANT.js')
 var objectAssign = require('object-assign')
 
+var CONFIG = require('../PREDEFINED/APP_CONFIG.js')
 
 // var LOGIN = require('./module/login.js')
-var ARTICLE = require('./module/word.js')
+var ARTICLE = require('./module/article.js')
 
 app.use(cors())
 
@@ -38,3 +39,8 @@ app.use(function *(next){
     }
 })
 app.use(router.routes()).use(router.allowedMethods());
+
+
+app.listen(CONFIG.servePort)
+
+console.log("listen serve on port ",CONFIG.servePort)

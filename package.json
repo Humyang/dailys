@@ -11,6 +11,7 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "serve": "node serve/backend/index.js",
     "test_article": "mocha --compilers js:babel-register --recursive serve/test/article.js"
   },
   "dependencies": {
