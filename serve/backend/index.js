@@ -10,14 +10,13 @@ var CONSTANT = require('./constant.js')
 var objectAssign = require('object-assign')
 
 
-var LOGIN = require('./module/login.js')
-var WORD = require('./module/word.js')
+// var LOGIN = require('./module/login.js')
+var ARTICLE = require('./module/word.js')
 
 app.use(cors())
+
 // 添加单词
-router.post('/word/add',LOGIN.login_check(),WORD.add)
-// 获取列表（以到达显示时间）
-router.post('/word/list',LOGIN.login_check(),WORD.list)
+router.post('/article/update',ARTICLE.update)
 
 app.use(mongo())
 app.use(body())

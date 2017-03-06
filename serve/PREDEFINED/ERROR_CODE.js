@@ -1,4 +1,4 @@
-var STATUSCODE_START = 100
+var STATUSCODE_START = 1000
 module.exports = {
     DAY:86399500,
     CODE:{
