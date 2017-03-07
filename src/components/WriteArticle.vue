@@ -18,7 +18,9 @@
 
 <script>
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex'
+
 import '../css/WriteArticle.css'
+
 export default {
   data () {
     return {
