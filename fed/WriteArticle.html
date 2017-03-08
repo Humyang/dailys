@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../src/css/WriteArticle.css">
+    <title>fed dailys</title>
+</head>
+<script>
+window.onload = function() {
+    var e = document.getElementById("ta1")
+    window.onresize = function() {
+        e.style.height = window.innerHeight - 106 + "px"
+    }
+    e.style.height = window.innerHeight - 106 + "px"
+}
+</script>
+
+<body>
+<div id="app">
+    <div class="write_article_wrap">
+        <div class="floder">
+            <ul>
+                <li>脚本</li>
+                <li class="active">日志</li>
+                <li>数据库</li>
+                <li>React</li>
+                <li>前端布局</li>
+                <li>微信小程序</li>
+                <li>单元测试</li>
+            </ul>
+        </div>
+        <div class="document">
+            <ul>
+                <li class="active">
+                    <i class="i1"></i>
+                    <p class="p1">无标题文章</p>
+                    <p class="p2">pop_pic:"#ban_pic2",//弹出框图片框架</p>
+                </li>
+                <li>
+                    <i class="i1"></i>
+                    <p class="p1">无标题文章</p>
+                    <p class="p2">pop_pic:"#ban_pic2",//弹出框图片框架</p>
+                </li>
+                <li>
+                    <i class="i1"></i>
+                    <p class="p1">无标题文章</p>
+                    <p class="p2">pop_pic:"#ban_pic2",//弹出框图片框架</p>
+                </li>
+                <li>
+                    <i class="i1"></i>
+                    <p class="p1">无标题文章</p>
+                    <p class="p2">pop_pic:"#ban_pic2",//弹出框图片框架</p>
+                </li>
+            </ul>
+        </div>
+        <div class="article">
+            <input class="i1" type="text" placeholder="无标题文章">
+            <p class="p1"></p>
+            <textarea name="" id="ta1" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
