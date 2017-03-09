@@ -1,9 +1,9 @@
 var CONFIG = require('../../PREDEFINED/APP_CONFIG.js')
 var ARTICLE_CONFIG = {
-    COLLECTION:'articles'
+    COLLECTION:'floders'
 }
 /*插入和更新文章*/
-function * update (next){
+function * add (next){
 
     let content = this.request.fields.content
 
@@ -20,10 +20,4 @@ function * update (next){
         msg:'更新成功'
     }
 }
-function * first (next){
-    
-    yield next
-}
-module.exports = {
-    update,
-}
+fun

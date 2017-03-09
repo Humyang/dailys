@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 
+import './css/fonticon/iconfont.css'
+
 Vue.use(Vuex)
 let sub_module = {
   state:{
