@@ -1,4 +1,4 @@
-import mFetch from './ajax.js'
+import mFetch from '../ajax.js'
 // 新建文章
 export const add = function(title,content){
     
@@ -16,5 +16,5 @@ export const list = function(title,content){
     //     title,
     //     content
     // }
-    return mFetch('/article/list')
+    return mFetch('/article/list',{})
 }

@@ -23,6 +23,7 @@ function * list (next){
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find({})
+                        .toArray()
     this.body = {
         status:true,
         result:res

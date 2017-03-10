@@ -17,7 +17,7 @@ function * add (next){
 
     this.body = {
         status:true,
-        msg:'更新成功'
+        msg:'更新成功',
         id:res.insertedIds[1]
     }
 }
@@ -27,6 +27,7 @@ function * list (next){
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find({})
+                        .toArray()
     this.body = {
         status:true,
         result:res

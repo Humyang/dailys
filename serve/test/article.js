@@ -22,4 +22,14 @@ describe('文章测试', function() {
             done(err)
         })
     })
+    it('----------列表', function(done) {
+        co(function*(){
+            let list = yield API.ARTICLE.list()
+            assert(list.status,true,list)
+            console.log(list)
+            done()
+        }).catch(function(err){
+            done(err)
+        })
+    })
 })

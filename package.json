@@ -9,10 +9,11 @@
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
-    "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "serve": "node serve/backend/index.js",
-    "test_article": "mocha --compilers js:babel-register --recursive serve/test/article.js"
+    "test_article": "mocha --compilers js:babel-register --recursive serve/test/article.js",
+    "test_floder": "mocha --compilers js:babel-register --recursive serve/test/floder.js",
+    "test": "npm run test_article && npm run test_floder"
   },
   "dependencies": {
     "css-loader": "^0.26.2",

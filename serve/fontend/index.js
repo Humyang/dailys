@@ -10,10 +10,11 @@
 //             ,data
 //             )
 // }
-import * as ADTICLE from './module/article.js'
-
+import * as ARTICLE from './module/article.js'
+import * as FLODER from './module/floder.js'
 
 
 export {
-    ARTICLE
+    ARTICLE,
+    FLODER
 }
