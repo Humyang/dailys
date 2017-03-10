@@ -13,11 +13,17 @@ var CONFIG = require('../PREDEFINED/APP_CONFIG.js')
 
 // var LOGIN = require('./module/login.js')
 var ARTICLE = require('./module/article.js')
+var FLODER = require('./module/floder.js')
 
 app.use(cors())
 
-// 添加单词
-router.post('/article/update',ARTICLE.update)
+// 添加文章
+router.post('/article/add',ARTICLE.add)
+router.post('/article/list',ARTICLE.list)
+
+// 添加目录
+router.post('/floder/add',FLODER.add)
+router.post('/floder/list',FLODER.list)
 
 app.use(mongo())
 app.use(body())

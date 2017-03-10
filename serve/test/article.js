@@ -12,11 +12,11 @@ function assert(value,expect,msg,append_msg){
 global.localStorage = {}
 global.localStorage.setItem=function(){}
 global.localStorage.getItem=function(){}
-describe('更新&添加文章', function() {
-    it('普通更新', function(done) {
+describe('文章测试', function() {
+    it('----------新建', function(done) {
         co(function*(){
-            let article_update = yield API.articleUpdate('111','222')
-            assert(article_update.status,true,article_update)
+            let add = yield API.ARTICLE.add('123123')
+            assert(add.status,true,add)
             done()
         }).catch(function(err){
             done(err)
