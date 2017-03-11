@@ -23,27 +23,57 @@ a{
     font-size: 25px;
     vertical-align: -2px;
 }
+.add_wrap {
+    overflow: hidden;
+    height: 80px;
+}
 
+.add_wrap input {
+    border: 0;
+    width: 260px;
+    margin-left: 10px;
+    line-height: 28px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    padding-left: 10px;
+}
 .floder li {
     font-size: 16px;
-    padding-left: 15px;
+    padding-left: 14px;
     line-height: 45px;
     cursor: pointer;
+    overflow: hidden;
+}
+.floder li.editor {
+    height: 90px;
+    margin-right: 1px;
 }
 
 .floder ul {
     margin-top: 5px;
 }
-
+.floder i.i1{
+    display: none;
+}
+.floder .active i.i1 {
+    display: inherit;
+    float: right;
+    margin-right: 15px;
+}
 .floder li.active {
     border-left: 5px solid #ff5548;
     margin-left: 0;
     padding-left: 9px;
-    
+}
+.floder li.active i.i1:hover {
+    /* background-color: #333; */
+    color: #ff5548;
 }
 .floder li:hover,.floder li.active{
     background-color: #5a5a5a;
 }
+
 .floder {
     float: left;
     width: 15%;
@@ -52,6 +82,17 @@ a{
     height:100%;
     text-align: left;
 }
+.floder li.editor input {
+    border: 0;
+    /* line-height: 23px; */
+    height: 30px;
+    vertical-align: 2px;
+    /* margin-top: -5px; */
+    padding-left: 5px;
+    border-radius: 3px;
+    width: 260px;
+}
+
 .document {width: 20%;height: 100%;float: left;text-align: left;overflow: hidden;border-right: 1px solid #e8e8e8;margin-left: -1px;}
 .document .i1 {float:left;display: block;width: 19px;height: 26px;background-image: url("../image/1.png");background-position: 0px 0px;left: 20px;margin-top: 24px;position: absolute;}
 .document li {
@@ -60,7 +101,16 @@ a{
     cursor: pointer;
     border-bottom: 1px solid #eaeaea;
 }
+.document a.btn {
+    border-color: #ddd;
+    color: #2f2f2f;
+    
+}
 
+.document .add_wrap input {
+    border-color: #ddd;
+    border: 1px solid #ddd;
+}
 .document li.active {
     
     border-left: 5px solid #ff5548;
@@ -72,19 +122,25 @@ a{
     margin-left:1px;
     position: relative;
 }
-p.p1 {
+.document li p.p1 {
     margin-top: 20px;
     margin-left: 55px;
     margin-right: 30px;
     font-size: 18px;
 }
 
-p.p2 {
+.document li p.p2 {
     margin-left: 55px;
     margin-right: 30px;
     font-size: 14px;
     color: #9c9c9c;
     margin-bottom: 15px;
+}
+.document li.active p.p1 {
+    margin-left: 50px;
+}
+.document li.active p.p2 {
+    margin-left: 50px;
 }
 .article {float: left;width: 65%;height: 100%;overflow: hidden;display: block;background-color: white;text-align: left;}
 .article textarea { width: 100%; margin-bottom: 0; resize: none; color: #2f2f2f; font-size: 18px; font-weight: normal; line-height: 30px; -webkit-appearance: none; box-sizing: border-box; border: 0; -webkit-highlight: none; outline: none; padding: 30px; padding-bottom: 0; overflow: auto }
@@ -102,5 +158,5 @@ p.p2 {
         cursor: pointer;
 }
 .article p.p1 .i1:hover{
-        color: #000;
+            color: #ff5548;
 }

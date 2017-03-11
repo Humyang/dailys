@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../src/css/fonticon/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_6ju4lzi860qkt9.css">
+    <link rel="stylesheet" href="../src/css/btn.css">
     <link rel="stylesheet" href="../src/css/WriteArticle.css">
     <title>fed dailys</title>
 </head>
@@ -22,12 +23,21 @@ window.onload = function() {
     <div class="write_article_wrap">
         <div class="floder">
             <p class="p_add"><i class="i_add">+</i>新建文集</p>
+            <div class="add_wrap">
+                <input placeholder="输入文章标题" type="" name="">
+                <a class="btn btn_ok" href="">保存</a>
+                <a class="btn btn_cancel" href="">取消</a>
+            </div>
             <ul>
-                <li>脚本</li>
-                <li class="active">日志</li>
+                <li class="active">脚本 <i class="iconfont icon-xiugai i1"></i></li>
+                <li >日志</li>
                 <li>数据库</li>
                 <li>React</li>
-                <li>前端布局</li>
+                <li class="active editor">
+                    <input type="" placeholder="前端布局" name="">
+                    <a class="btn btn_ok" href="">保存</a>
+                    <a class="btn btn_cancel" href="">取消</a>
+                </li>
                 <li>微信小程序</li>
                 <li>单元测试</li>
             </ul>

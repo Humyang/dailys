@@ -27,6 +27,7 @@ function * list (next){
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find({})
+                        .sort({_id:-1})
                         .toArray()
     this.body = {
         status:true,
