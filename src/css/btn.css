@@ -13,6 +13,6 @@ a.btn {
 }
 
 a.btn:hover {
-    color: #ff5548;
-    border-color: #ff5548;
+    color: #ff5548 !important;
+    border-color: #ff5548 !important;
 }

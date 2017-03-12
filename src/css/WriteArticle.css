@@ -81,6 +81,7 @@ a{
     color: white;
     height:100%;
     text-align: left;
+    overflow: auto;
 }
 .floder li.editor input {
     border: 0;
@@ -93,7 +94,7 @@ a{
     width: 260px;
 }
 
-.document {width: 20%;height: 100%;float: left;text-align: left;overflow: hidden;border-right: 1px solid #e8e8e8;margin-left: -1px;}
+.document {overflow: auto;width: 20%;height: 100%;float: left;text-align: left;border-right: 1px solid #e8e8e8;margin-left: -1px;}
 .document .i1 {float:left;display: block;width: 19px;height: 26px;background-image: url("../image/1.png");background-position: 0px 0px;left: 20px;margin-top: 24px;position: absolute;}
 .document li {
     min-height: 80px;

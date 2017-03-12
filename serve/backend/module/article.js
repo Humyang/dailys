@@ -6,11 +6,14 @@ var MODULE_CONFIG = {
 function * add (next){
 
     let title = this.request.fields.title
+    let uid = this.request.fields.uid
+
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .insert({
-                            title
+                            title,
+                            uid
                         })
     this.body = {
         status:true,
@@ -19,10 +22,12 @@ function * add (next){
 }
 /*返回列表*/
 function * list (next){
+    let uid = this.request.fields.uid
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .find({})
+                        .find({uid})
+                        .sort({_id:-1})
                         .toArray()
     this.body = {
         status:true,

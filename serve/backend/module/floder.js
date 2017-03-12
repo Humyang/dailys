@@ -1,4 +1,6 @@
 var CONFIG = require('../../PREDEFINED/APP_CONFIG.js')
+var uid = require('uid')
+
 var MODULE_CONFIG = {
     COLLECTION:'floders'
 }
@@ -12,7 +14,8 @@ function * add (next){
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .insert({
-                            name
+                            name,
+                            uid:uid(40)
                         })
 
     this.body = {

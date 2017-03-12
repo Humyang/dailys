@@ -11,7 +11,7 @@
             </template>
             <ul>
                 <li v-for="(item,index) in floder_list"
-                    :class="{active:floder_active === index,editor:floder_edit_index===index}"
+                    :class="{active:floder_active === floder_list[index].uid,editor:floder_edit_index===index}"
                     @click="floder_item_active(index)" >
                     <template v-if="index!=floder_edit_index">
                         {{item.name}}
@@ -65,7 +65,7 @@ export default {
   data () {
     return {
         floder_list:[],
-        floder_active:0,
+        floder_active:"",
         floder_edit_index:-1,
         floder_add_visible:false,
         floder_add_input:"",
@@ -93,7 +93,20 @@ export default {
         this.article_add_visible = true
     },
     article_add_ok(){
-         this.article_add_visible = false
+        let self = this
+        let uid = self.floder_active
+        API.ARTICLE.add(this.article_add_input,uid)
+        .then(function(){
+            API.ARTICLE.list(uid)
+            .then(function(res){
+                self.article_list = res.result
+            })
+            self.article_add_input = ""
+        })
+        .catch(function(err){
+            alert(err)
+        })
+        this.article_add_visible = false
     },
     article_add_cancel(){
          this.article_add_visible = false
@@ -102,7 +115,15 @@ export default {
         this.floder_edit_index = index
     },
     floder_item_active:function(index){
-        this.floder_active = index
+        let self = this
+        co(function*(){
+            let article_list = yield API.ARTICLE.list(self.floder_list[index].uid)
+            self.article_list = article_list.result
+        })
+        .catch(function(err){
+            
+        })
+        this.floder_active = this.floder_list[index].uid
     },
     floder_edit_cancel(index){
         this.floder_edit_index = -1
@@ -141,8 +162,8 @@ export default {
     co(function*(){
             let floder_list = yield API.FLODER.list()
             self.floder_list = floder_list.result
-
-            let article_list = yield API.ARTICLE.list()
+            self.floder_active = floder_list.result[0].uid
+            let article_list = yield API.ARTICLE.list(self.floder_list[0].uid)
             self.article_list = article_list.result
         })
         .catch(function(err){
