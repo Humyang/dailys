@@ -20,6 +20,9 @@ app.use(cors())
 // 添加文章
 router.post('/article/add',ARTICLE.add)
 router.post('/article/list',ARTICLE.list)
+router.post('/article/update',ARTICLE.update)
+router.post('/article/content',ARTICLE.content)
+
 
 // 添加目录
 router.post('/floder/add',FLODER.add)

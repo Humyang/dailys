@@ -32,4 +32,23 @@ describe('文章测试', function() {
             done(err)
         })
     })
+    it('----------修改', function(done) {
+        co(function*(){
+            let add = yield API.ARTICLE.add('123123')
+            assert(add.status,true,add)
+            let update = yield API.ARTICLE.update('456789',add.selfuid)
+            assert(update.status,true,update)
+            let update2 = yield API.ARTICLE.update('abcdefg',add.selfuid)
+            assert(update2.status,true,update2)
+            let query = yield API.ARTICLE.content(add.selfuid)
+            assert(query.status,true,query)
+
+            console.log('query------------',query)
+
+            done()
+
+        }).catch(function(err){
+            done(err)
+        })
+    })
 })
