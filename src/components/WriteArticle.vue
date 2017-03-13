@@ -37,7 +37,7 @@
             <ul>
                 <template v-for="(item,index) in article_list">
                     <li @click="article_item_active(index)"
-                        :class="{active:article_active === index,editor:article_edit_index===index}">
+                        :class="{active:article_active === article_list[index].selfuid,editor:article_edit_index===index}">
                         <i class="i1"></i>
                         <p class="p1">{{item.title}}</p>
                         <p class="p2">------</p>
@@ -48,9 +48,9 @@
         <div class="article">
             <input class="i1" type="text" placeholder="无标题文章">
             <p class="p1">
-                <i class="iconfont icon-baocun i1"></i>
+                <i @click="article_content_save" class="iconfont icon-baocun i1"></i>
             </p>
-            <textarea ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
+            <textarea v-model="article_content" ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
         </div>
     </div>
 </template>
@@ -70,18 +70,36 @@ export default {
         floder_add_visible:false,
         floder_add_input:"",
         article_list:[],
-        article_active:0,
+        article_active:"",
         article_edit_index:-1,
         article_add_visible:false,
         article_add_input:"",
+        article_content:""
     }
   },
   methods:{
+    article_content_save:function(){
+        let self = this
+        co(function*(){
+            let update = yield API.ARTICLE.update(self.article_content,self.article_active)
+        }).catch(function(err){
+        })
+    },
     article_item_rename:function(index){
         this.article_edit_index = index
     },
     article_item_active:function(index){
-        this.article_active = index
+        this.article_active =  this.article_list[index].selfuid
+
+        let self = this
+        co(function*(){
+            let article_list = yield API.ARTICLE.content(self.article_active,self.article_active)
+            console.log(article_list.result.content)
+            self.article_content = article_list.result.content
+        })
+        .catch(function(err){
+            
+        })
     },
     article_edit_cancel(index){
         this.article_edit_index = -1
