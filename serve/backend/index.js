@@ -11,7 +11,7 @@ var objectAssign = require('object-assign')
 
 var CONFIG = require('../PREDEFINED/APP_CONFIG.js')
 
-// var LOGIN = require('./module/login.js')
+var LOGIN = require('flogin')
 var ARTICLE = require('./module/article.js')
 var FLODER = require('./module/floder.js')
 
@@ -28,6 +28,18 @@ router.post('/article/content',ARTICLE.content)
 router.post('/floder/add',FLODER.add)
 router.post('/floder/list',FLODER.list)
 
+
+
+router.all('/username/valid/:username',LOGIN.username_repeat)
+router.post('/regiest',/*LOGIN.verify_code(),*/LOGIN.regiest)
+router.post('/login',/*LOGIN.verify_code(),*/LOGIN.login)
+router.post('/login_status_check',LOGIN.login_check(),function *(next){
+    this.body = {
+        status:true,
+        msg:'在线'
+    }
+})
+app.use(LOGIN.set({dbname:CONFIG.dnName,port:CONFIG.dbPort}))
 app.use(mongo())
 app.use(body())
 app.use(function *(next){
