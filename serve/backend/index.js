@@ -44,6 +44,7 @@ app.use(mongo())
 app.use(body())
 app.use(function *(next){
     try{
+        console.log('this.LOGIN_CONFIG',this.LOGIN_CONFIG)
         yield next
     }catch (err) {
         try{
