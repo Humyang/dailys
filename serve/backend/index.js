@@ -11,7 +11,7 @@ var objectAssign = require('object-assign')
 
 var CONFIG = require('../PREDEFINED/APP_CONFIG.js')
 
-var LOGIN = require('flogin')
+var LOGIN = require('../../../login/lib/login.js')
 var ARTICLE = require('./module/article.js')
 var FLODER = require('./module/floder.js')
 
@@ -39,7 +39,7 @@ router.post('/login_status_check',LOGIN.login_check(),function *(next){
         msg:'在线'
     }
 })
-app.use(LOGIN.set({dbname:CONFIG.dnName,port:CONFIG.dbPort}))
+app.use(LOGIN.set({dbname:CONFIG.dbName,port:CONFIG.dbPort}))
 app.use(mongo())
 app.use(body())
 app.use(function *(next){
