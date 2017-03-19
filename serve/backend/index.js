@@ -18,15 +18,15 @@ var FLODER = require('./module/floder.js')
 app.use(cors())
 
 // 添加文章
-router.post('/article/add',ARTICLE.add)
-router.post('/article/list',ARTICLE.list)
-router.post('/article/update',ARTICLE.update)
-router.post('/article/content',ARTICLE.content)
+router.post('/article/add',LOGIN.login_check(),ARTICLE.add)
+router.post('/article/list',LOGIN.login_check(),ARTICLE.list)
+router.post('/article/update',LOGIN.login_check(),ARTICLE.update)
+router.post('/article/content',LOGIN.login_check(),ARTICLE.content)
 
 
 // 添加目录
-router.post('/floder/add',FLODER.add)
-router.post('/floder/list',FLODER.list)
+router.post('/floder/add',LOGIN.login_check(),FLODER.add)
+router.post('/floder/list',LOGIN.login_check(),FLODER.list)
 
 
 

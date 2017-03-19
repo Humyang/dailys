@@ -1,5 +1,7 @@
 import mFetch from '../ajax.js'
 import md5 from 'md5'
+import {saveUsername} from '../base.js'
+import * as BASE from '../base.js'
 export const login = function(username,password){
     
     let data = {
@@ -9,6 +11,8 @@ export const login = function(username,password){
     }
     return mFetch('/login',data)
         .then(function(res){
+            saveUsername(username)
+            BASE.saveToken(res.token)
             return res
         })
 }

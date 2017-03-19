@@ -1,4 +1,5 @@
 var CONFIG = require('../../PREDEFINED/APP_CONFIG.js')
+var objectAssign = require('object-assign')
 var uid = require('uid')
 
 var MODULE_CONFIG = {
@@ -8,14 +9,18 @@ var MODULE_CONFIG = {
 function * add (next){
 
     let name = this.request.fields.name
+    let token = this.request.fields.token
 
+    // let filter_object = objectAssign({this.login_status})
+    let logined_uid = this.login_status.uid
     // let insert_obj = objectAssign({word,describe,sentence,end_time,is_move:false},this.login_status)
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .insert({
                             name,
-                            uid:uid(40)
+                            floder_uid:uid(40),
+                            logined_uid
                         })
 
     this.body = {
@@ -26,10 +31,11 @@ function * add (next){
 }
 /*返回列表*/
 function * list (next){
+    // let filter_object = objectAssign({logined_uid:this.login_status.uid})
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .find({})
+                        .find(filter_object)
                         .sort({_id:-1})
                         .toArray()
     this.body = {

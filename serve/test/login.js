@@ -2,7 +2,7 @@ import expect from 'expect'
 import * as API from '../fontend/index.js'
 import co from 'co'
 import uid from 'uid'
-var CODE =  require('../PREDEFINED/CONSTANT.js').CODE
+var CODE =  require('../../../login/lib/login.js').CODE
 
 // import * as BASE from '../API.LOGIN/base.js'
 global.localStorage = {}

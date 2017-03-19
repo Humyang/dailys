@@ -1,6 +1,6 @@
 var CONFIG = require('../../PREDEFINED/APP_CONFIG.js')
 var UUID = require('uid')
-
+var objectAssign = require('object-assign')
 
 var MODULE_CONFIG = {
     COLLECTION:'articles'
@@ -9,14 +9,14 @@ var MODULE_CONFIG = {
 function * add (next){
 
     let title = this.request.fields.title
-    let uid = this.request.fields.uid
+    let floder_uid = this.request.fields.floder_uid
     let selfuid = UUID(40)
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .insert({
                             title,
-                            uid,
+                            floder_uid,
                             selfuid
                         })
     this.body = {
@@ -27,11 +27,11 @@ function * add (next){
 }
 /*返回列表*/
 function * list (next){
-    let uid = this.request.fields.uid
+    let floder_uid = this.request.fields.floder_uid
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .find({uid})
+                        .find({floder_uid})
                         .sort({_id:-1})
                         .toArray()
     this.body = {
