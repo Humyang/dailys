@@ -19,6 +19,7 @@
   "dependencies": {
     "css-loader": "^0.26.2",
     "flogin": "^0.1.0",
+    "md5": "^2.2.1",
     "vue": "^2.2.1",
     "vue-router": "^2.2.0",
     "vuex": "^2.1.2"
@@ -86,7 +87,8 @@
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
     "webpack-merge": "^2.6.1",
-    "expect": "^1.20.2"
+    "expect": "^1.20.2",
+    "md5": "^2.2.1"
   },
   "engines": {
     "node": ">= 4.0.0",
