@@ -1,6 +1,6 @@
 import mFetch from '../ajax.js'
 // 新建文章
-export const add = function(name,content){
+export const add = function(name){
     let data={
         name
     }
