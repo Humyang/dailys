@@ -31,7 +31,7 @@ function * add (next){
 }
 /*返回列表*/
 function * list (next){
-    // let filter_object = objectAssign({logined_uid:this.login_status.uid})
+    let filter_object = objectAssign({logined_uid:this.login_status.uid})
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)

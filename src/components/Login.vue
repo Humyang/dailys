@@ -1,7 +1,7 @@
 <template>
 	<div class="login_wrap">
-		<p><input v-model="username" placeholder="账号" type="" name=""></p>
-		<p><input v-model="password" placeholder="密码" type="" name=""></p>
+		<p><input v-model="username" placeholder="账号" type="text" name=""></p>
+		<p><input v-model="password" placeholder="密码" type="password" name=""></p>
 		<div class="btn_wrap">
 			<a 
 			@click.prevent="login"

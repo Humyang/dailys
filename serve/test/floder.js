@@ -3,6 +3,8 @@ import * as BASE from '../fontend/base.js'
 import expect from 'expect'
 var CODE = require('../PREDEFINED/ERROR_CODE.js').CODE
 import co from 'co'
+import uid from 'uid'
+
 
 function assert(value,expect,msg,append_msg){
     if(value != expect){
@@ -18,15 +20,17 @@ global.localStorage.getItem=function(){}
 describe('文集测试', function() {
 
     let login = {}
-    co(function*(){
-        let username = 'test'+uid(10)
-        login = yield API.LOGIN.regiest(username,'password1')
-
-        it('----------新建', function(done) {
+    before(function() {
+        return co(function*(){
+            let username = 'test'+uid(10)
+            let regiest = yield API.LOGIN.regiest(username,'password1')
+            login = yield API.LOGIN.login(username,'password1')
+            BASE.getToken = expect.createSpy().andReturn(login.token)
+        })
+    });
+    describe('新建文集', function() {
+        it('应该返回正确结果', function(done) {
             co(function*(){
-
-                BASE.getToken = expect.createSpy().andReturn()
-
                 let add = yield API.FLODER.add('123123')
                 assert(add.status,true,add)
                 done()
@@ -34,7 +38,9 @@ describe('文集测试', function() {
                 done(err)
             })
         })
-        it('----------列表', function(done) {
+    })
+    describe('查询列表', function() {
+        it('应该返回正确结果', function(done) {
             co(function*(){
                 let list = yield API.FLODER.list()
                 assert(list.status,true,list)
@@ -44,8 +50,6 @@ describe('文集测试', function() {
                 done(err)
             })
         })
-    }).catch(function(err){
     })
-    
 
 })
