@@ -1,5 +1,14 @@
 <template>
     <div class="write_article_wrap">
+        <div 
+        @mouseout.self="floder_item_more_crud_out" 
+        ref="floder_item_more" id="floder_item_more" v-show="floder_item_more_crud_element_visible" class="floder-cover">
+            <div class="background"></div>
+            <ul class="subitem">
+                <li ><i class="iconfont icon-xiugai"></i></li>
+                <li><i class="iconfont icon-shanchu"></i></li>
+            </ul>
+        </div>
         <div class="floder">
             <p class="p_add" @click="floder_add_show"><i class="i_add">+</i>新建文集</p>
             <template v-if="floder_add_visible">
@@ -9,13 +18,15 @@
                     <a @click="floder_add_cancel" class="btn btn_cancel" >取消</a>
                 </div>
             </template>
-            <ul>
+            <ul class="item">
                 <li v-for="(item,index) in floder_list"
-                    :class="{active:floder_active === floder_list[index].uid,editor:floder_edit_index===index}"
+                    :class="{active:floder_active === floder_list[index].floder_uid,editor:floder_edit_index===index}"
                     @click="floder_item_active(index)" >
                     <template v-if="index!=floder_edit_index">
                         {{item.name}}
-                        <i @click.prevent="floder_item_rename(index)" class="iconfont icon-xiugai i1"></i>
+                       <!--  @click.prevent="floder_item_rename(index)"  -->
+                        <i @mouseenter="floder_item_more_crud_over($event,index)"
+                           class="iconfont icon-gengduo i1"></i>
                     </template>
                     <template v-if="index===floder_edit_index">
                         <input :placeholder="item.name"type="" name="">
@@ -34,7 +45,7 @@
                     <a @click="article_add_cancel" class="btn btn_cancel" >取消</a>
                 </div>
             </template>
-            <ul>
+            <ul >
                 <template v-for="(item,index) in article_list">
                     <li @click="article_item_active(index)"
                         :class="{active:article_active === article_list[index].selfuid,editor:article_edit_index===index}">
@@ -69,6 +80,7 @@ export default {
         floder_edit_index:-1,
         floder_add_visible:false,
         floder_add_input:"",
+        floder_item_more_crud_element_visible:false,
         article_list:[],
         article_active:"",
         article_edit_index:-1,
@@ -112,10 +124,10 @@ export default {
     },
     article_add_ok(){
         let self = this
-        let uid = self.floder_active
-        API.ARTICLE.add(this.article_add_input,uid)
+        let floder_uid = self.floder_active
+        API.ARTICLE.add(this.article_add_input,floder_uid)
         .then(function(){
-            API.ARTICLE.list(uid)
+            API.ARTICLE.list(floder_uid)
             .then(function(res){
                 self.article_list = res.result
             })
@@ -129,19 +141,28 @@ export default {
     article_add_cancel(){
          this.article_add_visible = false
     },
+    floder_item_more_crud_over:function(event,index){
+        this.floder_item_more_crud_element_visible = true
+        this.$refs.floder_item_more.style.left=event.target.offsetLeft-40+"px";
+        this.$refs.floder_item_more.style.top=event.target.offsetParent.offsetTop-30+"px";
+        // console.log(123)
+    },
+    floder_item_more_crud_out:function(event,index){
+        this.floder_item_more_crud_element_visible = false
+    },
     floder_item_rename:function(index){
         this.floder_edit_index = index
     },
     floder_item_active:function(index){
         let self = this
         co(function*(){
-            let article_list = yield API.ARTICLE.list(self.floder_list[index].uid)
+            let article_list = yield API.ARTICLE.list(self.floder_list[index].floder_uid)
             self.article_list = article_list.result
         })
         .catch(function(err){
             
         })
-        this.floder_active = this.floder_list[index].uid
+        this.floder_active = this.floder_list[index].floder_uid
     },
     floder_edit_cancel(index){
         this.floder_edit_index = -1
@@ -180,8 +201,8 @@ export default {
     co(function*(){
             let floder_list = yield API.FLODER.list()
             self.floder_list = floder_list.result
-            self.floder_active = floder_list.result[0].uid
-            let article_list = yield API.ARTICLE.list(self.floder_list[0].uid)
+            self.floder_active = floder_list.result[0].floder_uid
+            let article_list = yield API.ARTICLE.list(self.floder_list[0].floder_uid)
             self.article_list = article_list.result
         })
         .catch(function(err){

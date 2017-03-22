@@ -21,6 +21,7 @@ window.onload = function() {
 
 <body>
 <div id="app">
+
     <div class="write_article_wrap">
         <div class="floder">
             <p class="p_add"><i class="i_add">+</i>新建文集</p>
@@ -29,7 +30,7 @@ window.onload = function() {
                 <a class="btn btn_ok" href="">保存</a>
                 <a class="btn btn_cancel" href="">取消</a>
             </div>
-            <ul>
+            <ul class="item">
                 <li class="active">脚本 <i class="iconfont icon-gengduo i1"></i></li>
                 <li >日志</li>
                 <li>数据库</li>
@@ -41,12 +42,15 @@ window.onload = function() {
                 </li>
                 <li>微信小程序</li>
                 <li class="active">单元测试 <i class="iconfont icon-gengduo i1"></i>
-                    
-                    <ul class="floder-cover">
-                        <li><i class="iconfont icon-xiugai"></i></li>
-                        <li><i class="iconfont icon-shanchu"></i></li>
-                    </ul>
                 </li>
+
+            </ul>
+        </div>
+        <div class="floder-cover">
+            <div class="background"></div>
+            <ul class="subitem">
+                <li><i class="iconfont icon-xiugai"></i></li>
+                <li><i class="iconfont icon-shanchu"></i></li>
             </ul>
         </div>
         <div class="document">
