@@ -72,6 +72,8 @@ import '../css/btn.css'
 import '../css/WriteArticle.css'
 import * as API from '../../serve/fontend/index.js'
 import co from 'co'
+var LOGIN_CODE =  require('../../../login/lib/login.js').CODE
+
 export default {
   data () {
     return {
@@ -207,7 +209,10 @@ export default {
             self.article_list = article_list.result
         })
         .catch(function(err){
-            
+            if(err.STATUSCODE === LOGIN_CODE.LOGIN_NO_LOGIN.STATUSCODE){
+                // console.log(err)
+                self.$router.push('login')
+            }
         })
     
   },
