@@ -1,10 +1,10 @@
 import mFetch from '../ajax.js'
 // 新建文章
-export const add = function(title,uid){
+export const add = function(title,floder_uid){
     
     let data={
         title,
-        uid
+        floder_uid
     }
     return mFetch('/article/add'
             ,data
@@ -32,10 +32,10 @@ export const content = function(selfuid){
             )
 }
 // 列表
-export const list = function(uid){
+export const list = function(floder_uid){
     
     let data={
-        uid
+        floder_uid
     }
     return mFetch('/article/list',data)
 }

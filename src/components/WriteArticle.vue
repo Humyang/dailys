@@ -1,7 +1,7 @@
 <template>
     <div class="write_article_wrap">
         <div 
-        @mouseout.self="floder_item_more_crud_out" 
+        @mouseleave="floder_item_more_crud_out($event)" 
         ref="floder_item_more" id="floder_item_more" v-show="floder_item_more_crud_element_visible" class="floder-cover">
             <div class="background"></div>
             <ul class="subitem">
@@ -25,7 +25,7 @@
                     <template v-if="index!=floder_edit_index">
                         {{item.name}}
                        <!--  @click.prevent="floder_item_rename(index)"  -->
-                        <i @mouseenter="floder_item_more_crud_over($event,index)"
+                        <i @click="floder_item_more_crud_enter($event,index)"
                            class="iconfont icon-gengduo i1"></i>
                     </template>
                     <template v-if="index===floder_edit_index">
@@ -141,10 +141,11 @@ export default {
     article_add_cancel(){
          this.article_add_visible = false
     },
-    floder_item_more_crud_over:function(event,index){
+    floder_item_more_crud_enter:function(event,index){
         this.floder_item_more_crud_element_visible = true
-        this.$refs.floder_item_more.style.left=event.target.offsetLeft-40+"px";
-        this.$refs.floder_item_more.style.top=event.target.offsetParent.offsetTop-30+"px";
+        this.$refs.floder_item_more.style.left=event.target.offsetLeft-35+"px";
+        this.$refs.floder_item_more.style.top=event.target.offsetParent.offsetTop-29+"px";
+
         // console.log(123)
     },
     floder_item_more_crud_out:function(event,index){

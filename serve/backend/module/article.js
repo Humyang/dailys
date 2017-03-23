@@ -33,7 +33,7 @@ function * list (next){
     let query_obj = objectAssign(
         {floder_uid},
         this.login_status)
-
+console.log(query_obj)
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)

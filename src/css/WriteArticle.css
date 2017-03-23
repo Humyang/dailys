@@ -25,6 +25,7 @@ div.floder-cover {
     z-index: 999;
     border-radius: 9px;
     overflow: hidden;
+    cursor: pointer;
 }
 div.floder-cover .background{
     background-color: #301342;
@@ -61,7 +62,7 @@ ul.subitem {
     /* margin: 5px; */
     /* border-radius: 10px; */
     cursor: pointer;
-    color: #efefef;
+    color: white;
 }
 .subitem li:hover i {
     color: #ff5548;
