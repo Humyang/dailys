@@ -1,14 +1,16 @@
 <template>
 	<div class="login_wrap">
-		<p><input v-model="username" placeholder="账号" type="text" name=""></p>
-		<p><input v-model="password" placeholder="密码" type="password" name=""></p>
-		<div class="btn_wrap">
-			<a 
-			@click.prevent="login"
-			href="#" class="btn black" >登陆</a>
-			<p class="p1"><a 
-			@click.prevent="regiest"
-			href="">直接注册并登陆</a></p>
+		<div class="from">
+			<p><input v-model="username" placeholder="账号" type="text" name=""></p>
+			<p><input v-model="password" placeholder="密码" type="password" name=""></p>
+			<div class="btn_wrap">
+				<a 
+				@click.prevent="login"
+				href="#" class="btn black" >登陆</a>
+				<p class="p1"><a 
+				@click.prevent="regiest"
+				href="">直接注册并登陆</a></p>
+			</div>
 		</div>
 	</div>
 </template>

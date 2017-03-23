@@ -10,6 +10,7 @@
             </ul>
         </div>
         <div class="floder">
+            <a class="btn back_home">回到首页</a>
             <p class="p_add" @click="floder_add_show"><i class="i_add">+</i>新建文集</p>
             <template v-if="floder_add_visible">
                 <div class="add_wrap">

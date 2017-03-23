@@ -1,38 +1,22 @@
-.login_wrap {
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 250px;
+html,body,#app {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    
 }
-
-.login_wrap input {
-    border: 0;
-    border-bottom: 1px solid #ababab;
-    width: 200px;
-    font-size: 16px;
-    -webkit-highlight: none;
-    line-height: 25px;
-    padding-left: 5px;
+.login_wrap{
+    background-image: url('../../src/image/login.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
 }
-
-.btn_wrap a.btn.black {
-    width: 205px;
-}
-.login_wrap input:focus {
-    border-color: #ff5548;
-}
-.p1 a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #929292;
-}
-.p1 a:hover {
-    color: #ff5548;
-}
-.login_wrap p {
-    margin: 16px 0;
-    text-align: left;
-}
-
-.btn_wrap {
-    text-align: left;
-}
+.from {width: 300px;margin: 0 auto;margin-top: 300px;margin-left: 830px;}
+.from input {border: 0;border-bottom: 1px solid #ababab;width: 200px;font-size: 16px;-webkit-highlight: none;line-height: 25px;padding-left: 5px;background-color: none;background: transparent;border: none;color: white;}
+.from .btn_wrap a.btn.black {width: 205px;color: white;border-color: white;}
+.from input:focus { border-color: #ff5548 }
+.from .p1 a {text-decoration: none;font-size: 14px;color: #929292;color: white;}
+.from .p1 a:hover { color: #ff5548 }
+.from p { margin: 16px 0; text-align: left }
+.from .btn_wrap { text-align: left }
