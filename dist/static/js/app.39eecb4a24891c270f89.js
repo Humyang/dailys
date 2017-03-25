@@ -76,8 +76,8 @@ const getUsername = function(){
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 let setip=''
 if (true) {
- // setip = 'http://118.89.19.201'
-  setip = 'http://localhost'
+ setip = 'http://118.89.19.201'
+  // setip = 'http://localhost'
 }else{
  setip = 'http://localhost'
 }
@@ -2292,4 +2292,4 @@ new _vue2.default({
 
 /***/ })
 ],[132]);
-//# sourceMappingURL=app.0b12f296b26ca068c1a2.js.map
+//# sourceMappingURL=app.39eecb4a24891c270f89.js.map
