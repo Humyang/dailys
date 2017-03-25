@@ -16,7 +16,9 @@ export const saveToken = function(token) {
 };
 export const getToken = function(){
     var current = new Date();
-    let token_expired = localStorage.getItem(SESSION_EXPIRED) || 'Now'
+
+    let token_expired = localStorage.getItem(SESSION_EXPIRED) || 'Now';
+
     if(token_expired!='Now' && token_expired < current){
         return ''
     }else{
