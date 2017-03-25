@@ -49,4 +49,4 @@ if sync_github == 1:
             print 'start serve'
             # start server
             subprocess_command('nohup node ./serve/backend/index.js &')
-            subprocess_command('nohup node ./serve/dist_serve/static.js &')
+            subprocess_command('nohup node ./dist_serve/static.js &')
