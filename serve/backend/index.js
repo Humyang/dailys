@@ -11,7 +11,7 @@ var objectAssign = require('object-assign')
 
 var CONFIG = require('../PREDEFINED/APP_CONFIG.js')
 
-var LOGIN = require('../../../login/lib/login.js')
+var LOGIN = require('flogin')
 var ARTICLE = require('./module/article.js')
 var FLODER = require('./module/floder.js')
 

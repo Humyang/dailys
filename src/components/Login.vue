@@ -22,7 +22,7 @@ import '../css/Login.css'
 import * as API from '../../serve/fontend/index.js'
 import * as BASE from '../../serve/fontend/base.js'
 
-var LOGIN_CODE =  require('../../../login/lib/login.js').CODE
+var LOGIN_CODE =  require('flogin').CODE
 
 import co from 'co'
 export default {
@@ -62,17 +62,17 @@ export default {
 	},
 	created:function(){
 		let self = this
-		API.LOGIN.login_status_check()
-		.then(function(res){
-			console.log(res)
-			self.$router.push('WriteArticle')
-		})
-		.catch(function(err){
-			console.log(err)
-            if(err.STATUSCODE === LOGIN_CODE.LOGIN_NO_LOGIN.STATUSCODE){
-				localStorage.clear()
-            }
-		})
+		// API.LOGIN.login_status_check()
+		// .then(function(res){
+		// 	console.log(res)
+		// 	self.$router.push('WriteArticle')
+		// })
+		// .catch(function(err){
+		// 	console.log(err)
+  //           if(err.STATUSCODE === LOGIN_CODE.LOGIN_NO_LOGIN.STATUSCODE){
+		// 		localStorage.clear()
+  //           }
+		// })
 	},
 	ready:function(){
 

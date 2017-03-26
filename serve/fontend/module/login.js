@@ -26,7 +26,7 @@ export const regiest = function(username,password){
         data)
 }
 // 测试登录状态
-export const login_status_check = function(){
+export const login_status_check = function(token){
     
-    return mFetch('/login_status_check',{})
+    return mFetch('/login_status_check',{token})
 }

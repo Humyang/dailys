@@ -73,7 +73,7 @@ import '../css/btn.css'
 import '../css/WriteArticle.css'
 import * as API from '../../serve/fontend/index.js'
 import co from 'co'
-var LOGIN_CODE =  require('../../../login/lib/login.js').CODE
+var LOGIN_CODE =  require('flogin').CODE
 
 export default {
   data () {

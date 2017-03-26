@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "css-loader": "^0.26.2",
-    "flogin": "^0.1.0",
+    "flogin": "^0.1.2",
     "md5": "^2.2.1",
     "vue": "^2.2.1",
     "vue-router": "^2.2.0",
