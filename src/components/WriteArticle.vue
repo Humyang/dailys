@@ -74,7 +74,10 @@ import '../css/WriteArticle.css'
 import 'codemirror/lib/codemirror.css'
 import * as API from '../../serve/fontend/index.js'
 import co from 'co'
+
 import CodeMirror from 'codemirror'
+
+import 'codemirror/mode/gfm/gfm.js'
 var LOGIN_CODE =  require('flogin').CODE
 
 export default {
@@ -226,8 +229,10 @@ export default {
     }
     e.style.height = window.innerHeight - 106 + "px"
     var editor = CodeMirror.fromTextArea(e, {
-        mode:{name:'text/x-markdown'}
-
+        mode: 'gfm',
+        lineNumbers: true,
+        theme: "default",
+        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
   }
 }
