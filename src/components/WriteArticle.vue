@@ -71,8 +71,10 @@
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex'
 import '../css/btn.css'
 import '../css/WriteArticle.css'
+import 'codemirror/lib/codemirror.css'
 import * as API from '../../serve/fontend/index.js'
 import co from 'co'
+import CodeMirror from 'codemirror'
 var LOGIN_CODE =  require('flogin').CODE
 
 export default {
@@ -223,6 +225,10 @@ export default {
         e.style.height = window.innerHeight - 106 + "px"
     }
     e.style.height = window.innerHeight - 106 + "px"
+    var editor = CodeMirror.fromTextArea(e, {
+        mode:{name:'text/x-markdown'}
+
+    });
   }
 }
 </script>
