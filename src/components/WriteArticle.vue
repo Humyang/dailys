@@ -72,12 +72,20 @@ import { mapState,mapGetters,mapMutations,mapActions } from 'vuex'
 import '../css/btn.css'
 import '../css/WriteArticle.css'
 import 'codemirror/lib/codemirror.css'
+import 'codemirror/theme/zenburn.css'
+import '../css/CodeMirror_Theme.css'
+// require("codemirror/theme/3024-day.css");
+// var req = require.context("codemirror/theme/", true, /\.css/);
+// req.keys().forEach(function(key){
+//     req(key);
+// });
+
+
 import * as API from '../../serve/fontend/index.js'
 import co from 'co'
-
 import CodeMirror from 'codemirror'
-
 import 'codemirror/mode/gfm/gfm.js'
+
 var LOGIN_CODE =  require('flogin').CODE
 
 export default {
@@ -94,112 +102,113 @@ export default {
         article_edit_index:-1,
         article_add_visible:false,
         article_add_input:"",
-        article_content:""
+        article_content:"",
+        editor:""
     }
   },
   methods:{
-    article_content_save:function(){
-        let self = this
-        co(function*(){
-            let update = yield API.ARTICLE.update(self.article_content,self.article_active)
-        }).catch(function(err){
-        })
-    },
-    article_item_rename:function(index){
-        this.article_edit_index = index
-    },
-    article_item_active:function(index){
-        this.article_active =  this.article_list[index].selfuid
-
-        let self = this
-        co(function*(){
-            let article_list = yield API.ARTICLE.content(self.article_active,self.article_active)
-            console.log(article_list.result.content)
-            self.article_content = article_list.result.content
-        })
-        .catch(function(err){
-            
-        })
-    },
-    article_edit_cancel(index){
-        this.article_edit_index = -1
-    },
-    article_edit_ok(){
-        this.article_edit_index = -1
-    },
-    article_add_show:function(){
-        this.article_add_visible = true
-    },
-    article_add_ok(){
-        let self = this
-        let floder_uid = self.floder_active
-        API.ARTICLE.add(this.article_add_input,floder_uid)
-        .then(function(){
-            API.ARTICLE.list(floder_uid)
-            .then(function(res){
-                self.article_list = res.result
+        article_content_save:function(){
+            let self = this
+            co(function*(){
+                let update = yield API.ARTICLE.update(self.editor.getValue(),self.article_active)
+            }).catch(function(err){
             })
-            self.article_add_input = ""
-        })
-        .catch(function(err){
-            alert(err)
-        })
-        this.article_add_visible = false
-    },
-    article_add_cancel(){
-         this.article_add_visible = false
-    },
-    floder_item_more_crud_enter:function(event,index){
-        this.floder_item_more_crud_element_visible = true
-        this.$refs.floder_item_more.style.left=event.target.offsetLeft-35+"px";
-        this.$refs.floder_item_more.style.top=event.target.offsetParent.offsetTop-29+"px";
+        },
+        article_item_rename:function(index){
+            this.article_edit_index = index
+        },
+        article_item_active:function(index){
+            this.article_active =  this.article_list[index].selfuid
 
-        // console.log(123)
-    },
-    floder_item_more_crud_out:function(event,index){
-        this.floder_item_more_crud_element_visible = false
-    },
-    floder_item_rename:function(index){
-        this.floder_edit_index = index
-    },
-    floder_item_active:function(index){
-        let self = this
-        co(function*(){
-            let article_list = yield API.ARTICLE.list(self.floder_list[index].floder_uid)
-            self.article_list = article_list.result
-        })
-        .catch(function(err){
-            
-        })
-        this.floder_active = this.floder_list[index].floder_uid
-    },
-    floder_edit_cancel(index){
-        this.floder_edit_index = -1
-    },
-    floder_edit_ok(){
-        this.floder_edit_index = -1
-    },
-    floder_add_show:function(){
-        this.floder_add_visible = true
-    },
-    floder_add_ok(){
-        let self = this
-        API.FLODER.add(this.floder_add_input)
-        .then(function(){
-            API.FLODER.list()
-            .then(function(res){
-                self.floder_list = res.result
+            let self = this
+            co(function*(){
+                let article_list = yield API.ARTICLE.content(self.article_active,self.article_active)
+                console.log(article_list.result.content)
+                self.editor.setValue(article_list.result.content)
             })
-            self.floder_add_input = ""
-        })
-        .catch(function(err){
-            alert(err)
-        })
-        this.floder_add_visible = false
-    },
-    floder_add_cancel(){
-        this.floder_add_visible = false
-    }
+            .catch(function(err){
+                
+            })
+        },
+        article_edit_cancel(index){
+            this.article_edit_index = -1
+        },
+        article_edit_ok(){
+            this.article_edit_index = -1
+        },
+        article_add_show:function(){
+            this.article_add_visible = true
+        },
+        article_add_ok(){
+            let self = this
+            let floder_uid = self.floder_active
+            API.ARTICLE.add(this.article_add_input,floder_uid)
+            .then(function(){
+                API.ARTICLE.list(floder_uid)
+                .then(function(res){
+                    self.article_list = res.result
+                })
+                self.article_add_input = ""
+            })
+            .catch(function(err){
+                alert(err)
+            })
+            this.article_add_visible = false
+        },
+        article_add_cancel(){
+             this.article_add_visible = false
+        },
+        floder_item_more_crud_enter:function(event,index){
+            this.floder_item_more_crud_element_visible = true
+            this.$refs.floder_item_more.style.left=event.target.offsetLeft-35+"px";
+            this.$refs.floder_item_more.style.top=event.target.offsetParent.offsetTop-29+"px";
+
+            // console.log(123)
+        },
+        floder_item_more_crud_out:function(event,index){
+            this.floder_item_more_crud_element_visible = false
+        },
+        floder_item_rename:function(index){
+            this.floder_edit_index = index
+        },
+        floder_item_active:function(index){
+            let self = this
+            co(function*(){
+                let article_list = yield API.ARTICLE.list(self.floder_list[index].floder_uid)
+                self.article_list = article_list.result
+            })
+            .catch(function(err){
+                
+            })
+            this.floder_active = this.floder_list[index].floder_uid
+        },
+        floder_edit_cancel(index){
+            this.floder_edit_index = -1
+        },
+        floder_edit_ok(){
+            this.floder_edit_index = -1
+        },
+        floder_add_show:function(){
+            this.floder_add_visible = true
+        },
+        floder_add_ok(){
+            let self = this
+            API.FLODER.add(this.floder_add_input)
+            .then(function(){
+                API.FLODER.list()
+                .then(function(res){
+                    self.floder_list = res.result
+                })
+                self.floder_add_input = ""
+            })
+            .catch(function(err){
+                alert(err)
+            })
+            this.floder_add_visible = false
+        },
+        floder_add_cancel(){
+            this.floder_add_visible = false
+        }
   },
   computed: {
     
@@ -224,16 +233,16 @@ export default {
   },
   mounted(){
     var e = this.$refs.ta1
-    window.onresize = function() {
-        e.style.height = window.innerHeight - 106 + "px"
-    }
-    e.style.height = window.innerHeight - 106 + "px"
-    var editor = CodeMirror.fromTextArea(e, {
+    this.editor = CodeMirror.fromTextArea(e, {
         mode: 'gfm',
-        lineNumbers: true,
-        theme: "default",
+        theme: "zenburn",
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
+    var code_mirror = document.getElementsByClassName('CodeMirror')[0]
+    code_mirror.style.height = window.innerHeight - 106 + "px"
+    window.onresize = function() {
+        code_mirror.style.height = window.innerHeight - 106 + "px"
+    }
   }
 }
 </script>

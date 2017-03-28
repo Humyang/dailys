@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_fp7rnlp6bv7h9f6r.css">
+
+    <link rel="stylesheet" href="../src/css/btn.css">
+    <link rel="stylesheet" href="../src/css/WriteArticle.css">
+
+<link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/3024-day.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/3024-night.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/abcdef.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/ambiance.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/base16-dark.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/bespin.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/base16-light.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/blackboard.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/cobalt.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/colorforth.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/dracula.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/duotone-dark.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/duotone-light.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/eclipse.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/elegant.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/erlang-dark.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/hopscotch.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/icecoder.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/isotope.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/lesser-dark.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/liquibyte.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/material.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/mbo.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/mdn-like.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/midnight.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/monokai.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/neat.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/neo.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/night.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/panda-syntax.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/paraiso-dark.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/paraiso-light.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/pastel-on-dark.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/railscasts.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/rubyblue.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/seti.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/solarized.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/the-matrix.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/tomorrow-night-bright.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/tomorrow-night-eighties.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/ttcn.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/twilight.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/vibrant-ink.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/xq-dark.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/xq-light.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/yeti.css">
+<link rel="stylesheet" href="../node_modules/codemirror/theme/zenburn.css">
+
+<script src="../node_modules/codemirror/lib/codemirror.js"></script>
+
+<script src="../node_modules/codemirror/addon/mode/overlay.js"></script>
+
+<script src="../node_modules/codemirror/mode/xml/xml.js"></script>
+<script src="../node_modules/codemirror/mode/markdown/markdown.js"></script>
+<script src="../node_modules/codemirror/mode/gfm/gfm.js"></script>
+<title>EditorTheme</title>
+</head>
+<body>
+<div id="app">
+
+    <div class="write_article_wrap">
+        <div class="article">
+            <p>Select a theme: 
+                <select onchange="selectTheme()" id=select>
+                    <option selected>default</option>
+                    <option>3024-day</option>
+                    <option>3024-night</option>
+                    <option>abcdef</option>
+                    <option>ambiance</option>
+                    <option>base16-dark</option>
+                    <option>base16-light</option>
+                    <option>bespin</option>
+                    <option>blackboard</option>
+                    <option>cobalt</option>
+                    <option>colorforth</option>
+                    <option>dracula</option>
+                    <option>duotone-dark</option>
+                    <option>duotone-light</option>
+                    <option>eclipse</option>
+                    <option>elegant</option>
+                    <option>erlang-dark</option>
+                    <option>hopscotch</option>
+                    <option>icecoder</option>
+                    <option>isotope</option>
+                    <option>lesser-dark</option>
+                    <option>liquibyte</option>
+                    <option>material</option>
+                    <option>mbo</option>
+                    <option>mdn-like</option>
+                    <option>midnight</option>
+                    <option>monokai</option>
+                    <option>neat</option>
+                    <option>neo</option>
+                    <option>night</option>
+                    <option>panda-syntax</option>
+                    <option>paraiso-dark</option>
+                    <option>paraiso-light</option>
+                    <option>pastel-on-dark</option>
+                    <option>railscasts</option>
+                    <option>rubyblue</option>
+                    <option>seti</option>
+                    <option>solarized dark</option>
+                    <option>solarized light</option>
+                    <option>the-matrix</option>
+                    <option>tomorrow-night-bright</option>
+                    <option>tomorrow-night-eighties</option>
+                    <option>ttcn</option>
+                    <option>twilight</option>
+                    <option>vibrant-ink</option>
+                    <option>xq-dark</option>
+                    <option>xq-light</option>
+                    <option>yeti</option>
+                    <option>zenburn</option>
+                </select>
+            </p>
+            <input class="i1" type="text" placeholder="无标题文章">
+            <p class="p1">
+                <i class="iconfont icon-baocun i1"></i>
+            </p>
+            <textarea name="" id="ta1" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+</div>
+<script type="text/template">
+GitHub Flavored Markdown
+========================
+
+Everything from markdown plus GFM features:
+
+## URL autolinking
+
+Underscores_are_allowed_between_words.
+
+## Strikethrough text
+
+GFM adds syntax to strikethrough text, which is missing from standard Markdown.
+
+~~Mistaken text.~~
+~~**works with other formatting**~~
+
+~~spans across
+lines~~
+
+## Fenced code blocks (and syntax highlighting)
+
+```javascript
+for (var i = 0; i < items.length; i++) {
+    console.log(items[i], i); // log them
+}
+```
+
+## Task Lists
+
+- [ ] Incomplete task list item
+- [x] **Completed** task list item
+
+## A bit of GitHub spice
+
+* SHA: be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2
+* User@SHA ref: mojombo@be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2
+* User/Project@SHA: mojombo/god@be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2
+* \#Num: #1
+* User/#Num: mojombo#1
+* User/Project#Num: mojombo/god#1
+
+See http://github.github.com/github-flavored-markdown/.
+</script>
+<script>
+    var e = document.getElementById('ta1')
+    var editor = CodeMirror.fromTextArea(e, {
+        mode: 'gfm',
+        lineNumbers: true,
+        theme: "3024-day",
+        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"},
+        value:
+    });
+    // console.log(editor)
+    var code_mirror = document.getElementsByClassName('CodeMirror')[0]
+    code_mirror.style.height = window.innerHeight - 106 + "px"
+    window.onresize = function() {
+        code_mirror.style.height = window.innerHeight - 106 + "px"
+    }
+    var input = document.getElementById("select");
+    function selectTheme() {
+        var theme = input.options[input.selectedIndex].textContent;
+        editor.setOption("theme", theme);
+    }
+</script>
+</body>
+
+</html>
