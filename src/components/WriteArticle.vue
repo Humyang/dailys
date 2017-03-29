@@ -249,6 +249,7 @@ export default {
     this.editor = CodeMirror.fromTextArea(e, {
         mode: 'gfm',
         theme: "zenburn",
+        lineWrapping:true,
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
     var code_mirror = document.getElementsByClassName('CodeMirror')[0]
