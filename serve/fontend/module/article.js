@@ -11,10 +11,11 @@ export const add = function(title,floder_uid){
             )
 }
 // 更新文章
-export const update = function(content,selfuid){
+export const update = function(content,title,selfuid){
     
     let data={
         content,
+        title,
         selfuid
     }
     return mFetch('/article/update'

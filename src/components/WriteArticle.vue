@@ -58,7 +58,7 @@
             </ul>
         </div>
         <div class="article">
-            <input class="i1" type="text" placeholder="无标题文章">
+            <input class="i1" type="text" placeholder="无标题文章" v-model="article_title">
             <p class="p1">
                 <i @click="article_content_save" class="iconfont icon-baocun i1"></i>
             </p>
@@ -102,15 +102,24 @@ export default {
         article_edit_index:-1,
         article_add_visible:false,
         article_add_input:"",
+        article_title:"",
         article_content:"",
         editor:""
     }
   },
   methods:{
+        article_list_refresh:function(){
+            let self = this
+            API.ARTICLE.list(this.floder_active)
+            .then(function(res){
+                self.article_list = res.result
+            })
+        },
         article_content_save:function(){
             let self = this
             co(function*(){
-                let update = yield API.ARTICLE.update(self.editor.getValue(),self.article_active)
+                let update = yield API.ARTICLE.update(self.editor.getValue(),self.article_title,self.article_active)
+                self.article_list_refresh()
             }).catch(function(err){
             })
         },
@@ -122,9 +131,10 @@ export default {
 
             let self = this
             co(function*(){
-                let article_list = yield API.ARTICLE.content(self.article_active,self.article_active)
-                console.log(article_list.result.content)
-                self.editor.setValue(article_list.result.content)
+                let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
+
+                self.article_title = article_obj.result.title
+                self.editor.setValue(article_obj.result.content)
             })
             .catch(function(err){
                 
@@ -144,10 +154,13 @@ export default {
             let floder_uid = self.floder_active
             API.ARTICLE.add(this.article_add_input,floder_uid)
             .then(function(){
-                API.ARTICLE.list(floder_uid)
-                .then(function(res){
-                    self.article_list = res.result
-                })
+                // API.ARTICLE.list(floder_uid)
+                // .then(function(res){
+                //     self.article_list = res.result
+                // })
+
+                self.article_list_refresh()
+
                 self.article_add_input = ""
             })
             .catch(function(err){
@@ -239,7 +252,7 @@ export default {
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
     var code_mirror = document.getElementsByClassName('CodeMirror')[0]
-    code_mirror.style.height = window.innerHeight - 106 + "px"
+    code_mirror.style.height = window.innerHeight - 126 + "px"
     window.onresize = function() {
         code_mirror.style.height = window.innerHeight - 106 + "px"
     }

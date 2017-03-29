@@ -49,6 +49,7 @@ console.log(query_obj)
 function * update (next){
     let selfuid = this.request.fields.selfuid
     let content = this.request.fields.content
+    let title = this.request.fields.title
 
     let query_obj = objectAssign(
         {selfuid},
@@ -58,7 +59,7 @@ function * update (next){
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
-                            {'$set':{content}},
+                            {'$set':{content,title}},
                             {'upsert':true}
                             )
     this.body = {

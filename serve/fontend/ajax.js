@@ -31,7 +31,7 @@ const mFetch = function(path,data,token) {
         }else{
             comb_data = data
             if(data.token === undefined){
-                console.log(123123)
+                // console.log(123123)
                 comb_data = Object.assign(data,{token:BASE.getToken()})
             }
         }
