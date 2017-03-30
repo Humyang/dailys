@@ -1,3 +1,6 @@
+input, textarea, keygen, select, button{
+    font-family: "Microsoft Yahei";
+}
 textarea:focus, input:focus{
     outline: none;
 }
