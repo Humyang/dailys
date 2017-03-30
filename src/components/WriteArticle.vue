@@ -60,13 +60,13 @@
         <div class="article">
             <input class="i1" type="text" placeholder="无标题文章" v-model="article_title">
             <p class="p1">
-                <i @click="article_content_save" class="iconfont icon-baocun i1"></i>
+                <i  class="iconfont icon-baocun i1"></i>
             </p>
             <textarea v-model="article_content" ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
         </div>
     </div>
 </template>
-
+<!-- @click="article_content_save" -->
 <script>
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex'
 import '../css/btn.css'
@@ -117,11 +117,16 @@ export default {
         },
         article_content_save:function(){
             let self = this
-            co(function*(){
-                let update = yield API.ARTICLE.update(self.editor.getValue(),self.article_title,self.article_active)
-                self.article_list_refresh()
-            }).catch(function(err){
-            })
+            return function(){
+                co(function*(){
+                    let update = yield API.ARTICLE.update(self.editor.getValue(),self.article_title,self.article_active)
+                    self.article_list_refresh()
+                })
+                .catch(function(err){
+                })
+            }
+            
+            
         },
         article_item_rename:function(index){
             this.article_edit_index = index
@@ -245,6 +250,7 @@ export default {
     
   },
   mounted(){
+    let self = this
     var e = this.$refs.ta1
     this.editor = CodeMirror.fromTextArea(e, {
         mode: 'gfm',
@@ -252,11 +258,30 @@ export default {
         lineWrapping:true,
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
+    input_acton.regiest(self.article_content_save())
+    this.editor.on("change",function(){
+        input_acton.push()
+    })
     var code_mirror = document.getElementsByClassName('CodeMirror')[0]
     code_mirror.style.height = window.innerHeight - 126 + "px"
     window.onresize = function() {
         code_mirror.style.height = window.innerHeight - 106 + "px"
     }
   }
+}
+var input_acton = {
+    st_index:"",
+    func:function(){},
+    start:function(){
+
+        this.st_index = setTimeout(this.func, 2000);
+    },
+    regiest:function(func){
+        this.func = func
+    },
+    push:function(){
+        clearTimeout(this.st_index)
+        this.start()
+    }
 }
 </script>

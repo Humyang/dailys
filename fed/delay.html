@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_6ju4lzi860qkt9.css"> -->
+    <title>输入框延迟执行</title>
+    <script>
+        var func = function(){
+            console.log(222)
+        }
+        
+        var input_acton = {
+            st_index:"",
+            func:function(){},
+            start:function(){
+                this.st_index = setTimeout(this.func, 2000);
+            },
+            regiest:function(func){
+                this.func = func
+            },
+            push:function(){
+                clearTimeout(this.st_index)
+                this.start()
+            }
+        }
+
+        var vue = {
+            delaySave:new input_acton(),
+            onChange:function(){
+                delaySave.push(value)
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
