@@ -33,13 +33,13 @@ function * list (next){
     let query_obj = objectAssign(
         {floder_uid},
         this.login_status)
-console.log(query_obj)
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .find(query_obj)
+                        .find(query_obj,{content:0})
                         .sort({_id:-1})
                         .toArray()
+
     this.body = {
         status:true,
         result:res

@@ -85,6 +85,7 @@ import * as API from '../../serve/fontend/index.js'
 import co from 'co'
 import CodeMirror from 'codemirror'
 import 'codemirror/mode/gfm/gfm.js'
+import Delay from '../../serve/fontend/Obj/Delay.js'
 
 var LOGIN_CODE =  require('flogin').CODE
 
@@ -104,7 +105,8 @@ export default {
         article_add_input:"",
         article_title:"",
         article_content:"",
-        editor:""
+        editor:"",
+        Delay:""
     }
   },
   methods:{
@@ -131,15 +133,20 @@ export default {
         article_item_rename:function(index){
             this.article_edit_index = index
         },
+        delayPush:function(){
+            this.Delay.push()
+        },
         article_item_active:function(index){
-            this.article_active =  this.article_list[index].selfuid
-
             let self = this
+            this.article_active =  this.article_list[index].selfuid
+            this.editor.off("change",this.delayPush)
+            console.log(23)
             co(function*(){
                 let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
 
                 self.article_title = article_obj.result.title
                 self.editor.setValue(article_obj.result.content)
+                self.editor.on("change",this.delayPush)
             })
             .catch(function(err){
                 
@@ -243,11 +250,9 @@ export default {
         })
         .catch(function(err){
             if(err.STATUSCODE === LOGIN_CODE.LOGIN_NO_LOGIN.STATUSCODE){
-                // console.log(err)
                 self.$router.push('login')
             }
         })
-    
   },
   mounted(){
     let self = this
@@ -258,30 +263,12 @@ export default {
         lineWrapping:true,
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
-    input_acton.regiest(self.article_content_save())
-    this.editor.on("change",function(){
-        input_acton.push()
-    })
+    this.Delay = new Delay(2000,self.article_content_save())
     var code_mirror = document.getElementsByClassName('CodeMirror')[0]
     code_mirror.style.height = window.innerHeight - 126 + "px"
     window.onresize = function() {
         code_mirror.style.height = window.innerHeight - 106 + "px"
     }
   }
-}
-var input_acton = {
-    st_index:"",
-    func:function(){},
-    start:function(){
-
-        this.st_index = setTimeout(this.func, 2000);
-    },
-    regiest:function(func){
-        this.func = func
-    },
-    push:function(){
-        clearTimeout(this.st_index)
-        this.start()
-    }
 }
 </script>

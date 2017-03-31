@@ -9,7 +9,9 @@
         var func = function(){
             console.log(222)
         }
-        
+        var index = setTimeout(this.func, 2000);
+        clearTimeout(index)
+
         var input_acton = {
             st_index:"",
             func:function(){},
@@ -25,12 +27,6 @@
             }
         }
 
-        var vue = {
-            delaySave:new input_acton(),
-            onChange:function(){
-                delaySave.push(value)
-            }
-        }
     </script>
 </head>
 <body>
