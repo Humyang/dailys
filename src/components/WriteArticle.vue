@@ -261,7 +261,7 @@ export default {
         lineWrapping:true,
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
-    this.Delay = new Delay(2000,self.article_content_save())
+    this.Delay = new Delay(800,self.article_content_save())
     this.delayPush = function(){
         self.Delay.push()
         
