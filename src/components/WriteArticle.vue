@@ -133,20 +133,21 @@ export default {
         article_item_rename:function(index){
             this.article_edit_index = index
         },
-        delayPush:function(){
-            this.Delay.push()
+        delayPush:function(self){
+            console.log(123)
+            self.Delay.push()
         },
         article_item_active:function(index){
             let self = this
             this.article_active =  this.article_list[index].selfuid
-            this.editor.off("change",this.delayPush)
+            this.editor.off("change",self.delayPush(this))
             console.log(23)
             co(function*(){
                 let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
 
                 self.article_title = article_obj.result.title
                 self.editor.setValue(article_obj.result.content)
-                self.editor.on("change",this.delayPush)
+                self.editor.on("change",self.delayPush(self))
             })
             .catch(function(err){
                 
