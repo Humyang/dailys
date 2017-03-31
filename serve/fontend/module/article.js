@@ -30,7 +30,12 @@ export const content = function(selfuid){
     }
     return mFetch('/article/content'
             ,data
-            )
+            ).then(function(obj){
+                if(obj.result.content === undefined){
+                    obj.result.content = ""
+                }
+                return obj
+            })
 }
 // 列表
 export const list = function(floder_uid){
