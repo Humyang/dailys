@@ -60,7 +60,9 @@
         <div class="article">
             <input class="i1" type="text" placeholder="无标题文章" v-model="article_title">
             <p class="p1">
-                <i  class="iconfont icon-baocun i1"></i>
+                <i class="iconfont icon-baocun i1 animated" 
+                   :class="{saving:article_content_style.saving,
+                            changed:article_content_style.changed}" ></i>
             </p>
             <textarea v-model="article_content" ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
         </div>
@@ -70,6 +72,8 @@
 <script>
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex'
 import '../css/btn.css'
+import 'animate.css'
+import '../css/custom_animate.css'
 import '../css/WriteArticle.css'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/zenburn.css'
@@ -105,6 +109,10 @@ export default {
         article_add_input:"",
         article_title:"",
         article_content:"",
+        article_content_style:{
+            changed:false,
+            saving:false,
+        },
         editor:"",
         Delay:"",
         delayPush:""
@@ -121,8 +129,13 @@ export default {
         article_content_save:function(){
             let self = this
             return function(){
+                self.article_content_style.saving = true
                 co(function*(){
                     let update = yield API.ARTICLE.update(self.editor.getValue(),self.article_title,self.article_active)
+
+                    self.article_content_style.saving = false
+                    self.article_content_style.changed = false
+
                     self.article_list_refresh()
                 })
                 .catch(function(err){
@@ -138,13 +151,15 @@ export default {
             let self = this
             this.article_active =  this.article_list[index].selfuid
             this.editor.off("change",this.delayPush)
-            console.log(23)
+            // console.log(23)
             co(function*(){
                 let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
 
                 self.article_title = article_obj.result.title
                 self.editor.setValue(article_obj.result.content)
+                self.article_content_style.changed = false
                 self.editor.on("change",self.delayPush)
+
             })
             .catch(function(err){
                 
@@ -264,8 +279,10 @@ export default {
     this.Delay = new Delay(800,self.article_content_save())
     this.delayPush = function(){
         self.Delay.push()
-        
     }
+    self.editor.on("change",function(){
+        self.article_content_style.changed = true
+    })
     var code_mirror = document.getElementsByClassName('CodeMirror')[0]
     code_mirror.style.height = window.innerHeight - 126 + "px"
     window.onresize = function() {

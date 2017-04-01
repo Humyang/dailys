@@ -17,6 +17,7 @@
     "test": "npm run test_article && npm run test_floder"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "codemirror": "^5.25.0",
     "css-loader": "^0.26.2",
     "flogin": "^0.1.2",

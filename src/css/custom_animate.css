@@ -1,0 +1,27 @@
+@-webkit-keyframes rotateSaving {
+  from {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+  }
+
+  to {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, 720deg);
+    transform: rotate3d(0, 0, 1, 720deg);
+  }
+}
+
+@keyframes rotateSaving {
+  from {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+  }
+
+  to {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, 720deg);
+    transform: rotate3d(0, 0, 1, 720deg);
+  }
+}
