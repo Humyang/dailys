@@ -38,7 +38,17 @@ ul.subitem { position: absolute; z-index: 999; width: 100% }
 .article { float: left; width: 65%; height: 100%; overflow: hidden; display: block; background-color: white; text-align: left }
 .article textarea { width: 100%; margin-bottom: 0; resize: none; color: #2f2f2f; font-size: 18px; font-weight: normal; line-height: 30px; -webkit-appearance: none; box-sizing: border-box; border: 0; -webkit-highlight: none; outline: none; padding: 30px; padding-bottom: 0; overflow: auto }
 .article p.p1 { height: 50px; margin: 0; background-color: #f7f7f7; margin-top: 10px; box-sizing: border-box; overflow: hidden; border-top: 0; border-bottom: 1px; border: 6px solid #808080; border-left: 0; border-right: 0; border-top: 2px solid #dad5d5 }
-.article input.i1 { margin-top: 10px; margin-left: 30px; width: 70%; border: 0; outline: none; font-size: 36px; box-sizing: border-box }
+.article input.i1 { 
+    margin-top: 10px;
+    width: 100%;
+    border: 0;
+    outline: none;
+    font-size: 36px;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .article p.p1 .i1 { margin-top: 5px; display: block; float: right; margin-right: 30px; font-size: 26px; color: #616161; cursor: pointer }
 .article p.p1 i.changed.i1.icon-baocun.iconfont {
     color: #FFC107;

@@ -112,6 +112,7 @@ export default {
         article_content_style:{
             changed:false,
             saving:false,
+            error:false
         },
         editor:"",
         Delay:"",
@@ -139,6 +140,7 @@ export default {
                     self.article_list_refresh()
                 })
                 .catch(function(err){
+
                 })
             }
             
