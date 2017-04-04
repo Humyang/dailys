@@ -31,7 +31,10 @@ export const content = function(selfuid){
     return mFetch('/article/content'
             ,data
             ).then(function(obj){
-                if(obj.result.content === undefined){
+                if(!obj){
+                    return obj
+                }
+                if(obj.result!=undefined && obj.result.content === undefined){
                     obj.result.content = ""
                 }
                 return obj
@@ -44,4 +47,13 @@ export const list = function(floder_uid){
         floder_uid
     }
     return mFetch('/article/list',data)
+}
+// 列表
+// 使用delete无法通过编译
+export const remove = function(selfuid){
+    
+    let data={
+        selfuid
+    }
+    return mFetch('/article/remove',data)
 }

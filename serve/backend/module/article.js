@@ -13,7 +13,7 @@ function * add (next){
     let selfuid = UUID(40)
 
     let insert_obj = objectAssign(
-        {title,floder_uid,selfuid},
+        {title,floder_uid,selfuid,isMove:false},
         this.login_status)
     
     let res = yield this.mongo
@@ -31,7 +31,7 @@ function * list (next){
     let floder_uid = this.request.fields.floder_uid
 
     let query_obj = objectAssign(
-        {floder_uid},
+        {floder_uid,isMove:{$ne:true}},
         this.login_status)
     let res = yield this.mongo
                         .db(CONFIG.dbName)
@@ -52,7 +52,7 @@ function * update (next){
     let title = this.request.fields.title
 
     let query_obj = objectAssign(
-        {selfuid},
+        {selfuid,isMove:{$ne:true}},
         this.login_status)
 
     let res = yield this.mongo
@@ -67,11 +67,29 @@ function * update (next){
         result:res
     }
 }
-function * content (next){
+function * remove (next){
     let selfuid = this.request.fields.selfuid
 
     let query_obj = objectAssign(
         {selfuid},
+        this.login_status)
+
+    let res = yield this.mongo
+                        .db(CONFIG.dbName)
+                        .collection(MODULE_CONFIG.COLLECTION)
+                        .update(query_obj,
+                            {'$set':{isMove:true}}
+                            )
+    this.body = {
+        status:true,
+        result:res
+    }
+}
+function * content (next){
+    let selfuid = this.request.fields.selfuid
+
+    let query_obj = objectAssign(
+        {selfuid,isMove:{$ne:true}},
         this.login_status)
 
     let res = yield this.mongo
@@ -83,6 +101,7 @@ function * content (next){
         result:res
     }
 }
+
 function * first (next){
     yield next
 }
@@ -90,5 +109,6 @@ module.exports = {
     add,
     list,
     update,
-    content
+    content,
+    remove
 }

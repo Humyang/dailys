@@ -22,12 +22,14 @@ router.post('/article/add',LOGIN.login_check(),ARTICLE.add)
 router.post('/article/list',LOGIN.login_check(),ARTICLE.list)
 router.post('/article/update',LOGIN.login_check(),ARTICLE.update)
 router.post('/article/content',LOGIN.login_check(),ARTICLE.content)
+router.post('/article/remove',LOGIN.login_check(),ARTICLE.remove)
+
 
 
 // 添加目录
 router.post('/floder/add',LOGIN.login_check(),FLODER.add)
 router.post('/floder/list',LOGIN.login_check(),FLODER.list)
-
+router.post('/floder/remove',LOGIN.login_check(),FLODER.remove)
 
 
 router.all('/username/valid/:username',LOGIN.username_repeat)

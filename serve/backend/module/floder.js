@@ -10,28 +10,30 @@ function * add (next){
 
     let name = this.request.fields.name
     let token = this.request.fields.token
-
-    // let filter_object = objectAssign({this.login_status})
-    let logined_uid = this.login_status.uid
+    let floder_uid = uid(40)
+    let insert_obj = objectAssign({
+                            name,
+                            floder_uid,
+                            isMove:false
+                        },this.login_status)
+    // let logined_uid = this.login_status.uid
+    
     // let insert_obj = objectAssign({word,describe,sentence,end_time,is_move:false},this.login_status)
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .insert({
-                            name,
-                            floder_uid:uid(40),
-                            logined_uid
-                        })
+                        .insert(insert_obj)
 
     this.body = {
         status:true,
         msg:'更新成功',
-        id:res.insertedIds[1]
+        id:res.insertedIds[1],
+        floder_uid
     }
 }
 /*返回列表*/
 function * list (next){
-    let filter_object = objectAssign({logined_uid:this.login_status.uid})
+    let filter_object = objectAssign(this.login_status,{isMove:{$ne:true}})
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
@@ -43,8 +45,28 @@ function * list (next){
         result:res
     }
 }
+function * remove (next){
+    let floder_uid = this.request.fields.floder_uid
+    // let logined_uid = this.login_status.uid
 
+    let query_obj = objectAssign(
+        {floder_uid},
+        this.login_status)
+
+    let res = yield this.mongo
+                        .db(CONFIG.dbName)
+                        .collection(MODULE_CONFIG.COLLECTION)
+                        .update(query_obj,
+                            {'$set':{isMove:true}}
+                            )
+    console.log(query_obj)
+    this.body = {
+        status:true,
+        result:res
+    }
+}
 module.exports = {
     add,
-    list
+    list,
+    remove
 }

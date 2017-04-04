@@ -12,3 +12,11 @@ export const add = function(name){
 export const list = function(){
     return mFetch('/floder/list',{})
 }
+export const remove = function(floder_uid){
+    let data={
+        floder_uid
+    }
+    return mFetch('/floder/remove'
+            ,data
+            )
+}

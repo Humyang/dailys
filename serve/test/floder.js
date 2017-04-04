@@ -51,5 +51,19 @@ describe('文集测试', function() {
             })
         })
     })
+    describe('删除列表', function() {
+        it('应该返回正确结果', function(done) {
+            co(function*(){
+                let add = yield API.FLODER.add('test remove floder')
+                let list = yield API.FLODER.list()
+                let remove = yield API.FLODER.remove(add.floder_uid)
+                let list2 = yield API.FLODER.list()
+                console.log(list2)
+                done()
+            }).catch(function(err){
+                done(err)
+            })
+        })
+    })
 
 })

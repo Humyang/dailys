@@ -64,6 +64,23 @@ describe('文章测试', function() {
                 done(err)
             })
         })
+        it('----------删除', function(done) {
+            co(function*(){
+                let add = yield API.ARTICLE.add('test delete')
+                assert(add.status,true,add)
+                let query = yield API.ARTICLE.content(add.selfuid)
+                assert(query.status,true,query)
+                console.log('query------------',query)
+                let query2 = yield API.ARTICLE.remove(add.selfuid)
+                let query3 = yield API.ARTICLE.content(add.selfuid)
+                assert(query3.status,true,query3)
+                console.log('delete------------',query3)
+                done()
+
+            }).catch(function(err){
+                done(err)
+            })
+        })
     })
 
 })

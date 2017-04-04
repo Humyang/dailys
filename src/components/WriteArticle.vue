@@ -2,11 +2,24 @@
     <div class="write_article_wrap">
         <div 
         @mouseleave="floder_item_more_crud_out($event)" 
-        ref="floder_item_more" id="floder_item_more" v-show="floder_item_more_crud_element_visible" class="floder-cover">
+        ref="floder_item_more" id="floder_item_more" 
+        v-show="floder_item_more_crud_element_visible" 
+        class="floder-cover">
             <div class="background"></div>
             <ul class="subitem">
                 <li ><i class="iconfont icon-xiugai"></i></li>
-                <li><i class="iconfont icon-shanchu"></i></li>
+                <li @click="floder_delete"><i class="iconfont icon-shanchu"></i></li>
+            </ul>
+        </div>
+        <div 
+        @mouseleave="article_item_more_crud_out($event)" 
+        ref="article_item_more" id="article_item_more" 
+        v-show="article_item_more_crud_element_visible" 
+        class="floder-cover">
+            <div class="background"></div>
+            <ul class="subitem">
+                <li ><i class="iconfont icon-xiugai"></i></li>
+                <li @click="article_delete"><i class="iconfont icon-shanchu"></i></li>
             </ul>
         </div>
         <div class="floder">
@@ -53,6 +66,9 @@
                         <i class="i1"></i>
                         <p class="p1">{{item.title}}</p>
                         <p class="p2">------</p>
+                        <i v-if="article_edit_index === index"
+                           @click="article_item_more_crud_enter($event,index)"
+                        class="iconfont icon-gengduo i2"></i>
                     </li>
                 </template>
             </ul>
@@ -102,6 +118,7 @@ export default {
         floder_add_visible:false,
         floder_add_input:"",
         floder_item_more_crud_element_visible:false,
+        article_item_more_crud_element_visible:false,
         article_list:[],
         article_active:"",
         article_edit_index:-1,
@@ -120,6 +137,14 @@ export default {
     }
   },
   methods:{
+        article_delete:function(){
+            let self = this
+            API.ARTICLE.remove(this.article_active)
+            .then(function(){
+                self.article_list_refresh()
+                self.article_item_more_crud_element_visible = false
+            })
+        },
         article_list_refresh:function(){
             let self = this
             API.ARTICLE.list(this.floder_active)
@@ -142,9 +167,7 @@ export default {
                 .catch(function(err){
 
                 })
-            }
-            
-            
+            }   
         },
         article_item_rename:function(index){
             this.article_edit_index = index
@@ -153,7 +176,7 @@ export default {
             let self = this
             this.article_active =  this.article_list[index].selfuid
             this.editor.off("change",this.delayPush)
-            // console.log(23)
+            this.article_edit_index = index
             co(function*(){
                 let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
 
@@ -198,6 +221,19 @@ export default {
         article_add_cancel(){
              this.article_add_visible = false
         },
+        article_item_more_crud_enter:function(){
+            this.article_item_more_crud_element_visible = true
+            this.$refs.article_item_more.style.left=event.target.offsetLeft+250+"px";
+            this.$refs.article_item_more.style.top=event.target.offsetParent.offsetTop+52+"px";
+        },
+        floder_delete:function(){
+            let self = this
+            API.FLODER.remove(this.floder_active)
+            .then(function(){
+                self.floder_refresh()
+                self.floder_item_more_crud_element_visible = false
+            })
+        },
         floder_item_more_crud_enter:function(event,index){
             this.floder_item_more_crud_element_visible = true
             this.$refs.floder_item_more.style.left=event.target.offsetLeft-35+"px";
@@ -207,6 +243,9 @@ export default {
         },
         floder_item_more_crud_out:function(event,index){
             this.floder_item_more_crud_element_visible = false
+        },
+        article_item_more_crud_out:function(){
+            this.article_item_more_crud_element_visible = false
         },
         floder_item_rename:function(index){
             this.floder_edit_index = index
@@ -231,14 +270,19 @@ export default {
         floder_add_show:function(){
             this.floder_add_visible = true
         },
+        floder_refresh:function(){
+            let self = this
+            API.FLODER.list()
+            .then(function(res){
+                self.floder_list = res.result
+
+            })
+        },
         floder_add_ok(){
             let self = this
             API.FLODER.add(this.floder_add_input)
             .then(function(){
-                API.FLODER.list()
-                .then(function(res){
-                    self.floder_list = res.result
-                })
+                self.floder_refresh()
                 self.floder_add_input = ""
             })
             .catch(function(err){
