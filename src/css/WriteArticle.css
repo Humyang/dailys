@@ -60,7 +60,12 @@ ul.subitem { position: absolute; z-index: 999; width: 100% }
     padding-left: 20px;
     padding-right: 20px;
 }
-.article p.p1 .i1 { margin-top: 5px; display: block; float: right; margin-right: 30px; font-size: 26px; color: #616161; cursor: pointer }
+.article p.p1 .i {margin-top: 5px;display: block;font-size: 26px;color: #616161;cursor: pointer;float: left;}
+.article p.p1 .i:hover { color: #ff5548 }
+.article p.p1 .i.i1{float: right;margin-right: 30px;}
+.article p.p1 .i.i2 {
+    margin-left: 10px;
+}
 .article p.p1 i.changed.i1.icon-baocun.iconfont {
     color: #FFC107;
 }
@@ -68,4 +73,19 @@ ul.subitem { position: absolute; z-index: 999; width: 100% }
     animation-iteration-count: infinite;
     animation-name: rotateSaving;
 }
-.article p.p1 .i1:hover { color: #ff5548 }
+
+
+.article.md_preview {
+    width: 50%;
+}
+div.markdown_parse_preview_wrap {
+    width: 50%;
+    float: left;
+    height: 100%;
+}
+div#markdown_parse_preview {
+    padding: 10px;
+    border-left: 1px solid #c5c5c5;
+    background-color: #fffbf7;
+    height: 100%;
+}
