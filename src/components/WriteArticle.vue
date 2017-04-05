@@ -84,7 +84,7 @@
                    :class="{saving:article_content_style.saving,
                            changed:article_content_style.changed}"></i>
             </p>
-            <textarea v-model="article_content" ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
+            <textarea ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
         </div>
         <div v-show="page_mode===1" 
              class = "markdown_parse_preview_wrap">
@@ -133,7 +133,7 @@ export default {
         floder_add_visible:false,
         floder_add_input:"",
         floder_item_more_crud_element_visible:false,
-        article_markdown_preview_text:"",
+        // article_markdown_preview_text:"",
         article_item_more_crud_element_visible:false,
         article_list:[],
         article_active:"",
@@ -314,7 +314,10 @@ export default {
         }
   },
   computed: {
-    
+    article_markdown_preview_text:function(){
+        let title = "# " + this.article_title+"\n"
+        return marked(this.article_content)
+    }
   },
   created(){
     let self = this
@@ -347,7 +350,7 @@ export default {
     }
     self.editor.on("change",function(){
         self.article_content_style.changed = true
-        self.article_markdown_preview_text = marked(self.editor.getValue())
+        self.article_content = self.editor.getValue()
     })
     var code_mirror = document.getElementsByClassName('CodeMirror')[0]
     code_mirror.style.height = window.innerHeight - 106 + "px"

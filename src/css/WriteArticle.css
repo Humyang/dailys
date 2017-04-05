@@ -82,6 +82,7 @@ div.markdown_parse_preview_wrap {
     width: 50%;
     float: left;
     height: 100%;
+    text-align: left;
 }
 div#markdown_parse_preview {
     padding: 10px;
