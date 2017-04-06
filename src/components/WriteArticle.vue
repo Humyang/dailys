@@ -106,9 +106,26 @@ import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/zenburn.css'
 import '../css/CodeMirror_Theme.css'
 
+import '../../node_modules/highlight.js/styles/default.css'
+
 var marked = require('marked');
-
-
+marked.setOptions({
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: true,
+  sanitize: true,
+  smartLists: true,
+  smartypants: true,
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  }
+});
+// marked.setOptions({
+//   highlight: function (code) {
+//     return require('highlight.js').highlightAuto(code).value;
+//   }
+// });
 // var req = require.context("codemirror/theme/", true, /\.css/);
 // req.keys().forEach(function(key){
 //     req(key);
@@ -154,6 +171,10 @@ export default {
   },
   methods:{
         article_markdown_preview:function(){
+            if(this.page_mode === 1){
+                this.page_mode = 0
+                return 
+            }
             this.page_mode = 1
         },
         article_delete:function(){
@@ -316,7 +337,7 @@ export default {
   computed: {
     article_markdown_preview_text:function(){
         let title = "# " + this.article_title+"\n"
-        return marked(this.article_content)
+        return marked(title+this.article_content)
     }
   },
   created(){
@@ -342,7 +363,8 @@ export default {
         mode: 'gfm',
         theme: "zenburn",
         lineWrapping:true,
-        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
+        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"
+        }
     });
     this.Delay = new Delay(800,self.article_content_save())
     this.delayPush = function(){

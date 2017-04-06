@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 
+import '../favicon.ico'
+
 // import './css/fonticon/iconfont.css'
 // import 'http://at.alicdn.com/t/font_6ju4lzi860qkt9.css'
 
