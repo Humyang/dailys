@@ -85,11 +85,25 @@ div.markdown_parse_preview_wrap {
     text-align: left;
 }
 div#markdown_parse_preview {
-    padding: 0 10px;
+    padding: 0 20px;
     border-left: 1px solid #c5c5c5;
     background-color: #fffbf7;
     height: 100%;
     overflow-y: auto;
     font-size: 18px;
     font-family: "Microsoft Yahei";
+}
+pre code {
+    display: block;
+    padding: 1em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #333;
+    color:white;
+    border-radius: 2px;
+}
+.markdown_parse_preview_wrap p {
+    margin: 0;
+    margin-bottom: 24px;
+    text-indent: 30px;
 }

@@ -106,7 +106,7 @@ import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/zenburn.css'
 import '../css/CodeMirror_Theme.css'
 
-import '../../node_modules/highlight.js/styles/default.css'
+import '../../node_modules/highlight.js/styles/agate.css'
 
 var marked = require('marked');
 marked.setOptions({
