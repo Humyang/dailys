@@ -106,7 +106,9 @@ import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/zenburn.css'
 import '../css/CodeMirror_Theme.css'
 
+
 import '../../node_modules/highlight.js/styles/agate.css'
+import '../css/custom_markdown_preview.css'
 
 var marked = require('marked');
 marked.setOptions({
@@ -366,7 +368,7 @@ export default {
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"
         }
     });
-    this.Delay = new Delay(800,self.article_content_save())
+    this.Delay = new Delay(10000,self.article_content_save())
     this.delayPush = function(){
         self.Delay.push()
     }
