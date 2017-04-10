@@ -30,3 +30,10 @@
     margin-bottom: 24px;
     text-indent: 30px;
 }
+#markdown_parse_preview ul{
+    margin-before: 1em;
+    margin-after: 1em;
+    margin: 10px 40px;
+    margin-top: 0;
+}
+#markdown_parse_preview li{list-style: initial;}
