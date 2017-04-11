@@ -37,3 +37,14 @@
     margin-top: 0;
 }
 #markdown_parse_preview li{list-style: initial;}
+#markdown_parse_preview blockquote {
+    display: block;
+    margin: 5px;
+    padding: 15px 5px;
+    background-color: #eef8ff;
+    color: #2b2b2b;
+    border-left: 5px solid #60beff;
+}
+#markdown_parse_preview  blockquote p{
+    margin-bottom: 0;
+}
