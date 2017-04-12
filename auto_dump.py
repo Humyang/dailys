@@ -1,8 +1,9 @@
+# 
 # auto backup Mongodb document
 import commands
 import re
 import subprocess
-import datetime
+from datetime import *
 
 def run_command(command):
     status,info = commands.getstatusoutput(command)
@@ -12,9 +13,9 @@ def run_command(command):
     else:
         print command,'info faile,bcs ',info
         return 0
-        
+
 # get today
-today = datetime.today().strftime('%y-%m-%d %H %M %S')
+today = datetime.today().strftime('%y-%m-%d')
 # run mongodump
 mongodump = run_command('mongodump --out /data/backup/'+today+'/')
 if mongodump == 1:
