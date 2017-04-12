@@ -28,7 +28,7 @@
 #markdown_parse_preview p {
     margin: 0;
     margin-bottom: 24px;
-    text-indent: 30px;
+    /*text-indent: 30px;*/
 }
 #markdown_parse_preview ul{
     margin-before: 1em;
