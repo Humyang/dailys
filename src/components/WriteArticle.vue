@@ -80,7 +80,7 @@
             <input class="i1" type="text" placeholder="无标题文章" v-model="article_title">
             <p class="p1">
                 <i @click="article_markdown_preview" class="iconfont icon-shu i i2 "></i>
-                <i  @click="Delay.execute"
+                <i  @click="article_content_execute"
                     class="iconfont icon-baocun i i1 animated" 
                     :class="{saving:article_content_style.saving,
                            changed:article_content_style.changed}"></i>
@@ -194,6 +194,9 @@ export default {
             .then(function(res){
                 self.article_list = res.result
             })
+        },
+        article_content_execute:function(){
+            this.Delay.execute()
         },
         article_content_save:function(){
             let self = this
@@ -378,9 +381,10 @@ export default {
         // 会无法 off 回失效
         self.Delay.push()
     }
-    self.editor.on("change",function(){
+    self.editor.on("change",function(obj,obj2){
         self.article_content_style.changed = true
         self.article_content = self.editor.getValue()
+        console.log(obj2)
     })
     var code_mirror = document.getElementsByClassName('CodeMirror')[0]
     code_mirror.style.height = window.innerHeight - 106 + "px"
