@@ -1,0 +1,1 @@
+* 4 * * * /usr/bin/python /root/github/dailys/auto_dump.py >/dev/null 2>&1

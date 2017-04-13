@@ -1,4 +1,4 @@
-# 
+#!/usr/bin/env python
 # auto backup Mongodb document
 import commands
 import re
@@ -17,6 +17,6 @@ def run_command(command):
 # get today
 today = datetime.today().strftime('%y-%m-%d')
 # run mongodump
-mongodump = run_command('mongodump --out /data/backup/'+today+'/')
+mongodump = run_command('/usr/local/bin/mongodump --out /data/backup/'+today+'/')
 if mongodump == 1:
     print 'backup success'

@@ -80,8 +80,9 @@
             <input class="i1" type="text" placeholder="无标题文章" v-model="article_title">
             <p class="p1">
                 <i @click="article_markdown_preview" class="iconfont icon-shu i i2 "></i>
-                <i class="iconfont icon-baocun i i1 animated" 
-                   :class="{saving:article_content_style.saving,
+                <i  @click=""
+                    class="iconfont icon-baocun i i1 animated" 
+                    :class="{saving:article_content_style.saving,
                            changed:article_content_style.changed}"></i>
             </p>
             <textarea ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
@@ -369,7 +370,12 @@ export default {
         }
     });
     this.Delay = new Delay(5000,self.article_content_save())
+
     this.delayPush = function(){
+        // 为了使 editor off 执行生效，只能将push操作封装起来
+        // 因为 on 和 off 是根据 function 来的
+        // 如果使用匿名函数 function(){self.Delay.push()}
+        // 会无法 off 回失效
         self.Delay.push()
     }
     self.editor.on("change",function(){
