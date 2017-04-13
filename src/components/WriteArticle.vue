@@ -80,7 +80,7 @@
             <input class="i1" type="text" placeholder="无标题文章" v-model="article_title">
             <p class="p1">
                 <i @click="article_markdown_preview" class="iconfont icon-shu i i2 "></i>
-                <i  @click=""
+                <i  @click="Delay.execute"
                     class="iconfont icon-baocun i i1 animated" 
                     :class="{saving:article_content_style.saving,
                            changed:article_content_style.changed}"></i>
