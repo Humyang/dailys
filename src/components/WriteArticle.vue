@@ -369,7 +369,11 @@ export default {
         mode: 'gfm',
         theme: "zenburn",
         lineWrapping:true,
-        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"
+        extraKeys: {    
+            "Enter": "newlineAndIndentContinueMarkdownList",
+            "Ctrl-X":function(cm) {
+                self.Delay.execute()
+            }
         }
     });
     this.Delay = new Delay(5000,self.article_content_save())
