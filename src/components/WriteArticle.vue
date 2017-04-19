@@ -140,6 +140,7 @@ import co from 'co'
 import CodeMirror from 'codemirror'
 import 'codemirror/mode/gfm/gfm.js'
 import Delay from '../../serve/fontend/Obj/Delay.js'
+import DMP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
 
 var LOGIN_CODE =  require('flogin').CODE
 
@@ -395,6 +396,7 @@ export default {
     window.onresize = function() {
         code_mirror.style.height = window.innerHeight - 106 + "px"
     }
+    var dmp = new DMP()
   }
 }
 </script>
