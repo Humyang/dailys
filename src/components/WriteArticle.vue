@@ -141,7 +141,7 @@ import CodeMirror from 'codemirror'
 import 'codemirror/mode/gfm/gfm.js'
 import Delay from '../../serve/fontend/Obj/Delay.js'
 import DMP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
-
+import TDP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
 var LOGIN_CODE =  require('flogin').CODE
 
 export default {
@@ -170,7 +170,8 @@ export default {
         },
         editor:"",
         Delay:"",
-        delayPush:""
+        delayPush:"",
+        IncrementalUpdate:"",
     }
   },
   methods:{
@@ -396,7 +397,7 @@ export default {
     window.onresize = function() {
         code_mirror.style.height = window.innerHeight - 106 + "px"
     }
-    var dmp = new DMP()
+    // this.IncrementalUpdate = new TDP()
   }
 }
 </script>
