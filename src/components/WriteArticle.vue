@@ -140,8 +140,10 @@ import co from 'co'
 import CodeMirror from 'codemirror'
 import 'codemirror/mode/gfm/gfm.js'
 import Delay from '../../serve/fontend/Obj/Delay.js'
-import DMP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
-import TDP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
+// import DMP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
+// import TDP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
+var GDMP = require('../../vendors/google-diff-match-patch-js/diff_match_patch_uncompressed.js')
+
 var LOGIN_CODE =  require('flogin').CODE
 
 export default {
@@ -170,8 +172,8 @@ export default {
         },
         editor:"",
         Delay:"",
-        delayPush:"",
-        IncrementalUpdate:"",
+        onEditorChange:"",
+        GDMP:new GDMP.diff_match_patch(),
     }
   },
   methods:{
@@ -200,12 +202,12 @@ export default {
         article_content_execute:function(){
             this.Delay.execute()
         },
-        article_content_save:function(){
+        article_content_save:function(value,title,article_active){
             let self = this
             return function(){
                 self.article_content_style.saving = true
                 co(function*(){
-                    let update = yield API.ARTICLE.update(self.editor.getValue(),self.article_title,self.article_active)
+                    let update = yield API.ARTICLE.update(value,title,article_active)
 
                     self.article_content_style.saving = false
                     self.article_content_style.changed = false
@@ -223,15 +225,18 @@ export default {
         article_item_active:function(index){
             let self = this
             this.article_active =  this.article_list[index].selfuid
-            this.editor.off("change",this.delayPush)
+            this.editor.off("change",this.onEditorChange)
             this.article_edit_index = index
             co(function*(){
                 let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
 
                 self.article_title = article_obj.result.title
                 self.editor.setValue(article_obj.result.content)
+                
+                self.old_text = article_obj.result.content
+
                 self.article_content_style.changed = false
-                self.editor.on("change",self.delayPush)
+                self.editor.on("change",self.onEditorChange)
 
             })
             .catch(function(err){
@@ -378,9 +383,13 @@ export default {
             }
         }
     });
-    this.Delay = new Delay(5000,self.article_content_save())
+    this.Delay = new Delay(5000,function(){
+        self.old_text =""
+        let new_text = self.editor.getValue()
+        self.article_content_save(self.editor.getValue(),self.article_title,self.article_active)
+    })
 
-    this.delayPush = function(){
+    this.onEditorChange = function(){
         // 为了使 editor off 执行生效，只能将push操作封装起来
         // 因为 on 和 off 是根据 function 来的
         // 如果使用匿名函数 function(){self.Delay.push()}
@@ -390,14 +399,24 @@ export default {
     self.editor.on("change",function(obj,obj2){
         self.article_content_style.changed = true
         self.article_content = self.editor.getValue()
+        // console.log(obj,obj2)
+        // console.log(obj2)
+        // console.log(this.GDMP.patch_apply(obj2,self.editor.getValue())
+    })
+    self.editor.on("changes",function(obj,obj2){
         console.log(obj2)
     })
+    // self.editor.on("beforeChange",function(obj,obj2){
+    //     self.article_content_style.changed = true
+    //     self.article_content = self.editor.getValue()
+    //     // console.log(obj2)
+    //     console.log(self.GDMP.diff_main(,self.editor.getValue()))
+    // })
     var code_mirror = document.getElementsByClassName('CodeMirror')[0]
     code_mirror.style.height = window.innerHeight - 106 + "px"
     window.onresize = function() {
         code_mirror.style.height = window.innerHeight - 106 + "px"
     }
-    // this.IncrementalUpdate = new TDP()
   }
 }
 </script>
