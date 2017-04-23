@@ -142,7 +142,8 @@ import 'codemirror/mode/gfm/gfm.js'
 import Delay from '../../serve/fontend/Obj/Delay.js'
 // import DMP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
 // import TDP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
-var GDMP = require('../../vendors/google-diff-match-patch-js/diff_match_patch_uncompressed.js')
+
+import EVA from '../../serve/fontend/Obj/EditorValueAdvance.js'
 
 var LOGIN_CODE =  require('flogin').CODE
 
@@ -173,7 +174,7 @@ export default {
         editor:"",
         Delay:"",
         onEditorChange:"",
-        GDMP:new GDMP.diff_match_patch(),
+        EVA:""
     }
   },
   methods:{
@@ -204,20 +205,23 @@ export default {
         },
         article_content_save:function(value,title,article_active){
             let self = this
-            return function(){
+
+            
+
+            co(function*(){
+                
                 self.article_content_style.saving = true
-                co(function*(){
-                    let update = yield API.ARTICLE.update(value,title,article_active)
 
-                    self.article_content_style.saving = false
-                    self.article_content_style.changed = false
+                let update = yield API.ARTICLE.update(value,title,article_active)
 
-                    self.article_list_refresh()
-                })
-                .catch(function(err){
+                self.article_content_style.saving = false
+                self.article_content_style.changed = false
 
-                })
-            }   
+                self.article_list_refresh()
+            })
+            .catch(function(err){
+
+            })
         },
         article_item_rename:function(index){
             this.article_edit_index = index
@@ -227,13 +231,18 @@ export default {
             this.article_active =  this.article_list[index].selfuid
             this.editor.off("change",this.onEditorChange)
             this.article_edit_index = index
+
+            self.EVA.reset()
+            
             co(function*(){
                 let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
 
                 self.article_title = article_obj.result.title
-                self.editor.setValue(article_obj.result.content)
+                self.EVA.value = article_obj.result.content
+
+                self.editor.setValue(self.EVA.value)
                 
-                self.old_text = article_obj.result.content
+                // self.old_text = article_obj.result.content
 
                 self.article_content_style.changed = false
                 self.editor.on("change",self.onEditorChange)
@@ -350,6 +359,7 @@ export default {
   computed: {
     article_markdown_preview_text:function(){
         let title = "# " + this.article_title+"\n"
+        // self.EVA.value = self.editor.getValue()
         return marked(title+this.article_content)
     }
   },
@@ -378,15 +388,18 @@ export default {
         lineWrapping:true,
         extraKeys: {    
             "Enter": "newlineAndIndentContinueMarkdownList",
-            "Ctrl-X":function(cm) {
+            "Ctrl-S":function(cm) {
                 self.Delay.execute()
             }
         }
     });
     this.Delay = new Delay(5000,function(){
-        self.old_text =""
-        let new_text = self.editor.getValue()
-        self.article_content_save(self.editor.getValue(),self.article_title,self.article_active)
+        // self.old_text =""
+        // let new_text = self.editor.getValue()
+        self.EVA.value = self.editor.getValue()
+        // console.log(self.EVA.diff_result)
+
+        self.article_content_save(self.EVA.diff_result,self.article_title,self.article_active)
     })
 
     this.onEditorChange = function(){
@@ -394,24 +407,19 @@ export default {
         // 因为 on 和 off 是根据 function 来的
         // 如果使用匿名函数 function(){self.Delay.push()}
         // 会无法 off 回失效
+        
+        self.article_content_style.changed = true
+
+        // 为 article_markdown_preview_text 属性提供变量
+        self.article_content = self.editor.getValue()
+        // self.article_content = self.editor.getValue()
+        // self.EVA.value = self.editor.getValue()
+        // console.log(self.EVA.diff_result)
         self.Delay.push()
     }
-    self.editor.on("change",function(obj,obj2){
-        self.article_content_style.changed = true
-        self.article_content = self.editor.getValue()
-        // console.log(obj,obj2)
-        // console.log(obj2)
-        // console.log(this.GDMP.patch_apply(obj2,self.editor.getValue())
-    })
-    self.editor.on("changes",function(obj,obj2){
-        console.log(obj2)
-    })
-    // self.editor.on("beforeChange",function(obj,obj2){
-    //     self.article_content_style.changed = true
-    //     self.article_content = self.editor.getValue()
-    //     // console.log(obj2)
-    //     console.log(self.GDMP.diff_main(,self.editor.getValue()))
-    // })
+    
+    this.EVA = new EVA()
+
     var code_mirror = document.getElementsByClassName('CodeMirror')[0]
     code_mirror.style.height = window.innerHeight - 106 + "px"
     window.onresize = function() {

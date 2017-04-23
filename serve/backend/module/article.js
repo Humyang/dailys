@@ -1,7 +1,8 @@
 var CONFIG = require('../../PREDEFINED/APP_CONFIG.js')
 var UUID = require('uid')
 var objectAssign = require('object-assign')
-
+var GDMP = require('../../../vendors/google-diff-match-patch-js/diff_match_patch_uncompressed.js')
+var dmp = new GDMP.diff_match_patch()
 var MODULE_CONFIG = {
     COLLECTION:'articles'
 }
@@ -55,13 +56,24 @@ function * update (next){
         {selfuid,isMove:{$ne:true}},
         this.login_status)
 
+    let query_content = yield _getContent.call(this)
+    
+    let patches = dmp.patch_make(content)
+    
+    let targer_value = query_content.content
+    if(targer_value === undefined){
+        targer_value = ""
+    }
+    console.log(patches,targer_value)
+    let dmp_patch_result = dmp.patch_apply(patches, targer_value)
+    console.log(dmp_patch_result)
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
-                            {'$set':{content,title}},
+                            {'$set':{content:dmp_patch_result[0],title}},
                             {'upsert':true}
-                            )
+                        )
     this.body = {
         status:true,
         result:res
@@ -85,7 +97,20 @@ function * remove (next){
         result:res
     }
 }
-function * content (next){
+/*
+    result
+        {
+            _id
+            content
+            floder_uid
+            isMove
+            selfuid
+            title
+            uid
+        }
+*/
+function* _getContent(){
+
     let selfuid = this.request.fields.selfuid
 
     let query_obj = objectAssign(
@@ -96,6 +121,23 @@ function * content (next){
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(query_obj)
+
+    return res
+}
+function * content (next){
+    
+
+    // let query_obj = objectAssign(
+    //     {selfuid,isMove:{$ne:true}},
+    //     this.login_status)
+
+    // let res = yield this.mongo
+    //                     .db(CONFIG.dbName)
+    //                     .collection(MODULE_CONFIG.COLLECTION)
+    //                     .findOne(query_obj)
+
+    let res = yield _getContent.call(this)
+
     this.body = {
         status:true,
         result:res
