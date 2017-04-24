@@ -43,7 +43,7 @@ router.post('/login_status_check',LOGIN.login_check(),function *(next){
 })
 app.use(LOGIN.set({dbname:CONFIG.dbName,port:CONFIG.dbPort}))
 app.use(mongo())
-app.use(body())
+app.use(body({textLimit:'10000kb',formLimit:'10000kb',jsonLimit:'10000kb'}))
 app.use(function *(next){
     try{
         console.log('this.LOGIN_CONFIG',this.LOGIN_CONFIG)
