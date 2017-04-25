@@ -3,7 +3,7 @@ var GDMP = require('../../../vendors/google-diff-match-patch-js/diff_match_patch
 function EditorValueAdvance(){
 	let old_value = ""
 	let value = ""
-	let diff_result = undefined
+	let patch_list = undefined
 
 	let dmp = new GDMP.diff_match_patch()
 	// this.onSet = onSet
@@ -22,15 +22,15 @@ function EditorValueAdvance(){
 		value:function(){
 			old_value = ""
 			value = ""
-			diff_result = undefined
+			patch_list = undefined
 		}
 	})
-	Object.defineProperty(this, 'diff_result', {
+	Object.defineProperty(this, 'patch_list', {
 		get: function(){
-			let diffs = dmp.diff_main(old_value, value, false)
-			console.log(diffs)
-			// console.log(dmp.patch_apply(patches, old_value))
-			return diffs
+			let diffs = dmp.diff_main(old_value, value, true)
+			let result = dmp.patch_make(old_value, value, diffs)
+			// console.log(result)
+			return result
 		}
 	})
 }

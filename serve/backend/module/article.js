@@ -6,6 +6,8 @@ var dmp = new GDMP.diff_match_patch()
 var MODULE_CONFIG = {
     COLLECTION:'articles'
 }
+var throwError = require('./throwError.js')
+var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 /*插入和更新文章*/
 function * add (next){
 
@@ -58,15 +60,22 @@ function * update (next){
 
     let query_content = yield _getContent.call(this)
     
-    let patches = dmp.patch_make(content)
-    
+    // let patches = dmp.patch_make(content)
+    let patches = content
     let targer_value = query_content.content
     if(targer_value === undefined){
         targer_value = ""
     }
-    console.log(patches,targer_value)
+    // console.log(patches,targer_value)
     let dmp_patch_result = dmp.patch_apply(patches, targer_value)
-    console.log(dmp_patch_result)
+    // console.log()
+    for (var i = dmp_patch_result[1].length - 1; i >= 0; i--) {
+        if(dmp_patch_result[1][i] != true){
+
+            throwError(ERROR_CODE.CODE.ARTICLE_SAVE_ERROR)
+        }
+    }
+    // console.log(dmp_patch_result)
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)

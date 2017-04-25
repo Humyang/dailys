@@ -1,5 +1,7 @@
 var STATUSCODE_START = 1000
-module.exports = {
+
+
+var ERROR_CODE = {
     DAY:86399500,
     CODE:{
         USERNAME_REPTER:{
@@ -24,3 +26,9 @@ module.exports = {
         }
     }
 }
+
+var ARTICLE = require('./ERROR_CODE/ARTICLE.js')
+// Object.assign
+Object.assign(ERROR_CODE.CODE,ARTICLE)
+
+module.exports = ERROR_CODE

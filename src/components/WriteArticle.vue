@@ -206,8 +206,6 @@ export default {
         article_content_save:function(value,title,article_active){
             let self = this
 
-            
-
             co(function*(){
                 
                 self.article_content_style.saving = true
@@ -220,7 +218,7 @@ export default {
                 self.article_list_refresh()
             })
             .catch(function(err){
-
+                alert(err.MSG)
             })
         },
         article_item_rename:function(index){
@@ -399,7 +397,7 @@ export default {
         self.EVA.value = self.editor.getValue()
         // console.log(self.EVA.diff_result)
 
-        self.article_content_save(self.EVA.diff_result,self.article_title,self.article_active)
+        self.article_content_save(self.EVA.patch_list,self.article_title,self.article_active)
     })
 
     this.onEditorChange = function(){

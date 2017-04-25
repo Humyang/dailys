@@ -8,6 +8,4 @@ function throwError(obj,msg){
     }
     throw new Error(JSON.stringify(nObj))
 }
-module.exports = {
-    throwError
-}
+module.exports = throwError
