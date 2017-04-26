@@ -358,7 +358,7 @@ export default {
     article_markdown_preview_text:function(){
         let title = "# " + this.article_title+"\n"
         // self.EVA.value = self.editor.getValue()
-        return marked(title+this.article_content)
+        return marked(title+this.EVA.value)
     }
   },
   created(){
