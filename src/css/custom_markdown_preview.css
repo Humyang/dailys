@@ -11,24 +11,25 @@
     color: #0ccae2;
 }
 #markdown_parse_preview code {
-    background-color: #3f3f3f;
-    color: #f0efd0;
+    background-color: #87a5b3;
+    color: #ffffff;
     font-weight: 600;
-    padding: 0 2px;
+    padding: 3px 2px;
+    border-radius: 2px;
 }
 #markdown_parse_preview pre code {
     display: block;
     padding: 1em;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: #333;
-    color:white;
+    background-color: #464646;
+    color: #fff;
     border-radius: 2px;
 }
 #markdown_parse_preview p {
     margin: 0;
-    margin-bottom: 24px;
-    /*text-indent: 30px;*/
+    margin-bottom: 14px;
+    line-height: 24px;
 }
 #markdown_parse_preview ul{
     margin-before: 1em;
@@ -44,6 +45,8 @@
     background-color: #eef8ff;
     color: #2b2b2b;
     border-left: 5px solid #60beff;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 #markdown_parse_preview  blockquote p{
     margin-bottom: 0;
