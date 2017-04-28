@@ -239,7 +239,7 @@ export default {
                 self.EVA.value = article_obj.result.content
 
                 self.editor.setValue(self.EVA.value)
-                
+                self.article_content = article_obj.result.content
                 // self.old_text = article_obj.result.content
 
                 self.article_content_style.changed = false
@@ -358,7 +358,7 @@ export default {
     article_markdown_preview_text:function(){
         let title = "# " + this.article_title+"\n"
         // self.EVA.value = self.editor.getValue()
-        return marked(title+this.EVA.value)
+        return marked(title+this.article_content)
     }
   },
   created(){
