@@ -29,7 +29,6 @@ function EditorValueAdvance(){
 		get: function(){
 			let diffs = dmp.diff_main(old_value, value, true)
 			let result = dmp.patch_make(old_value, value, diffs)
-			// console.log(result)
 			return result
 		}
 	})
