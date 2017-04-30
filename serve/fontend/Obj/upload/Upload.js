@@ -18,8 +18,7 @@ var Upload = function(options){
       onSuccess:undefined,
       onError:undefined,
       onComplete:undefined,
-      onProcess:undefined,
-      
+      onProcess:undefined
     },options)
 
     this.serve_url = options.serve_url || 'http://localhost'
@@ -78,3 +77,5 @@ Upload.prototype.start = function(file){
 Upload.prototype.abort = function(){
   // 中断文件上传
 } 
+
+export default Upload

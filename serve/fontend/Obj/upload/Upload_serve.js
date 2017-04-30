@@ -23,7 +23,7 @@ router.post('/upload', body(), function * (next) {
 
     this.body = {
       status:1,
-      img_url:"http://localhost:3000/upload/"+file.name,
+      img_url:"http://localhost:3000/temp/"+file.name,
       size:file.size
     }
     console.log(this.body)

@@ -13,23 +13,30 @@
 因为拖动处理是 DOM 事件，需要绑定元素，所以要传入元素 Id。
 
 */
+
+import Upload from '../upload/Upload.js'
+
 var dndUpload = function(element,options){
-	
-	// var elementId = elementId
-	// var element = document.GetElementById(elementId)
 
+    var options = Object.assign({
+      onSuccess:undefined,
+      onError:undefined,
+      onComplete:undefined,
+      onProcess:undefined
+    },options)
 
-	// var options = Object.assign({
-	// 	onSuccess:function(img_url){
-	// 		//上传成功,返回图片字符串
-	// 	}
-	// },options)
-	
-	// onSuccess
+	var upload = new Upload({serve_url:'http://localhost:3000/upload',onSuccess:function(res){
+		// console.log(res)
+		options.onSuccess(JSON.parse(res.target.responseText))
+		// var obj = JSON.parse(res.target.responseText)
+		// console.log(obj)
+	}})
 
 	/* events fired on the draggable target */
 	element.addEventListener("drag", function( event ) {
-		console.log(event.DataTransfer.files)
+		// console.log(event.DataTransfer.files)
+		// console.log(123)
+		// upload.start(event.DataTransfer.files[0])
 	}, false);
 
 
@@ -41,6 +48,7 @@ var dndUpload = function(element,options){
 	  // dragged = event.target;
 	  // make it half transparent
 	  // event.target.style.opacity = .5;
+	  console.log(1233)
 	}, false);
 
 	element.addEventListener("dragend", function( event ) {
@@ -52,6 +60,7 @@ var dndUpload = function(element,options){
 	element.addEventListener("dragover", function( event ) {
 	  // prevent default to allow drop
 	  event.preventDefault();
+	  console.log(333)
 	}, false);
 
 	element.addEventListener("dragenter", function( event ) {
@@ -71,6 +80,9 @@ var dndUpload = function(element,options){
 	}, false);
 
 	element.addEventListener("drop", function( event ) {
+
+	  upload.start(event.dataTransfer.files[0])
+	  
 	  // prevent default action (open as link for some elements)
 	  event.preventDefault();
 	  // move dragged elem to the selected drop target
@@ -82,6 +94,8 @@ var dndUpload = function(element,options){
 
 	}, false);
 }
+
+export default dndUpload
 // dndUpload.prototype.onDrop = function(){
 
 // }

@@ -140,6 +140,7 @@ import co from 'co'
 import CodeMirror from 'codemirror'
 import 'codemirror/mode/gfm/gfm.js'
 import Delay from '../../serve/fontend/Obj/Delay.js'
+import dndUpload from '../../serve/fontend/Obj/dndUpload/dndUpload.js'
 // import DMP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
 // import TDP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
 
@@ -423,6 +424,17 @@ export default {
     window.onresize = function() {
         code_mirror.style.height = window.innerHeight - 106 + "px"
     }
+    var dnd_upload = new dndUpload(document.getElementsByClassName("article")[0],{
+        onSuccess:function(res){
+            console.log('res',res)
+            
+            let current_line = self.editor.getCursor().line
+            console.log(self.editor.getCursor())
+            let img = "![](" + res.img_url + ")"
+
+            self.editor.replaceRange(img+"\r\n",{line:current_line,ch:0})
+        }
+    })
   }
 }
 </script>
