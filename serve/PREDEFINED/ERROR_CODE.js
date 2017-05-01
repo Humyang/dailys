@@ -28,7 +28,8 @@ var ERROR_CODE = {
 }
 
 var ARTICLE = require('./ERROR_CODE/ARTICLE.js')
-// Object.assign
 Object.assign(ERROR_CODE.CODE,ARTICLE)
 
+var UPLOAD = require('./ERROR_CODE/UPLOAD.js')
+Object.assign(ERROR_CODE.CODE,UPLOAD)
 module.exports = ERROR_CODE

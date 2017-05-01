@@ -12,6 +12,9 @@
 4. 中断请求 通过参数传入回调
 
 */
+
+import * as BASE from '../../base.js'
+
 var Upload = function(options){
 
     var options = Object.assign({
@@ -70,9 +73,12 @@ var Upload = function(options){
 }
 Upload.prototype.start = function(file){
   this.fd.append("file", file);
+  this.fd.append("token", BASE.getToken());
+  
   this.xhr.open("post",this.serve_url,true);
   this.xhr.send(this.fd);
   this.fd.delete("file")
+  this.fd.delete("token")
 }
 Upload.prototype.abort = function(){
   // 中断文件上传

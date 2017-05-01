@@ -22,10 +22,11 @@ var dndUpload = function(element,options){
       onSuccess:undefined,
       onError:undefined,
       onComplete:undefined,
-      onProcess:undefined
+      onProcess:undefined,
+      serve_url:undefined
     },options)
-
-	var upload = new Upload({serve_url:'http://localhost:3000/upload',onSuccess:function(res){
+    // options.serve_url = 'http://localhost:3000/upload' || 
+	var upload = new Upload({serve_url:options.serve_url,onSuccess:function(res){
 		// console.log(res)
 		options.onSuccess(JSON.parse(res.target.responseText))
 		// var obj = JSON.parse(res.target.responseText)

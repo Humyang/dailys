@@ -14,6 +14,7 @@ var CONFIG = require('../PREDEFINED/APP_CONFIG.js')
 var LOGIN = require('flogin')
 var ARTICLE = require('./module/article.js')
 var FLODER = require('./module/floder.js')
+var UPLOAD = require('./module/upload.js')
 
 app.use(cors())
 
@@ -31,7 +32,7 @@ router.post('/floder/add',LOGIN.login_check(),FLODER.add)
 router.post('/floder/list',LOGIN.login_check(),FLODER.list)
 router.post('/floder/remove',LOGIN.login_check(),FLODER.remove)
 
-
+// 登陆注册
 router.all('/username/valid/:username',LOGIN.username_repeat)
 router.post('/regiest',/*LOGIN.verify_code(),*/LOGIN.regiest)
 router.post('/login',/*LOGIN.verify_code(),*/LOGIN.login)
@@ -41,12 +42,20 @@ router.post('/login_status_check',LOGIN.login_check(),function *(next){
         msg:'在线'
     }
 })
+
+// 上传
+router.options('/upload', function*(next){
+  this.body=true
+})
+// LOGIN.login_check(),
+router.post('/upload',  UPLOAD.upload)
+
 app.use(LOGIN.set({dbname:CONFIG.dbName,port:CONFIG.dbPort}))
 app.use(mongo())
 app.use(body({textLimit:'10000kb',formLimit:'10000kb',jsonLimit:'10000kb'}))
 app.use(function *(next){
     try{
-        console.log('this.LOGIN_CONFIG',this.LOGIN_CONFIG)
+        // console.log('this.LOGIN_CONFIG',this.LOGIN_CONFIG)
         yield next
     }catch (err) {
         try{

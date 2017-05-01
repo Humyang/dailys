@@ -425,11 +425,12 @@ export default {
         code_mirror.style.height = window.innerHeight - 106 + "px"
     }
     var dnd_upload = new dndUpload(document.getElementsByClassName("article")[0],{
+        serve_url:'http://localhost:8202/upload',
         onSuccess:function(res){
-            console.log('res',res)
+            // console.log('res',res)
             
             let current_line = self.editor.getCursor().line
-            console.log(self.editor.getCursor())
+            // console.log(self.editor.getCursor())
             let img = "![](" + res.img_url + ")"
 
             self.editor.replaceRange(img+"\r\n",{line:current_line,ch:0})

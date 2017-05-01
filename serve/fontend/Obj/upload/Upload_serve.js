@@ -35,7 +35,7 @@ router.get('/', body(), function * (next) {
       status:1
     }
 
-    
+  
 })
 app.use(cors())
 app.use(serve('.'));
