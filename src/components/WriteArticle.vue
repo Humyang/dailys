@@ -111,6 +111,9 @@ import '../css/CodeMirror_Theme.css'
 import '../../node_modules/highlight.js/styles/agate.css'
 import '../css/custom_markdown_preview.css'
 
+import {
+    PREDEFINEDIP
+} from '../../serve/PREDEFINED/CONSTANT.js'
 var marked = require('marked');
 marked.setOptions({
   gfm: true,
@@ -431,7 +434,7 @@ export default {
             
             let current_line = self.editor.getCursor().line
             // console.log(self.editor.getCursor())
-            let img = "![](" + res.img_url + ")"
+            let img = "![](" + res.img_url.replace("IPADDRESS",PREDEFINEDIP) + ")"
 
             self.editor.replaceRange("\r\n\r\n"+img+"\r\n\r\n",{line:current_line,ch:0})
         }

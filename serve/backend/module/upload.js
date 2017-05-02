@@ -1,5 +1,6 @@
 var fs = require('fs');
 var CONFIG = require('../../PREDEFINED/APP_CONFIG.js')
+var CONFIG = require('../../PREDEFINED/CONSTANT.js')
 var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 
@@ -70,7 +71,7 @@ function * upload (next){
 
     this.body = {
       status:1,
-      img_url:"http://localhost:"+CONFIG.servePort+"/"+this.login_status.uid+'/'+file.name,
+      img_url:"IPADDRESS:"+CONFIG.servePort+"/"+this.login_status.uid+'/'+file.name,
       size:file.size
     }
 }
