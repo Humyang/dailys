@@ -14,7 +14,9 @@
 */
 
 import * as BASE from '../../base.js'
-
+import {
+    IP
+} from '../../../PREDEFINED/CONSTANT.js'
 var Upload = function(options){
 
     var options = Object.assign({
@@ -24,7 +26,7 @@ var Upload = function(options){
       onProcess:undefined
     },options)
 
-    this.serve_url = options.serve_url || 'http://localhost'
+    this.serve_url = IP + ":8202/upload"
 
     this.fd = new FormData();
     
