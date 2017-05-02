@@ -2,22 +2,71 @@ var fs = require('fs');
 var CONFIG = require('../../PREDEFINED/APP_CONFIG.js')
 var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
+
+const Path = require('path');
+
 var moveFile = function(oldPath,newPath) {
   return function(fn) {
     fs.rename(oldPath, newPath,fn)
   }
 }
+
+/*
+
+在磁盘遍历给定的路径，如果没有找到就立即创建
+
+*/
+function pathCheckAndCreate(path){
+
+  var parse_path = Path.parse(path)
+
+  var dirname = Path.dirname(path)
+  
+  if(parse_path.root != dirname){
+    
+    pathCheckAndCreate(dirname)
+
+    if(!fs.existsSync(path)){
+      fs.mkdirSync(path)
+    }
+  }
+  // return new Promise(function(resolve,reject){
+  //   fs.access(path,
+  //     fs.constants.R_OK | fs.constants.W_OK,
+  //     function(err){
+  //       if(err === null){
+  //         resolve(true)
+  //       }
+  //         resolve(false)
+  //     })
+  // })
+
+}
 /* 上传 */
 function * upload (next){
-    console.log(this.request.token)
+    debugger;
+    // console.log(123)
+    // console.log(this.request.token)
     var file = this.request.files[0]
-    // console.log(file)
+    // './upload/'+ this.login_status.uid
+    var root_path = process.cwd()
+    var path = root_path + '/temp/'+ this.login_status.uid
+    pathCheckAndCreate(path)
+    // var file_exits = yield accessPath(path)
+    // if(!file_exits){
+    //   try{
+    //   fs.mkdirSync(path)
+    //   }
+    //   catch(e){
+    //     console.log(e)
+    //   }
+    // }
 
-    var file_exits = yield fs.access('./upload/'+ this.login_status.uid, fs.constants.R_OK | fs.constants.W_OK);
+    // });
 
-    console.log(file_exits)
+    // console.log(file_exits)
 
-    var obj = yield moveFile(file.path, './upload/'+ this.login_status.uid +'/'+file.name)
+    var obj = yield moveFile(file.path, path +'/'+file.name)
 
     this.body = {
       status:1,

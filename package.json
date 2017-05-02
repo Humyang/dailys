@@ -11,6 +11,7 @@
     "e2e": "node test/e2e/runner.js",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "serve": "node serve/backend/index.js",
+    "serve_debug":"node --inspect serve/backend/index.js",
     "test_article": "mocha --compilers js:babel-register --recursive serve/test/article.js",
     "test_floder": "mocha --compilers js:babel-register --recursive serve/test/floder.js",
     "test_login": "mocha --compilers js:babel-register --recursive serve/test/login.js",

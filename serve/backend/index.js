@@ -47,8 +47,7 @@ router.post('/login_status_check',LOGIN.login_check(),function *(next){
 router.options('/upload', function*(next){
   this.body=true
 })
-// LOGIN.login_check(),
-router.post('/upload',  UPLOAD.upload)
+router.post('/upload', LOGIN.login_check(), UPLOAD.upload)
 
 app.use(LOGIN.set({dbname:CONFIG.dbName,port:CONFIG.dbPort}))
 app.use(mongo())
