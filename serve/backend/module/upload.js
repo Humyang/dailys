@@ -1,6 +1,6 @@
 var fs = require('fs');
 var CONFIG = require('../../PREDEFINED/APP_CONFIG.js')
-var CONFIG = require('../../PREDEFINED/CONSTANT.js')
+// var CONFIG = require('../../PREDEFINED/CONSTANT.js')
 var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 
