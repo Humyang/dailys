@@ -16,6 +16,11 @@ var ARTICLE = require('./module/article.js')
 var FLODER = require('./module/floder.js')
 var UPLOAD = require('./module/upload.js')
 
+var serve = require('koa-static');
+var root_path = process.cwd()
+app.use(serve(root_path+"/upload",{maxage:3153600000}))
+
+
 app.use(cors())
 
 // 添加文章

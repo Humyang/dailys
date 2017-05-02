@@ -50,7 +50,7 @@ function * upload (next){
     var file = this.request.files[0]
     // './upload/'+ this.login_status.uid
     var root_path = process.cwd()
-    var path = root_path + '/temp/'+ this.login_status.uid
+    var path = root_path + '/upload/'+ this.login_status.uid
     pathCheckAndCreate(path)
     // var file_exits = yield accessPath(path)
     // if(!file_exits){
@@ -70,7 +70,7 @@ function * upload (next){
 
     this.body = {
       status:1,
-      img_url:"http://localhost:"+CONFIG.servePort+"/temp/"+file.name,
+      img_url:"http://localhost:"+CONFIG.servePort+"/"+this.login_status.uid+'/'+file.name,
       size:file.size
     }
 }

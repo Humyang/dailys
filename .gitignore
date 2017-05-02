@@ -52,3 +52,4 @@ environment/1.workspace
 dist
 serve/fontend/Obj/upload/temp/
 temp/
+upload/
