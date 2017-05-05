@@ -403,7 +403,7 @@ export default {
 
         self.article_content_save(self.EVA.patch_list,self.article_title,self.article_active)
     })
-
+    console.log(self.$route.params)
     this.onEditorChange = function(){
         // 为了使 editor off 执行生效，只能将push操作封装起来
         // 因为 on 和 off 是根据 function 来的
