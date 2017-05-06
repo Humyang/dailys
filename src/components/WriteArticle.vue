@@ -230,14 +230,46 @@ export default {
         },
         article_item_active:function(index){
             let self = this
-            this.article_active =  this.article_list[index].selfuid
+            
+            let article_uid = this.article_list[index].selfuid
+
             this.editor.off("change",this.onEditorChange)
             this.article_edit_index = index
-
+            // this.article_active =  this.article_list[index].selfuid
             self.EVA.reset()
             
+            self._acticle_load(article_uid,function(){
+                self.$router.push({ name: 'WriteArticle2', 
+                params: { 
+                    floderid: self.floder_active,
+                    articleid:self.article_active }
+                })
+
+            })
+
+
+            // co(function*(){
+            //     let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
+
+            //     self.article_title = article_obj.result.title
+            //     self.EVA.value = article_obj.result.content
+
+            //     self.editor.setValue(self.EVA.value)
+            //     self.article_content = article_obj.result.content
+            //     // self.old_text = article_obj.result.content
+
+            //     self.article_content_style.changed = false
+            //     self.editor.on("change",self.onEditorChange)
+
+            // })
+            // .catch(function(err){
+                
+            // })
+        },
+        _acticle_load:function(article_uid,callback){
+            let self = this
             co(function*(){
-                let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
+                let article_obj = yield API.ARTICLE.content(article_uid)
 
                 self.article_title = article_obj.result.title
                 self.EVA.value = article_obj.result.content
@@ -249,6 +281,9 @@ export default {
                 self.article_content_style.changed = false
                 self.editor.on("change",self.onEditorChange)
 
+                self.article_active =  article_uid
+
+                callback()
             })
             .catch(function(err){
                 
@@ -316,14 +351,41 @@ export default {
         },
         floder_item_active:function(index){
             let self = this
+            let floder_id = self.floder_list[index].floder_uid
+
+            // co(function*(){
+            //     let article_list = yield API.ARTICLE.list(self.floder_list[index].floder_uid)
+            //     self.article_list = article_list.result
+            // })
+            // .catch(function(err){
+                
+            // })
+
+            this._floder_load(floder_id)
+
+            // this.floder_active = this.floder_list[index].floder_uid
+        },
+        _floder_load:function(floder_uid,callback){
+            let self = this
+
             co(function*(){
-                let article_list = yield API.ARTICLE.list(self.floder_list[index].floder_uid)
+                let article_list = yield API.ARTICLE.list(floder_uid)
+
                 self.article_list = article_list.result
+
+                // for (var i = self.floder_list.length - 1; i >= 0; i--) {
+                //     if(self.floder_list[i].floder_uid === floder_uid){
+
+                //     }
+                // }
+                self.floder_active = floder_uid
+
+                callback()
+
             })
             .catch(function(err){
                 
             })
-            this.floder_active = this.floder_list[index].floder_uid
         },
         floder_edit_cancel(index){
             this.floder_edit_index = -1
@@ -371,9 +433,21 @@ export default {
     co(function*(){
             let floder_list = yield API.FLODER.list()
             self.floder_list = floder_list.result
-            self.floder_active = floder_list.result[0].floder_uid
-            let article_list = yield API.ARTICLE.list(self.floder_list[0].floder_uid)
-            self.article_list = article_list.result
+
+            // 加载内容
+            if(self.$route.params.floderid!=undefined){
+                // console.log(123)
+                self._floder_load(self.$route.params.floderid,function(){
+                    if(self.$route.params.articleid!=undefined){
+                        self._acticle_load(self.$route.params.articleid)
+                    }
+
+                })
+            }else{
+                self.floder_active = floder_list.result[0].floder_uid
+                let article_list = yield API.ARTICLE.list(self.floder_list[0].floder_uid)
+                self.article_list = article_list.result
+            }
         })
         .catch(function(err){
             if(err.STATUSCODE === LOGIN_CODE.LOGIN_NO_LOGIN.STATUSCODE){
@@ -403,7 +477,10 @@ export default {
 
         self.article_content_save(self.EVA.patch_list,self.article_title,self.article_active)
     })
-    console.log(self.$route.params)
+
+
+    
+
     this.onEditorChange = function(){
         // 为了使 editor off 执行生效，只能将push操作封装起来
         // 因为 on 和 off 是根据 function 来的

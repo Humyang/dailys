@@ -22,8 +22,8 @@ export default new Router({
         component:WriteArticle
     },
     {   
-        path:'/WriteArticle/:floderid/article/:id',
-        name:'WriteArticle',
+        path:'/WriteArticle/:floderid/article/:articleid',
+        name:'WriteArticle2',
         component:WriteArticle
     },
     {   
