@@ -1,0 +1,2303 @@
+module.js:472
+    throw err;
+    ^
+
+Error: Cannot find module '/root/github/dailys/serve/dist_serve/static.js'
+    at Function.Module._resolveFilename (module.js:470:15)
+    at Function.Module._load (module.js:418:25)
+    at Module.runMain (module.js:605:10)
+    at run (bootstrap_node.js:420:7)
+    at startup (bootstrap_node.js:139:9)
+    at bootstrap_node.js:535:3
+module.js:472
+    throw err;
+    ^
+
+Error: Cannot find module '../../../login/lib/login.js'
+    at Function.Module._resolveFilename (module.js:470:15)
+    at Function.Module._load (module.js:418:25)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/root/github/dailys/serve/backend/index.js:14:13)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+listening on port 8200
+module.js:472
+    throw err;
+    ^
+
+Error: Cannot find module '../../../login/lib/login.js'
+    at Function.Module._resolveFilename (module.js:470:15)
+    at Function.Module._load (module.js:418:25)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/root/github/dailys/serve/backend/index.js:14:13)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+listening on port 8200
+listen serve on port  8202
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+listening on port 8200
+listen serve on port  8202
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+Error: {"STATUSCODE":103,"MSG":"未登录"}
+    at throwError (/root/github/dailys/node_modules/flogin/lib/error.js:9:11)
+    at Object.plugin (/root/github/dailys/node_modules/flogin/lib/login.js:221:13)
+    at plugin.next (<anonymous>)
+    at Object.dispatch (/root/github/dailys/node_modules/koa-router/lib/router.js:336:14)
+    at dispatch.next (<anonymous>)
+    at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+Error: {"STATUSCODE":108,"MSG":"没有找到此用户"}
+    at throwError (/root/github/dailys/node_modules/flogin/lib/error.js:9:11)
+    at Object.login (/root/github/dailys/node_modules/flogin/lib/login.js:109:9)
+    at login.next (<anonymous>)
+    at Object.dispatch (/root/github/dailys/node_modules/koa-router/lib/router.js:336:14)
+    at dispatch.next (<anonymous>)
+    at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+Error: {"STATUSCODE":103,"MSG":"未登录"}
+    at throwError (/root/github/dailys/node_modules/flogin/lib/error.js:9:11)
+    at Object.plugin (/root/github/dailys/node_modules/flogin/lib/login.js:221:13)
+    at plugin.next (<anonymous>)
+    at Object.dispatch (/root/github/dailys/node_modules/koa-router/lib/router.js:336:14)
+    at dispatch.next (<anonymous>)
+    at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+listening on port 8200
+listen serve on port  8202
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+listening on port 8200
+listen serve on port  8202
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+listening on port 8200
+listen serve on port  8202
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+listening on port 8200
+listen serve on port  8202
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'd6hj2dodbo9y77jdvrlhotdq40ae7eib35t4rf0c',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'd6hj2dodbo9y77jdvrlhotdq40ae7eib35t4rf0c',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'd6hj2dodbo9y77jdvrlhotdq40ae7eib35t4rf0c',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'h4uv3eqbsy0v67am2m880p6bb9j7326plav6ksyu',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'd6hj2dodbo9y77jdvrlhotdq40ae7eib35t4rf0c',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'd6hj2dodbo9y77jdvrlhotdq40ae7eib35t4rf0c',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+listening on port 8200
+listen serve on port  8202
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'd6hj2dodbo9y77jdvrlhotdq40ae7eib35t4rf0c',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'd6hj2dodbo9y77jdvrlhotdq40ae7eib35t4rf0c',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'vdsiahhx1pcd4upls1t46958liurypyv71eare14',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+
+  Error: read ECONNRESET
+      at exports._errnoException (util.js:1022:11)
+      at TCP.onread (net.js:572:26)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'n3bitk9g7yxeo428br2oad52ht23g4at4gyeyipc',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'l0nwfd544mky82kteuj8uiq60c4s26ao6qodhq2w',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'sj6784rht357kv5rrk01l17mlr6fh84jvg04ntb7',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+listening on port 8200
+listen serve on port  8202
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+listening on port 8200
+listen serve on port  8202
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+listening on port 8200
+listen serve on port  8202
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'ejemgcowuutkg4u2me344bon7nln8otivlmjvp3q',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+{ floder_uid: 'wjep58pg87g69g15d5yk4hkat82jj62nvh6o08lp',
+  uid: '9si5n54stxe14yu47tnklpj5013n961g1lknb2l7' }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  Error: write EPIPE
+      at exports._errnoException (util.js:1022:11)
+      at WriteWrap.afterWrite [as oncomplete] (net.js:804:14)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+
+  TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+      at Object.serve (/root/github/dailys/node_modules/koa-static/index.js:43:14)
+      at serve.next (<anonymous>)
+      at onFulfilled (/root/github/dailys/node_modules/co/index.js:65:19)
+
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
+this.LOGIN_CONFIG { dbname: 'DAILYS', port: 8201 }
