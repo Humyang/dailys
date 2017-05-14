@@ -1,20 +1,21 @@
 #markdown_parse_preview {
     padding: 0 20px;
     border-left: 1px solid #c5c5c5;
-    background-color: #ffffff;
+    background-color: #fff;
     height: 100%;
     overflow-y: auto;
     font-size: 18px;
-    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif,Microsoft Yahei;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+    line-height: 24px;
 }
 #markdown_parse_preview a {
     color: #0ccae2;
 }
 #markdown_parse_preview code {
-    background-color: #87a5b3;
-    color: #ffffff;
+    background-color: #eaeaea;
+    color: #3f3f3f;
     font-weight: 600;
-    padding: 3px 2px;
+    padding: 3px 5px;
     border-radius: 2px;
 }
 tt, code, kbd, samp{
@@ -32,7 +33,7 @@ tt, code, kbd, samp{
 #markdown_parse_preview p {
     margin: 0;
     margin-bottom: 14px;
-    line-height: 24px;
+    line-height: 28px;
 }
 #markdown_parse_preview ul{
     margin-before: 1em;
@@ -40,7 +41,10 @@ tt, code, kbd, samp{
     margin: 10px 40px;
     margin-top: 0;
 }
-#markdown_parse_preview li{list-style: initial;}
+#markdown_parse_preview li {
+    list-style: initial;
+    margin-bottom: 10px;
+}
 #markdown_parse_preview blockquote {
     display: block;
     margin: 5px;
