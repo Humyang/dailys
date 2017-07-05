@@ -39,7 +39,7 @@ tt, code, kbd, samp{
     margin-before: 1em;
     margin-after: 1em;
     margin: 10px 40px;
-    margin-top: 0;
+    /*margin-top: 0;*/
 }
 #markdown_parse_preview li {
     list-style: initial;
