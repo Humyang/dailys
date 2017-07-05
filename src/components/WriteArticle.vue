@@ -106,7 +106,6 @@
         </div>
     </div>
 </template>
-<!-- @click="article_content_save" -->
 <script>
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex'
 
@@ -228,14 +227,14 @@ export default {
         article_content_execute:function(){
             this.Delay.execute()
         },
-        article_content_save:function(value,title,article_active){
+        article_content_save:function(value,title,article_active,floder_uid){
             let self = this
 
             co(function*(){
                 
                 self.article_content_style.saving = true
 
-                let update = yield API.ARTICLE.update(value,title,article_active)
+                let update = yield API.ARTICLE.update(value,title,article_active,floder_uid)
 
                 self.article_content_style.saving = false
                 self.article_content_style.changed = false
@@ -497,7 +496,7 @@ export default {
         self.EVA.value = self.editor.getValue()
         // console.log(self.EVA.diff_result)
 
-        self.article_content_save(self.EVA.patch_list,self.article_title,self.article_active)
+        self.article_content_save(self.EVA.patch_list,self.article_title,self.article_active,self.floder_active)
     })
 
 

@@ -24,9 +24,9 @@ app.use(serve(root_path+"/upload",{maxage:3153600000}))
 app.use(cors())
 
 // 添加文章
-router.post('/article/add',LOGIN.login_check(),ARTICLE.add)
+router.post('/article/add',LOGIN.login_check(),FLODER.Mfloder_list_modify(),ARTICLE.add)
 router.post('/article/list',LOGIN.login_check(),ARTICLE.list)
-router.post('/article/update',LOGIN.login_check(),ARTICLE.update)
+router.post('/article/update',LOGIN.login_check(),FLODER.Mfloder_list_modify(),ARTICLE.update)
 router.post('/article/content',LOGIN.login_check(),ARTICLE.content)
 router.post('/article/remove',LOGIN.login_check(),ARTICLE.remove)
 
