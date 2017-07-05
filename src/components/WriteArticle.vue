@@ -26,6 +26,17 @@
             <div class="floder">
                 <a class="btn back_home">回到首页</a>
                 <p class="p_add" @click="floder_add_show"><i class="i_add">+</i>新建文集</p>
+                <p class="list_mode">
+                    <i @click="floder_mode_show" class="iconfont icon-zhankai"></i>
+                </p>
+                <div v-show="floder_add_show_flag" class="list_mode_group">
+                    <p class="p1">文集排序方式</p>
+                    <select v-model="floder_mode_show_type" name="" id="">
+                        <option value="1">创建日期</option>
+                        <option value="2">最近使用</option>
+                        <option value="3">使用频率</option>
+                    </select>
+                </div>
                 <template v-if="floder_add_visible">
                     <div class="add_wrap">
                         <input v-model="floder_add_input" placeholder="输入文集名称" type="" name="">
@@ -149,6 +160,8 @@ import dndUpload from '../../serve/fontend/Obj/dndUpload/dndUpload.js'
 
 import EVA from '../../serve/fontend/Obj/EditorValueAdvance.js'
 
+import SwitchF from '../../vendors/ytool.switch.js'
+
 var LOGIN_CODE =  require('flogin').CODE
 
 export default {
@@ -156,6 +169,9 @@ export default {
     return {
         page_mode:0,//0:normal 1:markdown preview 
         floder_list:[],
+        floder_mode_show_type:"1",
+        floder_add_show_switch:function(){},
+        floder_add_show_flag:false,
         floder_active:"",
         floder_edit_index:-1,
         floder_add_visible:false,
@@ -182,6 +198,11 @@ export default {
     }
   },
   methods:{
+        floder_mode_show:function(){
+            // var self = this
+            // console.log(123)
+            this.floder_add_show_switch()
+        },
         article_markdown_preview:function(){
             if(this.page_mode === 1){
                 this.page_mode = 0
@@ -325,6 +346,7 @@ export default {
             this.$refs.article_item_more.style.left=event.target.offsetLeft+250+"px";
             this.$refs.article_item_more.style.top=event.target.offsetParent.offsetTop+52+"px";
         },
+        
         floder_delete:function(){
             let self = this
             API.FLODER.remove(this.floder_active)
@@ -519,6 +541,15 @@ export default {
             self.editor.replaceRange("\r\n\r\n"+img+"\r\n\r\n",{line:current_line,ch:0})
         }
     })
+
+
+    this.floder_add_show_switch = SwitchF([function(){
+        self.floder_add_show_flag = true
+    },
+    function(){
+        self.floder_add_show_flag = false
+    }]
+    )
   }
 }
 </script>

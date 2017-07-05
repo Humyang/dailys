@@ -80,7 +80,7 @@ const store = new Vuex.Store({
     a:sub_module
   }
 })
-new Vue({
+window.$vmm = new Vue({
   el: '#app',
   store,
   router,
