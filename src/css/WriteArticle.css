@@ -84,4 +84,31 @@ div.markdown_parse_preview_wrap {
     height: 100%;
     text-align: left;
 }
+/**/
+p.list_mode i {
+    cursor: pointer;
+}
+i.iconfont.icon-zhankai.icon-shouqi {
+    /*float: right;*/
+    transform: rotate(180deg);
+}
 
+.list_mode_group {
+    overflow: hidden;
+    margin: 20px 0;
+}
+.list_mode_group .p1 {
+    font-size: 14px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+.list_mode_group select {
+    border: 1px solid #ddd;
+    margin-left: 15px;
+    font-size: 12px;
+    background-color: #333;
+    color: #ddd;
+    line-height: 16px;
+    padding: 5px 5px;
+}

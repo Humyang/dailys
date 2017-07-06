@@ -1,22 +1,25 @@
 import mFetch from '../ajax.js'
 // 新建文章
 export const add = function(title,floder_uid){
-    
+    let timemap = (new Date()).getTime()
     let data={
         title,
-        floder_uid
+        floder_uid,
+        timemap
     }
     return mFetch('/article/add'
             ,data
             )
 }
 // 更新文章
-export const update = function(content,title,selfuid){
-    
+export const update = function(content,title,selfuid,floder_uid){
+    let timemap = (new Date()).getTime()
     let data={
         content,
         title,
-        selfuid
+        selfuid,
+        floder_uid,
+        timemap
     }
     return mFetch('/article/update'
             ,data
