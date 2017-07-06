@@ -14,7 +14,9 @@ function * add (next){
     let insert_obj = objectAssign({
                             name,
                             floder_uid,
-                            isMove:false
+                            isMove:false,
+                            timemap:(new Date()).getTime(),
+                            timemapTotal:0
                         },this.login_status)
     // let logined_uid = this.login_status.uid
     
@@ -59,11 +61,27 @@ function * remove (next){
                         .update(query_obj,
                             {'$set':{isMove:true}}
                             )
-    console.log(query_obj)
+    // console.log(query_obj)
     this.body = {
         status:true,
         result:res
     }
+}
+
+function* _findOne(){
+
+    let floder_uid = this.request.fields.floder_uid
+
+    let query_obj = objectAssign(
+        {floder_uid,isMove:{$ne:true}},
+        this.login_status)
+
+    let res = yield this.mongo
+                        .db(CONFIG.dbName)
+                        .collection(MODULE_CONFIG.COLLECTION)
+                        .findOne(query_obj)
+
+    return res
 }
 function Mfloder_list_modify(){
     return function * plugin (next) {
@@ -74,7 +92,15 @@ function Mfloder_list_modify(){
         let floder_uid = this.request.fields.floder_uid
 
         let timemap = this.request.fields.timemap
-        console.log(timemap)
+
+        let timemapTotal = 0
+        let findone = yield _findOne.call(this)
+        if(findone.timemapTotal){
+            timemapTotal = findone.timemapTotal
+        }
+        timemapTotal++
+
+        // console.log(timemap)
         let query_obj = objectAssign(
         {floder_uid},
         this.login_status)
@@ -83,11 +109,14 @@ function Mfloder_list_modify(){
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
-                            {'$set':{timemap}},
+                            {'$set':{timemap,timemapTotal}},
                             {'upsert':true}
                             )
 
-console.log(query_obj)
+
+
+
+// console.log(query_obj)
 
         // let token = this.request.fields.token
         // let _login_check_res = yield this.mongo

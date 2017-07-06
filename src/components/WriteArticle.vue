@@ -31,7 +31,7 @@
                 </p>
                 <div v-show="floder_add_show_flag" class="list_mode_group">
                     <p class="p1">文集排序方式</p>
-                    <select v-model="floder_mode_show_type" name="" id="">
+                    <select v-model="floder_mode_show_type" @change="Mfloder_mode_show_type_change" name="" id="">
                         <option value="1">创建日期</option>
                         <option value="2">最近使用</option>
                         <option value="3">使用频率</option>
@@ -45,11 +45,11 @@
                     </div>
                 </template>
                 <ul class="item">
-                    <li v-for="(item,index) in floder_list"
+                    <li v-for="(item,index) in floder_list_computed"
                         :class="{active:floder_active === floder_list[index].floder_uid,editor:floder_edit_index===index}"
                         @click="floder_item_active(index)" >
                         <template v-if="index!=floder_edit_index">
-                            {{item.name}}
+                            {{index+1+'、'+item.name}}
                            <!--  @click.prevent="floder_item_rename(index)"  -->
                             <i @click="floder_item_more_crud_enter($event,index)"
                                class="iconfont icon-gengduo i1"></i>
@@ -172,6 +172,7 @@ export default {
         floder_add_show_switch:function(){},
         floder_add_show_flag:false,
         floder_active:"",
+        floder_active_index:0,
         floder_edit_index:-1,
         floder_add_visible:false,
         floder_add_input:"",
@@ -239,6 +240,8 @@ export default {
                 self.article_content_style.saving = false
                 self.article_content_style.changed = false
 
+                self.floder_sort_refresh()
+
                 self.article_list_refresh()
             })
             .catch(function(err){
@@ -248,6 +251,7 @@ export default {
         article_item_rename:function(index){
             this.article_edit_index = index
         },
+        
         article_item_active:function(index){
             let self = this
             
@@ -323,11 +327,7 @@ export default {
             let floder_uid = self.floder_active
             API.ARTICLE.add(this.article_add_input,floder_uid)
             .then(function(){
-                // API.ARTICLE.list(floder_uid)
-                // .then(function(res){
-                //     self.article_list = res.result
-                // })
-
+                self.floder_sort_refresh()
                 self.article_list_refresh()
 
                 self.article_add_input = ""
@@ -345,7 +345,17 @@ export default {
             this.$refs.article_item_more.style.left=event.target.offsetLeft+250+"px";
             this.$refs.article_item_more.style.top=event.target.offsetParent.offsetTop+52+"px";
         },
-        
+        Mfloder_mode_show_type_change:function(){
+            // console.log(this.floder_mode_show_type)
+            API.CONFIG.floder_sort_type(this.floder_mode_show_type)
+        },
+        floder_sort_refresh:function(){
+            console.log(123)
+            // debugger;
+            // this.floder_list[this.floder_active_index].timemap 
+            this.floder_list[this.floder_active_index].timemap = (new Date()).getTime()
+            this.floder_active_index = 0
+        },
         floder_delete:function(){
             let self = this
             API.FLODER.remove(this.floder_active)
@@ -373,7 +383,7 @@ export default {
         floder_item_active:function(index){
             let self = this
             let floder_id = self.floder_list[index].floder_uid
-
+            this.floder_active_index = index
             // co(function*(){
             //     let article_list = yield API.ARTICLE.list(self.floder_list[index].floder_uid)
             //     self.article_list = article_list.result
@@ -446,6 +456,47 @@ export default {
         let title = "# " + this.article_title+"\n"
         // self.EVA.value = self.editor.getValue()
         return marked(title+this.article_content)
+    },
+    floder_list_computed:function(){
+        // let new_list = Object.assign({},this.floder_list) 
+        // 直接赋值是引用方式
+        // let new_list = this.floder_list
+        let new_list = this.floder_list
+        // let new_list = [...array1]
+        // console.log(222)
+        // 对数组进行排序
+        // debugger
+        switch(this.floder_mode_show_type){
+            case "1":
+                new_list.sort(function(p1,p2){
+                    return parseInt(p2._id,16) - parseInt(p1._id,16)
+                })
+                break;
+            case "2":
+                new_list.sort(function(p1,p2){
+                    if(p2.timemap===undefined){
+                        return -1
+                    }
+                    if(p1.timemap === undefined){
+                        return 1
+                    }
+                    return p2.timemap - p1.timemap 
+                })
+            break;
+            case "3":
+                new_list.sort(function(p1,p2){
+                    if(p2.timemapTotal===undefined){
+                        return -1
+                    }
+                    if(p1.timemapTotal === undefined){
+                        return 1
+                    }
+                    return p2.timemapTotal - p1.timemapTotal 
+                })
+            break;
+        }
+        
+        return new_list
     }
   },
   created(){
@@ -549,6 +600,10 @@ export default {
         self.floder_add_show_flag = false
     }]
     )
+    API.CONFIG.getAll().then(function(res){
+        // console.log(res)
+        self.floder_mode_show_type = res.result.floder_sort_type
+    })
   }
 }
 </script>

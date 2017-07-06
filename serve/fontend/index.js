@@ -13,9 +13,10 @@
 import * as ARTICLE from './module/article.js'
 import * as FLODER from './module/floder.js'
 import * as LOGIN from './module/login.js'
-
+import * as CONFIG from './module/userCOnfig.js'
 export {
     ARTICLE,
     FLODER,
-    LOGIN
+    LOGIN,
+    CONFIG
 }

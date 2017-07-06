@@ -15,6 +15,7 @@ var LOGIN = require('flogin')
 var ARTICLE = require('./module/article.js')
 var FLODER = require('./module/floder.js')
 var UPLOAD = require('./module/upload.js')
+var USERCONFIG = require('./module/userConfig.js')
 
 var serve = require('koa-static');
 var root_path = process.cwd()
@@ -36,6 +37,7 @@ router.post('/article/remove',LOGIN.login_check(),ARTICLE.remove)
 router.post('/floder/add',LOGIN.login_check(),FLODER.add)
 router.post('/floder/list',LOGIN.login_check(),FLODER.list)
 router.post('/floder/remove',LOGIN.login_check(),FLODER.remove)
+// router.post('/floder/sorttype',LOGIN.login_check(),FLODER.sorttype)
 
 // 登陆注册
 router.all('/username/valid/:username',LOGIN.username_repeat)
@@ -47,6 +49,11 @@ router.post('/login_status_check',LOGIN.login_check(),function *(next){
         msg:'在线'
     }
 })
+
+    
+// 个人配置
+router.post('/config/getAll',LOGIN.login_check(),USERCONFIG.getAll)
+router.post('/config/floder_sort_type_update',LOGIN.login_check(),USERCONFIG.floderSortTypeUpdate)
 
 // 上传
 router.options('/upload', function*(next){
