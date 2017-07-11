@@ -149,7 +149,7 @@ function * content (next){
     //                     .findOne(query_obj)
 
     let res = yield _getContent.call(this)
-
+    res.history=[]
     this.body = {
         status:true,
         result:res
