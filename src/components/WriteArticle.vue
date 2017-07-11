@@ -125,18 +125,29 @@ import {
    IP as PREDEFINEDIP
 } from '../../serve/PREDEFINED/CONSTANT.js'
 var marked = require('marked');
+var renderer = new marked.Renderer();
+var radCode = renderer.code
+renderer.code = function (code, lang, escaped) {
+    if(lang === 'raw'){
+        return '<p class="lang-raw">'+code+'</p>'
+    }
+    return radCode()
+}
 marked.setOptions({
+  renderer:renderer,
   gfm: true,
   tables: true,
-  breaks: false,
+  breaks: true,
   pedantic: true,
   sanitize: true,
   smartLists: true,
   smartypants: true,
-  highlight: function (code) {
+  highlight: function (code,type,sss) {
     return require('highlight.js').highlightAuto(code).value;
   }
 });
+
+console.log(renderer)
 // marked.setOptions({
 //   highlight: function (code) {
 //     return require('highlight.js').highlightAuto(code).value;
@@ -350,7 +361,7 @@ export default {
             API.CONFIG.floder_sort_type(this.floder_mode_show_type)
         },
         floder_sort_refresh:function(){
-            console.log(123)
+            // console.log(123)
             // debugger;
             // this.floder_list[this.floder_active_index].timemap 
             this.floder_list[this.floder_active_index].timemap = (new Date()).getTime()

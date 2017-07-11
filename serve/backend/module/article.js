@@ -66,21 +66,20 @@ function * update (next){
     if(targer_value === undefined){
         targer_value = ""
     }
-    // console.log(patches,targer_value)
+    query_content.history.push(patches)
     let dmp_patch_result = dmp.patch_apply(patches, targer_value)
-    // console.log()
     for (var i = dmp_patch_result[1].length - 1; i >= 0; i--) {
         if(dmp_patch_result[1][i] != true){
 
             throwError(ERROR_CODE.CODE.ARTICLE_SAVE_ERROR)
         }
     }
-    // console.log(dmp_patch_result)
+
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
-                            {'$set':{content:dmp_patch_result[0],title}},
+                            {'$set':{content:dmp_patch_result[0],title,history:query_content.history}},
                             {'upsert':true}
                         )
     this.body = {
@@ -115,7 +114,8 @@ function * remove (next){
             isMove
             selfuid
             title
-            uid
+            uid,
+            history
         }
 */
 function* _getContent(){
@@ -131,6 +131,9 @@ function* _getContent(){
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(query_obj)
 
+    if(res.history === undefined){
+        res.history = []
+    }
     return res
 }
 function * content (next){
