@@ -126,15 +126,18 @@ import {
 } from '../../serve/PREDEFINED/CONSTANT.js'
 var marked = require('marked');
 var renderer = new marked.Renderer();
+console.log(renderer.code.toString())
 var radCode = renderer.code
 renderer.code = function (code, lang, escaped) {
     if(lang === 'raw'){
         return '<p class="lang-raw">'+code+'</p>'
     }
-    return radCode()
+    var self = this
+    // console.log(this)
+    return radCode.call(self,code,lang,escaped)
 }
 marked.setOptions({
-  renderer:renderer,
+  
   gfm: true,
   tables: true,
   breaks: true,
@@ -144,10 +147,10 @@ marked.setOptions({
   smartypants: true,
   highlight: function (code,type,sss) {
     return require('highlight.js').highlightAuto(code).value;
-  }
+  },renderer:renderer
 });
 
-console.log(renderer)
+// console.log(renderer)
 // marked.setOptions({
 //   highlight: function (code) {
 //     return require('highlight.js').highlightAuto(code).value;
