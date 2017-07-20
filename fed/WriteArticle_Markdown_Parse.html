@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../src/css/WriteArticle.css">
 
     <script src="../node_modules/marked/marked.min.js"></script>
-
+    <script src="../node_modules/highlight.js/lib/highlight.js"></script>
     <title>fed dailys</title>
 </head>
 <script>
@@ -45,6 +45,22 @@ FAB对应的是三个英文单词：Feature、Advantage和Benefit，按照这样
 
 就是给客户带来的利益。比如，讲台是木头做的，那么木头做的给客户带来的益处就是非常轻便。 
 FAB应该这样解释，这个讲台是木头做的，搬起来很轻便，所以使用非常方便。这样的结构，是你说服性的演讲的结构，只有这样的结构才能让客户觉得你的产品满足了他的需求，并且愿意购买你的产品。
+```js
+function off(emitter, type, f) {
+  if (emitter.removeEventListener) {
+    emitter.removeEventListener(type, f, false);
+  } else if (emitter.detachEvent) {
+    emitter.detachEvent("on" + type, f);
+  } else {
+    var map$$1 = emitter._handlers, arr = map$$1 && map$$1[type];
+    if (arr) {
+      var index = indexOf(arr, f);
+      if (index > -1)
+        { map$$1[type] = arr.slice(0, index).concat(arr.slice(index + 1)); }
+    }
+  }
+}
+```
 </script>
 <body>
 <div id="app">
@@ -54,7 +70,7 @@ FAB应该这样解释，这个讲台是木头做的，搬起来很轻便，所�
             <input class="i1" type="text" placeholder="无标题文章">
             <p class="p1">
             <!--   -->
-                <i class="iconfont icon-baocun i i1 animated changed saving error"></i>
+                <!-- <i class="iconfont icon-baocun i i1 animated changed saving error"></i> -->
             </p>
             <textarea name="" id="ta1" cols="30" rows="10"></textarea>
         </div>
@@ -66,9 +82,22 @@ FAB应该这样解释，这个讲台是木头做的，搬起来很轻便，所�
     </div>
 </div>
 <script type="text/javascript">
+    marked.setOptions({
+      
+      gfm: true,
+      tables: true,
+      breaks: true,
+      pedantic: true,
+      sanitize: true,
+      smartLists: true,
+      smartypants: true,
+      highlight: function (code,type,sss) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
     var md_preview_text = marked(document.getElementById("example").text)
     var markdown_parse_preview = document.getElementById("markdown_parse_preview")
-    // markdown_parse_preview.innerHTML = md_preview_text
+    markdown_parse_preview.innerHTML = marked(md_preview_text)
 </script>
 </body>
 
