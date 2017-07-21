@@ -1,8 +1,32 @@
-#markdown_parse_preview { padding: 0 20px; border-left: 1px solid #c5c5c5; background-color: #fff; height: 100%; overflow-y: auto; font-size: 18px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; line-height: 24px; color: #576573 }
-#markdown_parse_preview a { color: #0ccae2 }
+#markdown_parse_preview {
+	padding: 0 20px;
+	border-left: 1px solid #c5c5c5;
+	background-color: #fff;
+	height: 100%;
+	overflow-y: auto;
+	font-size: 18px;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	line-height: 20px;
+	color: #576573
+}
+#markdown_parse_preview a {
+	color: #0ccae2
+}
 #markdown_parse_preview code { background-color: #eaeaea; color: #3f3f3f; font-weight: 600; padding: 3px 5px; border-radius: 2px }
 #markdown_parse_preview tt, code, kbd, samp { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif, Microsoft Yahei }
-#markdown_parse_preview pre code { display: block; padding: 1em; overflow-y: auto; overflow-x: hidden; background-color: #464646; color: #fff; border-radius: 2px }
+#markdown_parse_preview pre code {     display: block;
+    padding: 1em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow-x: auto; 
+}
 #markdown_parse_preview p { margin: 0; margin-bottom: 14px; line-height: 28px }
 #markdown_parse_preview ul { margin-before: 1em; margin-after: 1em; margin: 10px 40px }
 #markdown_parse_preview li { list-style: initial; margin-bottom: 10px }

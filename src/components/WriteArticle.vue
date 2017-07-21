@@ -117,8 +117,8 @@ import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/zenburn.css'
 import '../css/CodeMirror_Theme.css'
 
-
-import '../../node_modules/highlight.js/styles/agate.css'
+// ../node_modules/highlight.js/styles/pojoaque.css
+import '../../node_modules/highlight.js/styles/pojoaque.css'
 import '../css/custom_markdown_preview.css'
 
 import {
