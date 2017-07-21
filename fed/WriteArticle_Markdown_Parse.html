@@ -11,8 +11,15 @@
     <link rel="stylesheet" href="../src/css/btn.css">
     <link rel="stylesheet" href="../src/css/WriteArticle.css">
 
-    <script src="../node_modules/marked/marked.min.js"></script>
-    <script src="../node_modules/highlight.js/lib/highlight.js"></script>
+    
+    
+    <!-- <script src="../node_modules/highlight.js/lib/highlight_pack.js"></script> -->
+    <!-- <script src="../node_modules/marked/marked.min.js"></script> -->
+    <!-- <script src="../vendors/sea.js"></script> -->
+    <script src="./b.js"></script>
+    <!-- <script src="../node_modules/highlight.js/lib/highlight.js"></script> -->
+    <!-- <script>hljs.initHighlightingOnLoad();</script> -->
+
     <title>fed dailys</title>
 </head>
 <script>
@@ -24,45 +31,115 @@ window.onload = function() {
     e.style.height = window.innerHeight - 106 + "px"
 }
 </script>
+
 <script type="text/template" id="example">
-# FAB
 
-## FAB（属性，作用，益处）的法则 
-
-FAB对应的是三个英文单词：Feature、Advantage和Benefit，按照这样的顺序来介绍，就是说服性演讲的结构，它达到的效果就是让客户相信你的是最好的。现在解释一下说服性的演讲过程： 
-
-### 1．属性（Feature） 
-
-这个单词需要注意，经常把它翻译成特征或特点，而且很多销售人员至今还把它翻译成特征或特点。特征，顾名思义就是区别于竞争对手的地方。当你介绍产品且与竞争对手的产品进行比较时，就会让客户产生一定的抵触情绪。 
-原因是什么？因为在销售的FAB中不应把Feature翻译成特征或特点，而应翻译成属性，即你的产品所包含的客观现实，所具有的属性。比如，讲台是木头做的，木头做的就是产品所包含的某项客观现实、属性（Feature）。 
-
-### 2．作用（Advantage） 
-
-很多销售人员顾名思义地把它翻译成了优点，优点就是你们比竞争对手好的方面，这自然会让客户产生更大的抵触情绪，因为你们所面临的竞争对手非常多，相似的产品也很多，你们的产品不可能比所有的产品都好。 
-现实中的每一个产品都有各自的特征，当你们说产品的某个功能比竞争对手好的时候，客户就会产生非常大的抵触情绪。实际上，在销售中把A（Advantage）翻译成作用会更好一些，作用（Advantage）就是能够给客户带来的用处。 
-
-### 3．益处（Benefit） 
-
-就是给客户带来的利益。比如，讲台是木头做的，那么木头做的给客户带来的益处就是非常轻便。 
-FAB应该这样解释，这个讲台是木头做的，搬起来很轻便，所以使用非常方便。这样的结构，是你说服性的演讲的结构，只有这样的结构才能让客户觉得你的产品满足了他的需求，并且愿意购买你的产品。
 ```js
-function off(emitter, type, f) {
-  if (emitter.removeEventListener) {
-    emitter.removeEventListener(type, f, false);
-  } else if (emitter.detachEvent) {
-    emitter.detachEvent("on" + type, f);
-  } else {
-    var map$$1 = emitter._handlers, arr = map$$1 && map$$1[type];
-    if (arr) {
-      var index = indexOf(arr, f);
-      if (index > -1)
-        { map$$1[type] = arr.slice(0, index).concat(arr.slice(index + 1)); }
-    }
+
+function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\bno\-highlight\b/) != -1)
+      return process(block, true, 0x0F) +
+             ` class="${cls}"`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
   }
 }
+
+export  $initHighlight;
+
+
+
+
 ```
+
 </script>
 <body>
+<select name="" id="select" onchange="selectTheme()">
+    <option value="gruvbox-dark.css">gruvbox-dark.css</option>
+    <option value="gruvbox-light.css">gruvbox-light.css</option>
+    <option value="hopscotch.css">hopscotch.css</option>
+    <option value="hybrid.css">hybrid.css</option>
+    <option value="idea.css">idea.css</option>
+    <option value="ir-black.css">ir-black.css</option>
+    <option value="kimbie.dark.css">kimbie.dark.css</option>
+    <option value="kimbie.light.css">kimbie.light.css</option>
+    <option value="magula.css">magula.css</option>
+    <option value="mono-blue.css">mono-blue.css</option>
+    <option value="monokai.css">monokai.css</option>
+    <option value="monokai-sublime.css">monokai-sublime.css</option>
+    <option value="obsidian.css">obsidian.css</option>
+    <option value="ocean.css">ocean.css</option>
+    <option value="paraiso-dark.css">paraiso-dark.css</option>
+    <option value="paraiso-light.css">paraiso-light.css</option>
+    <option value="pojoaque.css">pojoaque.css</option>
+    <option value="purebasic.css">purebasic.css</option>
+    <option value="qtcreator_dark.css">qtcreator_dark.css</option>
+    <option value="qtcreator_light.css">qtcreator_light.css</option>
+    <option value="railscasts.css">railscasts.css</option>
+    <option value="rainbow.css">rainbow.css</option>
+    <option value="routeros.css">routeros.css</option>
+    <option value="school-book.css">school-book.css</option>
+    <option value="solarized-dark.css">solarized-dark.css</option>
+    <option value="solarized-light.css">solarized-light.css</option>
+    <option value="sunburst.css">sunburst.css</option>
+    <option value="tomorrow.css">tomorrow.css</option>
+    <option value="tomorrow-night.css">tomorrow-night.css</option>
+    <option value="tomorrow-night-blue.css">tomorrow-night-blue.css</option>
+    <option value="tomorrow-night-bright.css">tomorrow-night-bright.css</option>
+    <option value="tomorrow-night-eighties.css">tomorrow-night-eighties.css</option>
+    <option value="vs.css">vs.css</option>
+    <option value="vs2015.css">vs2015.css</option>
+    <option value="xcode.css">xcode.css</option>
+    <option value="xt256.css">xt256.css</option>
+    <option value="zenburn.css">zenburn.css</option>
+    <option value="agate.css">agate.css</option>
+    <option value="androidstudio.css">androidstudio.css</option>
+    <option value="arduino-light.css">arduino-light.css</option>
+    <option value="arta.css">arta.css</option>
+    <option value="ascetic.css">ascetic.css</option>
+    <option value="atelier-cave-dark.css">atelier-cave-dark.css</option>
+    <option value="atelier-cave-light.css">atelier-cave-light.css</option>
+    <option value="atelier-dune-dark.css">atelier-dune-dark.css</option>
+    <option value="atelier-dune-light.css">atelier-dune-light.css</option>
+    <option value="atelier-estuary-dark.css">atelier-estuary-dark.css</option>
+    <option value="atelier-estuary-light.css">atelier-estuary-light.css</option>
+    <option value="atelier-forest-dark.css">atelier-forest-dark.css</option>
+    <option value="atelier-forest-light.css">atelier-forest-light.css</option>
+    <option value="atelier-heath-dark.css">atelier-heath-dark.css</option>
+    <option value="atelier-heath-light.css">atelier-heath-light.css</option>
+    <option value="atelier-lakeside-dark.css">atelier-lakeside-dark.css</option>
+    <option value="atelier-lakeside-light.css">atelier-lakeside-light.css</option>
+    <option value="atelier-plateau-dark.css">atelier-plateau-dark.css</option>
+    <option value="atelier-plateau-light.css">atelier-plateau-light.css</option>
+    <option value="atelier-savanna-dark.css">atelier-savanna-dark.css</option>
+    <option value="atelier-savanna-light.css">atelier-savanna-light.css</option>
+    <option value="atelier-seaside-dark.css">atelier-seaside-dark.css</option>
+    <option value="atelier-seaside-light.css">atelier-seaside-light.css</option>
+    <option value="atelier-sulphurpool-dark.css">atelier-sulphurpool-dark.css</option>
+    <option value="atelier-sulphurpool-light.css">atelier-sulphurpool-light.css</option>
+    <option value="atom-one-dark.css">atom-one-dark.css</option>
+    <option value="atom-one-light.css">atom-one-light.css</option>
+    <option value="brown-paper.css">brown-paper.css</option>
+    <option value="codepen-embed.css">codepen-embed.css</option>
+    <option value="color-brewer.css">color-brewer.css</option>
+    <option value="darcula.css">darcula.css</option>
+    <option value="dark.css">dark.css</option>
+    <option value="darkula.css">darkula.css</option>
+    <option value="default.css">default.css</option>
+    <option value="docco.css">docco.css</option>
+    <option value="dracula.css">dracula.css</option>
+    <option value="far.css">far.css</option>
+    <option value="foundation.css">foundation.css</option>
+    <option value="github.css">github.css</option>
+    <option value="github-gist.css">github-gist.css</option>
+    <option value="googlecode.css">googlecode.css</option>
+    <option value="grayscale.css">grayscale.css</option>
+</select>
 <div id="app">
 
     <div class="write_article_wrap">
@@ -83,7 +160,6 @@ function off(emitter, type, f) {
 </div>
 <script type="text/javascript">
     marked.setOptions({
-      
       gfm: true,
       tables: true,
       breaks: true,
@@ -97,7 +173,23 @@ function off(emitter, type, f) {
     });
     var md_preview_text = marked(document.getElementById("example").text)
     var markdown_parse_preview = document.getElementById("markdown_parse_preview")
-    markdown_parse_preview.innerHTML = marked(md_preview_text)
+    markdown_parse_preview.outerHTML=md_preview_text
+    
+    var input = document.getElementById("select");
+    function selectTheme(event) {
+        if(!!document.getElementById('linkId')){
+            document.body.removeChild(document.getElementById('linkId'))
+        }
+        var theme = input.options[input.selectedIndex].textContent;
+        console.log(theme)
+        var link = document.createElement('link');
+        link.rel = "stylesheet"
+        link.id = "linkId"
+        link.href = "../node_modules/highlight.js/styles/"+theme
+        document.body.appendChild(link)
+    }
+    
+    
 </script>
 </body>
 
