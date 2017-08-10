@@ -126,7 +126,7 @@ import {
 } from '../../serve/PREDEFINED/CONSTANT.js'
 var marked = require('marked');
 var renderer = new marked.Renderer();
-console.log(renderer.code.toString())
+// console.log(renderer.code.toString())
 var radCode = renderer.code
 renderer.code = function (code, lang, escaped) {
     if(lang === 'raw'){
