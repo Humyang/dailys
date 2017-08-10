@@ -15,7 +15,7 @@
 	</div>
 </template>
 <script >
-import '../css/comman.css'
+// import '../css/common.css'
 import '../css/btn.css'
 import '../css/Login.css'
 
