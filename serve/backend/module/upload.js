@@ -31,17 +31,6 @@ function pathCheckAndCreate(path){
       fs.mkdirSync(path)
     }
   }
-  // return new Promise(function(resolve,reject){
-  //   fs.access(path,
-  //     fs.constants.R_OK | fs.constants.W_OK,
-  //     function(err){
-  //       if(err === null){
-  //         resolve(true)
-  //       }
-  //         resolve(false)
-  //     })
-  // })
-
 }
 /* 上传 */
 function * upload (next){
