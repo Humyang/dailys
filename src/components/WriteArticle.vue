@@ -28,6 +28,7 @@
                 <p class="p_add" @click="floder_add_show"><i class="i_add">+</i>新建文集</p>
                 <p class="list_mode">
                     <i @click="floder_mode_show" class="iconfont icon-zhankai"></i>
+                    <i @click="search_mode_show" class="iconfont icon-icon1460187848267"></i>
                 </p>
                 <div v-show="floder_add_show_flag" class="list_mode_group">
                     <p class="p1">文集排序方式</p>
@@ -36,6 +37,11 @@
                         <option value="2">最近使用</option>
                         <option value="3">使用频率</option>
                     </select>
+                </div>
+                <div v-show="search_mode_show_flag" class="list_mode_group">
+                    <p class="p1">搜索</p>
+                    <input v-model="search_mode_content" class="search" type="text" placeholder="搜索文集和文章">
+                    <a @click="search_mode_ok" class="btn btn_ok" href="#">确定</a>
                 </div>
                 <template v-if="floder_add_visible">
                     <div class="add_wrap">
@@ -182,8 +188,10 @@ export default {
     return {
         page_mode:0,//0:normal 1:markdown preview 
         floder_list:[],
+        search_mode_show_flag:false,
+        search_mode_content:"",
         floder_mode_show_type:"1",
-        floder_add_show_switch:function(){},
+        // floder_add_show_switch:function(){},
         floder_add_show_flag:false,
         floder_active:"",
         floder_active_index:0,
@@ -212,10 +220,23 @@ export default {
     }
   },
   methods:{
+        search_mode_show:function(){
+            this.search_mode_show_flag = !this.search_mode_show_flag
+        },
+        search_mode_ok:function(){
+            // search
+            var self = this
+            API.ARTICLE.search(this.search_mode_content)
+            .then(function(res){
+                // console.log(res)
+                self.article_list = res.result
+            })
+        },
         floder_mode_show:function(){
             // var self = this
             // console.log(123)
-            this.floder_add_show_switch()
+            // this.floder_add_show_switch()
+            this.floder_add_show_flag = !this.floder_add_show_flag
         },
         article_markdown_preview:function(){
             if(this.page_mode === 1){
@@ -607,13 +628,13 @@ export default {
     })
 
 
-    this.floder_add_show_switch = SwitchF([function(){
-        self.floder_add_show_flag = true
-    },
-    function(){
-        self.floder_add_show_flag = false
-    }]
-    )
+    // this.floder_add_show_switch = SwitchF([function(){
+    //     self.floder_add_show_flag = true
+    // },
+    // function(){
+    //     self.floder_add_show_flag = false
+    // }]
+    // )
     API.CONFIG.getAll().then(function(res){
         // console.log(res)
         self.floder_mode_show_type = res.result.floder_sort_type

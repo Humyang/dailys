@@ -39,7 +39,7 @@ function * list (next){
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .find(filter_object)
+                        .find(filter_object,{history:false})
                         .sort({_id:-1})
                         .toArray()
     this.body = {

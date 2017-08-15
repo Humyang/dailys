@@ -16,6 +16,7 @@ var ARTICLE = require('./module/article.js')
 var FLODER = require('./module/floder.js')
 var UPLOAD = require('./module/upload.js')
 var USERCONFIG = require('./module/userConfig.js')
+var SEARCH = require('./module/search.js')
 
 var serve = require('koa-static');
 var root_path = process.cwd()
@@ -23,6 +24,9 @@ app.use(serve(root_path+"/upload",{maxage:3153600000}))
 
 
 app.use(cors())
+
+// 搜索
+router.post('/search',LOGIN.login_check(),SEARCH.search)
 
 // 添加文章
 router.post('/article/add',LOGIN.login_check(),FLODER.Mfloder_list_modify(),ARTICLE.add)

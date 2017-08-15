@@ -39,7 +39,7 @@ function * list (next){
     let res = yield this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .find(query_obj,{content:0})
+                        .find(query_obj,{content:0,history:false})
                         .sort({_id:-1})
                         .toArray()
 
@@ -118,6 +118,7 @@ function * remove (next){
             history
         }
 */
+
 function* _getContent(){
 
     let selfuid = this.request.fields.selfuid
@@ -136,6 +137,7 @@ function* _getContent(){
     }
     return res
 }
+
 function * content (next){
     
 

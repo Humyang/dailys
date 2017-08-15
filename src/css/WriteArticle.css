@@ -87,6 +87,7 @@ div.markdown_parse_preview_wrap {
 /**/
 p.list_mode i {
     cursor: pointer;
+    margin-right: 15px;
 }
 i.iconfont.icon-zhankai.icon-shouqi {
     /*float: right;*/
@@ -111,4 +112,14 @@ i.iconfont.icon-zhankai.icon-shouqi {
     color: #ddd;
     line-height: 16px;
     padding: 5px 5px;
+}
+.list_mode_group input.search {
+    border: 0;
+    width: 260px;
+    margin-left: 10px;
+    line-height: 28px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    padding-left: 10px;
 }
