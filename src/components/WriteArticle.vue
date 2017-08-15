@@ -339,7 +339,7 @@ export default {
 
                 self.article_content_style.changed = false
                 self.editor.on("change",self.onEditorChange)
-
+                self.floder_active = article_obj.result.floder_uid
                 self.article_active =  article_uid
 
                 callback()
