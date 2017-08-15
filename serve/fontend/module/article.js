@@ -11,6 +11,15 @@ export const add = function(title,floder_uid){
             ,data
             )
 }
+// 搜索文章
+export const search = function(keywords){
+    let data={
+        keywords
+    }
+    return mFetch('/search'
+            ,data
+            )
+}
 // 更新文章
 export const update = function(content,title,selfuid,floder_uid){
     let timemap = (new Date()).getTime()
