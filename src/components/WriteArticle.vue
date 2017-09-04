@@ -22,7 +22,7 @@
                 <li @click="article_delete"><i class="iconfont icon-shanchu"></i></li>
             </ul>
         </div>
-        <template v-if="page_mode===0">
+        <template v-if="visible.treeview===1">
             <div class="floder">
                 <a class="btn back_home">回到首页</a>
                 <p class="p_add" @click="floder_add_show"><i class="i_add">+</i>新建文集</p>
@@ -93,10 +93,16 @@
             </div>
         </template>
         <div class="article"
-            :class="{md_preview:page_mode === 1}" >
+            :class="{md_preview:visible.markdown === 1,
+                    full:visible.page_mode === 2}" >
             <input class="i1" type="text" placeholder="无标题文章" v-model="article_title">
             <p class="p1">
-                <i @click="article_markdown_preview" class="iconfont icon-shu i i2 "></i>
+                <i  @click="visible_editor_markdown" 
+                    class="iconfont icon-shu i i2 "
+                    :class="{active:visible.page_mode===1}"></i>
+                <i  @click="visible_only_editor" 
+                    class="iconfont icon-quanping i i2 "
+                    :class="{active:visible.page_mode===2}"></i>
                 <i  @click="article_content_execute"
                     class="iconfont icon-baocun i i1 animated" 
                     :class="{saving:article_content_style.saving,
@@ -104,7 +110,7 @@
             </p>
             <textarea ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
         </div>
-        <div v-show="page_mode===1" 
+        <div v-show="visible.markdown===1" 
              class = "markdown_parse_preview_wrap">
             <div id="markdown_parse_preview" v-html="article_markdown_preview_text">
                 
@@ -186,12 +192,16 @@ var LOGIN_CODE =  require('flogin').CODE
 export default {
   data () {
     return {
-        page_mode:0,//0:normal 1:markdown preview 
         floder_list:[],
+        visible:{
+            page_mode:0,//0:normal:treeview editor markdown 1:editor & markdown preview 2 only editor
+            treeview:1,
+            editor:1,
+            markdown:0
+        },
         search_mode_show_flag:false,
         search_mode_content:"",
         floder_mode_show_type:"1",
-        // floder_add_show_switch:function(){},
         floder_add_show_flag:false,
         floder_active:"",
         floder_active_index:0,
@@ -199,7 +209,6 @@ export default {
         floder_add_visible:false,
         floder_add_input:"",
         floder_item_more_crud_element_visible:false,
-        // article_markdown_preview_text:"",
         article_item_more_crud_element_visible:false,
         article_list:[],
         article_active:"",
@@ -220,6 +229,48 @@ export default {
     }
   },
   methods:{
+        visible_only_editor:function(){
+            if(this.visible.page_mode!=2){
+                this.visible = {
+                    page_mode:2,
+                    treeview:0,
+                    editor:1,
+                    markdown:0
+                }
+            }else{
+                this.visible = {
+                    page_mode:0,
+                    treeview:1,
+                    editor:1,
+                    markdown:0
+                }
+            }
+        },
+        visible_editor_markdown:function(){
+            if(this.visible.page_mode!=1){
+                this.visible = {
+                    page_mode:1,
+                    treeview:0,
+                    editor:1,
+                    markdown:1
+                }
+            }else{
+                this.visible = {
+                    page_mode:0,
+                    treeview:1,
+                    editor:1,
+                    markdown:0
+                }
+            }
+            
+        },
+        // article_markdown_preview:function(){
+        //     if(this.page_mode === 1){
+        //         this.page_mode = 0
+        //         return 
+        //     }
+        //     this.page_mode = 1
+        // },
         search_mode_show:function(){
             this.search_mode_show_flag = !this.search_mode_show_flag
         },
@@ -238,13 +289,7 @@ export default {
             // this.floder_add_show_switch()
             this.floder_add_show_flag = !this.floder_add_show_flag
         },
-        article_markdown_preview:function(){
-            if(this.page_mode === 1){
-                this.page_mode = 0
-                return 
-            }
-            this.page_mode = 1
-        },
+        
         article_delete:function(){
             let self = this
             API.ARTICLE.remove(this.article_active)
