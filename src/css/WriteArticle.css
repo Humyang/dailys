@@ -66,6 +66,14 @@ ul.subitem { position: absolute; z-index: 999; width: 100% }
 .article p.p1 .i.i2 {
     margin-left: 10px;
 }
+i.iconfont.i.i2.active {
+    color: #ff5548;
+    font-weight: 600;
+}
+.article p.p1 .i.icon-quanping{
+    font-size: 20px;
+    margin-top: 9px;
+}
 .article p.p1 i.changed.i1.icon-baocun.iconfont {
     color: #FFC107;
 }
@@ -77,6 +85,9 @@ ul.subitem { position: absolute; z-index: 999; width: 100% }
 
 .article.md_preview {
     width: 50%;
+}
+.article.full {
+    width: 100%;
 }
 div.markdown_parse_preview_wrap {
     width: 50%;
