@@ -22,13 +22,12 @@
                 <li @click="article_delete"><i class="iconfont icon-shanchu"></i></li>
             </ul>
         </div>
-        <template v-if="visible.treeview===1">
+        <template v-if="page_mode===0">
             <div class="floder">
                 <a class="btn back_home">回到首页</a>
                 <p class="p_add" @click="floder_add_show"><i class="i_add">+</i>新建文集</p>
                 <p class="list_mode">
                     <i @click="floder_mode_show" class="iconfont icon-zhankai"></i>
-                    <i @click="search_mode_show" class="iconfont icon-icon1460187848267"></i>
                 </p>
                 <div v-show="floder_add_show_flag" class="list_mode_group">
                     <p class="p1">文集排序方式</p>
@@ -37,11 +36,6 @@
                         <option value="2">最近使用</option>
                         <option value="3">使用频率</option>
                     </select>
-                </div>
-                <div v-show="search_mode_show_flag" class="list_mode_group">
-                    <p class="p1">搜索</p>
-                    <input v-model="search_mode_content" class="search" type="text" placeholder="搜索文集和文章">
-                    <a @click="search_mode_ok" class="btn btn_ok" href="#">确定</a>
                 </div>
                 <template v-if="floder_add_visible">
                     <div class="add_wrap">
@@ -93,16 +87,10 @@
             </div>
         </template>
         <div class="article"
-            :class="{md_preview:visible.markdown === 1,
-                    full:visible.page_mode === 2}" >
+            :class="{md_preview:page_mode === 1}" >
             <input class="i1" type="text" placeholder="无标题文章" v-model="article_title">
             <p class="p1">
-                <i  @click="visible_editor_markdown" 
-                    class="iconfont icon-shu i i2 "
-                    :class="{active:visible.page_mode===1}"></i>
-                <i  @click="visible_only_editor" 
-                    class="iconfont icon-quanping i i2 "
-                    :class="{active:visible.page_mode===2}"></i>
+                <i @click="article_markdown_preview" class="iconfont icon-shu i i2 "></i>
                 <i  @click="article_content_execute"
                     class="iconfont icon-baocun i i1 animated" 
                     :class="{saving:article_content_style.saving,
@@ -111,7 +99,7 @@
             </p>
             <textarea ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
         </div>
-        <div v-show="visible.markdown===1" 
+        <div v-show="page_mode===1" 
              class = "markdown_parse_preview_wrap">
             <div id="markdown_parse_preview" v-html="article_markdown_preview_text">
                 
@@ -139,15 +127,18 @@ import {
 } from '../../serve/PREDEFINED/CONSTANT.js'
 var marked = require('marked');
 var renderer = new marked.Renderer();
+// console.log(renderer.code.toString())
 var radCode = renderer.code
 renderer.code = function (code, lang, escaped) {
     if(lang === 'raw'){
         return '<p class="lang-raw">'+code+'</p>'
     }
     var self = this
+    // console.log(this)
     return radCode.call(self,code,lang,escaped)
 }
 marked.setOptions({
+  
   gfm: true,
   tables: true,
   breaks: true,
@@ -159,6 +150,18 @@ marked.setOptions({
     return require('highlight.js').highlightAuto(code).value;
   },renderer:renderer
 });
+
+// console.log(renderer)
+// marked.setOptions({
+//   highlight: function (code) {
+//     return require('highlight.js').highlightAuto(code).value;
+//   }
+// });
+// var req = require.context("codemirror/theme/", true, /\.css/);
+// req.keys().forEach(function(key){
+//     req(key);
+// });
+
 
 import * as API from '../../serve/fontend/index.js'
 import co from 'co'
@@ -178,16 +181,10 @@ var LOGIN_CODE =  require('flogin').CODE
 export default {
   data () {
     return {
+        page_mode:0,//0:normal 1:markdown preview 
         floder_list:[],
-        visible:{
-            page_mode:0,//0:normal:treeview editor markdown 1:editor & markdown preview 2 only editor
-            treeview:1,
-            editor:1,
-            markdown:0
-        },
-        search_mode_show_flag:false,
-        search_mode_content:"",
         floder_mode_show_type:"1",
+        floder_add_show_switch:function(){},
         floder_add_show_flag:false,
         floder_active:"",
         floder_active_index:0,
@@ -195,6 +192,7 @@ export default {
         floder_add_visible:false,
         floder_add_input:"",
         floder_item_more_crud_element_visible:false,
+        // article_markdown_preview_text:"",
         article_item_more_crud_element_visible:false,
         article_list:[],
         article_active:"",
@@ -215,67 +213,18 @@ export default {
     }
   },
   methods:{
-        visible_only_editor:function(){
-            if(this.visible.page_mode!=2){
-                this.visible = {
-                    page_mode:2,
-                    treeview:0,
-                    editor:1,
-                    markdown:0
-                }
-            }else{
-                this.visible = {
-                    page_mode:0,
-                    treeview:1,
-                    editor:1,
-                    markdown:0
-                }
-            }
-        },
-        visible_editor_markdown:function(){
-            if(this.visible.page_mode!=1){
-                this.visible = {
-                    page_mode:1,
-                    treeview:0,
-                    editor:1,
-                    markdown:1
-                }
-            }else{
-                this.visible = {
-                    page_mode:0,
-                    treeview:1,
-                    editor:1,
-                    markdown:0
-                }
-            }
-            
-        },
-        // article_markdown_preview:function(){
-        //     if(this.page_mode === 1){
-        //         this.page_mode = 0
-        //         return 
-        //     }
-        //     this.page_mode = 1
-        // },
-        search_mode_show:function(){
-            this.search_mode_show_flag = !this.search_mode_show_flag
-        },
-        search_mode_ok:function(){
-            // search
-            var self = this
-            API.ARTICLE.search(this.search_mode_content)
-            .then(function(res){
-                // console.log(res)
-                self.article_list = res.result
-            })
-        },
         floder_mode_show:function(){
             // var self = this
             // console.log(123)
-            // this.floder_add_show_switch()
-            this.floder_add_show_flag = !this.floder_add_show_flag
+            this.floder_add_show_switch()
         },
-        
+        article_markdown_preview:function(){
+            if(this.page_mode === 1){
+                this.page_mode = 0
+                return 
+            }
+            this.page_mode = 1
+        },
         article_delete:function(){
             let self = this
             API.ARTICLE.remove(this.article_active)
@@ -370,7 +319,7 @@ export default {
 
                 self.article_content_style.changed = false
                 self.editor.on("change",self.onEditorChange)
-                self.floder_active = article_obj.result.floder_uid
+
                 self.article_active =  article_uid
 
                 callback()
@@ -412,6 +361,7 @@ export default {
             this.$refs.article_item_more.style.top=event.target.offsetParent.offsetTop+52+"px";
         },
         Mfloder_mode_show_type_change:function(){
+            // console.log(this.floder_mode_show_type)
             API.CONFIG.floder_sort_type(this.floder_mode_show_type)
         },
         floder_sort_refresh:function(){
@@ -658,13 +608,13 @@ export default {
     })
 
 
-    // this.floder_add_show_switch = SwitchF([function(){
-    //     self.floder_add_show_flag = true
-    // },
-    // function(){
-    //     self.floder_add_show_flag = false
-    // }]
-    // )
+    this.floder_add_show_switch = SwitchF([function(){
+        self.floder_add_show_flag = true
+    },
+    function(){
+        self.floder_add_show_flag = false
+    }]
+    )
     API.CONFIG.getAll().then(function(res){
         // console.log(res)
         self.floder_mode_show_type = res.result.floder_sort_type
