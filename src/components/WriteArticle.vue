@@ -603,7 +603,51 @@ export default {
             "Enter": "newlineAndIndentContinueMarkdownList",
             "Ctrl-S":function(cm) {
                 self.Delay.execute()
-            }
+            },
+            "Alt-H": function(cm) {
+            var spaces = cm.getSelection()
+            cm.replaceSelection('```html\r\n'+spaces+'\r\n```');
+          },
+          "Alt-J": function(cm) {
+            var spaces = cm.getSelection()
+            cm.replaceSelection('```js\r\n'+spaces+'\r\n```');
+          },
+          "Alt-K": function(cm) {
+            var spaces = cm.getSelection()
+            cm.replaceSelection('```raw\r\n'+spaces+'\r\n```');
+          },
+          "Alt-L": function(cm) {
+            var spaces = cm.getSelection()
+            cm.replaceSelection('['+spaces+']()');
+          },
+          "Alt-`": function(cm) {
+            var spaces = cm.getSelection()
+            cm.replaceSelection('`'+spaces+'`');
+          },
+          "Alt-1": function(cm) {
+            let curosr = cm.getCursor()
+            cm.setCursor(curosr.line,0)
+            var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            cm.replaceSelection("#"+spaces);
+          },
+          "Alt-2": function(cm) {
+            let curosr = cm.getCursor()
+            cm.setCursor(curosr.line,0)
+            var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            cm.replaceSelection("##"+spaces);
+          },
+          "Alt-3": function(cm) {
+            let curosr = cm.getCursor()
+            cm.setCursor(curosr.line,0)
+            var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            cm.replaceSelection("###"+spaces);
+          },
+          "Alt-I": function(cm) {
+            let curosr = cm.getCursor()
+            cm.setCursor(curosr.line,0)
+            var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            cm.replaceSelection("* "+spaces);
+          }
         }
     });
     this.Delay = new Delay(5000,function(){
