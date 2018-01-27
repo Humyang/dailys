@@ -1,3 +1,10 @@
+
+#markdown_parse_preview h1{
+    line-height: 44px;
+}
+#markdown_parse_preview h2{
+    line-height: 30px;
+}
 #markdown_parse_preview {
     padding: 0 120px;
     border-left: 1px solid #c5c5c5;

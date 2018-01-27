@@ -48,6 +48,8 @@ function * list (next){
         result:res
     }
 }
+
+
 /*更新列表*/
 function * update (next){
     let selfuid = this.request.fields.selfuid
