@@ -15,6 +15,7 @@ var koaRouter = require('koa-router')
 const router = new koaRouter();
 router.get('*',async function (ctx,next) {
     // debugger
+    
     if(ctx.URL.pathname.indexOf('.')!="-1"){
         await next()
     }else{
