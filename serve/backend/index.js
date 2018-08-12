@@ -78,7 +78,7 @@ app.use(body({textLimit:'10000kb',formLimit:'10000kb',jsonLimit:'10000kb'}))
 app.use(async function (ctx,next){
     try{
         // console.log('this.LOGIN_CONFIG',this.LOGIN_CONFIG)
-        // yield next
+        // await next
         await next()
     }catch (err) {
         try{

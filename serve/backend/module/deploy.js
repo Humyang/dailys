@@ -10,8 +10,8 @@ var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 
 /*插入和更新文章*/
-async functioncontent ctx{
-    let res = yield _getContent.call(this)
+async function content (ctx){
+    let res = await _getContent.call(this)
     
     // 渲染
     res.content
@@ -23,13 +23,13 @@ async functioncontent ctx{
     }
 }
 /*返回列表*/
-async functionlist ctx{
+async function list (ctx){
     let floder_uid = this.request.fields.floder_uid
 
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
         this.login_status)
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find(query_obj,{content:0})
@@ -49,7 +49,7 @@ function* _getContent(){
         {selfuid,isMove:{$ne:true}},
         this.login_status)
 
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(query_obj)
@@ -59,19 +59,19 @@ function* _getContent(){
     }
     return res
 }
-async functioncontent ctx{
+async function content (ctx){
     
 
     // let query_obj = objectAssign(
     //     {selfuid,isMove:{$ne:true}},
     //     this.login_status)
 
-    // let res = yield this.mongo
+    // let res = await this.mongo
     //                     .db(CONFIG.dbName)
     //                     .collection(MODULE_CONFIG.COLLECTION)
     //                     .findOne(query_obj)
 
-    let res = yield _getContent.call(this)
+    let res = await _getContent.call(this)
     res.history=[]
     this.body = {
         status:true,

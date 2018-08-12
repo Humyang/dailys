@@ -6,12 +6,12 @@ var MODULE_CONFIG = {
     COLLECTION:'userconfigs'
 }
 
-function * floderSortTypeUpdate (next){
+async function floderSortTypeUpdate (ctx){
     let type = this.request.fields.type
     // let obj = objectAssign({
     //                         floder_sort_type:type
     //                     },this.login_status)
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(
@@ -25,9 +25,9 @@ function * floderSortTypeUpdate (next){
         msg:'成功'
     }
 }
-function * getAll (next){
+async function getAll (ctx){
 
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(this.login_status)

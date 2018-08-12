@@ -33,7 +33,7 @@ function pathCheckAndCreate(path){
   }
 }
 /* 上传 */
-function * upload (next){
+async function upload (ctx){
     debugger;
     // console.log(123)
     // console.log(this.request.token)
@@ -42,7 +42,7 @@ function * upload (next){
     var root_path = process.cwd()
     var path = root_path + '/upload/'+ this.login_status.uid
     pathCheckAndCreate(path)
-    // var file_exits = yield accessPath(path)
+    // var file_exits = await accessPath(path)
     // if(!file_exits){
     //   try{
     //   fs.mkdirSync(path)
@@ -56,7 +56,7 @@ function * upload (next){
 
     // console.log(file_exits)
 
-    var obj = yield moveFile(file.path, path +'/'+file.name)
+    var obj = await moveFile(file.path, path +'/'+file.name)
 
     this.body = {
       status:1,

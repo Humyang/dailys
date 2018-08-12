@@ -6,7 +6,7 @@ var MODULE_CONFIG = {
     COLLECTION:'floders'
 }
 /*添加文集*/
-function * add (next){
+async function add (ctx){
 
     let name = this.request.fields.name
     let token = this.request.fields.token
@@ -21,7 +21,7 @@ function * add (next){
     // let logined_uid = this.login_status.uid
     
     // let insert_obj = objectAssign({word,describe,sentence,end_time,is_move:false},this.login_status)
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .insert(insert_obj)
@@ -34,9 +34,9 @@ function * add (next){
     }
 }
 /*返回列表*/
-function * list (next){
+async function list (ctx){
     let filter_object = objectAssign(this.login_status,{isMove:{$ne:true}})
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find(filter_object,{history:false})
@@ -47,7 +47,7 @@ function * list (next){
         result:res
     }
 }
-function * remove (next){
+async function remove (ctx){
     let floder_uid = this.request.fields.floder_uid
     // let logined_uid = this.login_status.uid
 
@@ -55,7 +55,7 @@ function * remove (next){
         {floder_uid},
         this.login_status)
 
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
@@ -76,7 +76,7 @@ function* _findOne(){
         {floder_uid,isMove:{$ne:true}},
         this.login_status)
 
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(query_obj)
@@ -84,7 +84,7 @@ function* _findOne(){
     return res
 }
 function Mfloder_list_modify(){
-    return function * plugin (next) {
+    return async function plugin (ctx) {
 
         // 为 floder 添加一个最后修改日期，用来排序
         // var timemap = (new Date()).timemap
@@ -94,7 +94,7 @@ function Mfloder_list_modify(){
         let timemap = this.request.fields.timemap
 
         let timemapTotal = 0
-        let findone = yield _findOne.call(this)
+        let findone = await _findOne.call(this)
         if(findone.timemapTotal){
             timemapTotal = findone.timemapTotal
         }
@@ -105,7 +105,7 @@ function Mfloder_list_modify(){
         {floder_uid},
         this.login_status)
 
-        let res = yield this.mongo
+        let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
@@ -119,7 +119,7 @@ function Mfloder_list_modify(){
 // console.log(query_obj)
 
         // let token = this.request.fields.token
-        // let _login_check_res = yield this.mongo
+        // let _login_check_res = await this.mongo
         //             .db(this.LOGIN_CONFIG.dbname)
         //             .collection('logined_token')
         //             .findOne({token:token})
@@ -135,7 +135,7 @@ function Mfloder_list_modify(){
         // // 2016年11月28日17:55:51 todo：
         // // _login_check_res.username
         // // 获取 user 的资料
-        // let userinfo = yield this.mongo
+        // let userinfo = await this.mongo
         //                         .db(this.LOGIN_CONFIG.dbname)
         //                         .collection('user')
         //                         .findOne({username:_login_check_res.username})
@@ -143,7 +143,7 @@ function Mfloder_list_modify(){
         // this.login_status = {
         //     uid:userinfo.uid
         // }
-        yield next
+        await next
     } 
 }
 

@@ -9,7 +9,7 @@ var MODULE_CONFIG = {
 var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 /*插入和更新文章*/
-async function functionadd (ctx){
+async function add (ctx){
 
     let title = this.request.fields.title
     let floder_uid = this.request.fields.floder_uid
@@ -19,7 +19,7 @@ async function functionadd (ctx){
         {title,floder_uid,selfuid,isMove:false},
         this.login_status)
     
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .insert(insert_obj)
@@ -30,13 +30,13 @@ async function functionadd (ctx){
     }
 }
 /*返回列表*/
-async function functionlist (ctx){
+async function  list (ctx){
     let floder_uid = this.request.fields.floder_uid
 
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
         this.login_status)
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find(query_obj,{content:0,history:false})
@@ -51,7 +51,7 @@ async function functionlist (ctx){
 
 
 /*更新列表*/
-async function functionupdate (ctx){
+async function  update (ctx){
     let selfuid = this.request.fields.selfuid
     let content = this.request.fields.content
     let title = this.request.fields.title
@@ -60,7 +60,7 @@ async function functionupdate (ctx){
         {selfuid,isMove:{$ne:true}},
         this.login_status)
 
-    let query_content = yield _getContent.call(this)
+    let query_content = await _getContent.call(this)
     
     // let patches = dmp.patch_make(content)
     let patches = content
@@ -77,7 +77,7 @@ async function functionupdate (ctx){
         }
     }
 
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
@@ -89,14 +89,14 @@ async function functionupdate (ctx){
         result:res
     }
 }
-async function functionremove (ctx){
+async function  remove (ctx){
     let selfuid = this.request.fields.selfuid
 
     let query_obj = objectAssign(
         {selfuid},
         this.login_status)
 
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
@@ -129,7 +129,7 @@ function* _getContent(){
         {selfuid,isMove:{$ne:true}},
         this.login_status)
 
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(query_obj)
@@ -140,19 +140,19 @@ function* _getContent(){
     return res
 }
 
-async function functioncontent (ctx){
+async function  content (ctx){
     
 
     // let query_obj = objectAssign(
     //     {selfuid,isMove:{$ne:true}},
     //     this.login_status)
 
-    // let res = yield this.mongo
+    // let res = await this.mongo
     //                     .db(CONFIG.dbName)
     //                     .collection(MODULE_CONFIG.COLLECTION)
     //                     .findOne(query_obj)
 
-    let res = yield _getContent.call(this)
+    let res = await _getContent.call(this)
     res.history=[]
     this.body = {
         status:true,
@@ -160,8 +160,8 @@ async function functioncontent (ctx){
     }
 }
 
-async function functionfirst (ctx){
-    yield ctx
+async function  first (ctx){
+    await ctx
 }
 module.exports = {
     add,

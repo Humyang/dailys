@@ -5,12 +5,12 @@ var MODULE_CONFIG = {
 }
 // 搜索目录和文章
 
-function * search (next){
+async function search (ctx){
 	let keywords = this.request.fields.keywords
 	// console.log(keywords
 	// 	)
 	// let filter_object = objectAssign(this.login_status,{isMove:{$ne:true}})
-    let res = yield this.mongo
+    let res = await this.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find({$or:[{content:{$regex:".*"+keywords+".*"}},{title:{$regex:".*"+keywords+".*"}}]},	
