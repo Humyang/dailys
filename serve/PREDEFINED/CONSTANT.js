@@ -1,11 +1,30 @@
 let setip=''
+let Host1 = ''
+
+// if (process.env.NODE_ENV === 'production') {
+//  setip = 'http://118.89.19.201'
+//   // setip = 'http://localhost'
+// }else{
+//  setip = 'http://localhost'
+// }
+
 if (process.env.NODE_ENV === 'production') {
- setip = 'http://118.89.19.201'
-  // setip = 'http://localhost'
-}else{
- setip = 'http://localhost'
-}
+
+  setip = 'http://daily.api.dve2.com'
+  Host1 = 'http://daily.dve2.com'
+ 
+ }else{
+ 
+  setip = 'http://localhost:8202'
+  Host1 = 'http://localhost:8090'
+ }
 export const IP = setip
+export const Host = Host1
+
+
+
+
+
 export const FLAG="APP_"
 export const USERNAME = FLAG+'USERNAME' //用户名
 export const SESSION_TOKEN = FLAG+'SESSION_TOKEN' //token

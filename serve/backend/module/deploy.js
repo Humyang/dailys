@@ -10,7 +10,7 @@ var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 
 /*插入和更新文章*/
-function * content (next){
+async functioncontent ctx{
     let res = yield _getContent.call(this)
     
     // 渲染
@@ -23,7 +23,7 @@ function * content (next){
     }
 }
 /*返回列表*/
-function * list (next){
+async functionlist ctx{
     let floder_uid = this.request.fields.floder_uid
 
     let query_obj = objectAssign(
@@ -59,7 +59,7 @@ function* _getContent(){
     }
     return res
 }
-function * content (next){
+async functioncontent ctx{
     
 
     // let query_obj = objectAssign(

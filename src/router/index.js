@@ -6,6 +6,7 @@ import Login from '../components/Login'
 import deploy from '../components/deploy'
 Vue.use(Router)
 export default new Router({
+  mode:"history",
   routes: [
     {
       path: '/',

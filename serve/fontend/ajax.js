@@ -36,12 +36,14 @@ const mFetch = function(path,data,token) {
             }
         }
         let root = this
-        fetch(IP+':'+CONFIG.servePort+path,
+        console.log('token')
+        fetch(IP+path,
         {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "_token":token || data.token || comb_data.token ||BASE.getToken()||'unkonw'
           },
           body: JSON.stringify(comb_data)
         })

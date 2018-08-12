@@ -9,7 +9,7 @@ var MODULE_CONFIG = {
 var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 /*插入和更新文章*/
-function * add (next){
+async function functionadd (ctx){
 
     let title = this.request.fields.title
     let floder_uid = this.request.fields.floder_uid
@@ -30,7 +30,7 @@ function * add (next){
     }
 }
 /*返回列表*/
-function * list (next){
+async function functionlist (ctx){
     let floder_uid = this.request.fields.floder_uid
 
     let query_obj = objectAssign(
@@ -51,7 +51,7 @@ function * list (next){
 
 
 /*更新列表*/
-function * update (next){
+async function functionupdate (ctx){
     let selfuid = this.request.fields.selfuid
     let content = this.request.fields.content
     let title = this.request.fields.title
@@ -89,7 +89,7 @@ function * update (next){
         result:res
     }
 }
-function * remove (next){
+async function functionremove (ctx){
     let selfuid = this.request.fields.selfuid
 
     let query_obj = objectAssign(
@@ -140,7 +140,7 @@ function* _getContent(){
     return res
 }
 
-function * content (next){
+async function functioncontent (ctx){
     
 
     // let query_obj = objectAssign(
@@ -160,8 +160,8 @@ function * content (next){
     }
 }
 
-function * first (next){
-    yield next
+async function functionfirst (ctx){
+    yield ctx
 }
 module.exports = {
     add,
