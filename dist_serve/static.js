@@ -1,5 +1,6 @@
-var app = require('koa')()
+var koa = require('koa')
 var serve = require('koa-static');
+var app = new koa();
 // app.use(function *(next){
     // this.set('Cache-Control', 'no-cache');
     // yield* next
