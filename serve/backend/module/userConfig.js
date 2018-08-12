@@ -10,12 +10,12 @@ async function floderSortTypeUpdate (ctx){
     let type = ctx.request.fields.type
     // let obj = objectAssign({
     //                         floder_sort_type:type
-    //                     },ctx.LOGIN_STATUS)
+    //                     },{uid:ctx.LOGIN_STATUS.uid})
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(
-                            ctx.LOGIN_STATUS,
+                            {uid:ctx.LOGIN_STATUS.uid},
                             {'$set':{floder_sort_type:type}},
                             {'upsert':true}
                         )
@@ -30,7 +30,7 @@ async function getAll (ctx){
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .findOne(ctx.LOGIN_STATUS)
+                        .findOne({uid:ctx.LOGIN_STATUS.uid})
     ctx.body = {
         status:true,
         result:res

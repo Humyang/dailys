@@ -7,9 +7,6 @@ var MODULE_CONFIG = {
 
 async function search (ctx){
 	let keywords = ctx.request.fields.keywords
-	// console.log(keywords
-	// 	)
-	// let filter_object = objectAssign(ctx.LOGIN_STATUS,{isMove:{$ne:true}})
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)

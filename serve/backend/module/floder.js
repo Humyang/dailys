@@ -17,10 +17,10 @@ async function add (ctx){
                             isMove:false,
                             timemap:(new Date()).getTime(),
                             timemapTotal:0
-                        },ctx.LOGIN_STATUS)
-    // let logined_uid = ctx.LOGIN_STATUS.uid
+                        },{uid:ctx.LOGIN_STATUS.uid})
+    // let logined_uid = {uid:ctx.LOGIN_STATUS.uid}
     
-    // let insert_obj = objectAssign({word,describe,sentence,end_time,is_move:false},ctx.LOGIN_STATUS)
+    // let insert_obj = objectAssign({word,describe,sentence,end_time,is_move:false},{uid:ctx.LOGIN_STATUS.uid})
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
@@ -35,7 +35,7 @@ async function add (ctx){
 }
 /*返回列表*/
 async function list (ctx){
-    let filter_object = objectAssign(ctx.LOGIN_STATUS,{isMove:{$ne:true}})
+    let filter_object = objectAssign({uid:ctx.LOGIN_STATUS.uid},{isMove:{$ne:true}})
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
@@ -49,11 +49,11 @@ async function list (ctx){
 }
 async function remove (ctx){
     let floder_uid = ctx.request.fields.floder_uid
-    // let logined_uid = ctx.LOGIN_STATUS.uid
+    // let logined_uid = {uid:ctx.LOGIN_STATUS.uid}
 
     let query_obj = objectAssign(
         {floder_uid},
-        ctx.LOGIN_STATUS)
+        {uid:ctx.LOGIN_STATUS.uid})
 
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
@@ -74,7 +74,7 @@ async function  _findOne(ctx){
 
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
-        ctx.LOGIN_STATUS)
+        {uid:ctx.LOGIN_STATUS.uid})
 
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
@@ -103,7 +103,7 @@ function Mfloder_list_modify(){
         // console.log(timemap)
         let query_obj = objectAssign(
         {floder_uid},
-        ctx.LOGIN_STATUS)
+        {uid:ctx.LOGIN_STATUS.uid})
 
         let res = await ctx.mongo
                         .db(CONFIG.dbName)

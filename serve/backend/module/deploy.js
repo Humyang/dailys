@@ -28,7 +28,7 @@ async function list (ctx){
 
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
-        ctx.LOGIN_STATUS)
+        {uid:ctx.LOGIN_STATUS.uid})
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
@@ -47,7 +47,7 @@ async function  _getContent(){
 
     let query_obj = objectAssign(
         {selfuid,isMove:{$ne:true}},
-        ctx.LOGIN_STATUS)
+        {uid:ctx.LOGIN_STATUS.uid})
 
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
@@ -64,7 +64,7 @@ async function content (ctx){
 
     // let query_obj = objectAssign(
     //     {selfuid,isMove:{$ne:true}},
-    //     ctx.LOGIN_STATUS)
+    //     {uid:ctx.LOGIN_STATUS.uid})
 
     // let res = await ctx.mongo
     //                     .db(CONFIG.dbName)
