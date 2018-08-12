@@ -19,7 +19,7 @@ async function add (ctx){
         {title,floder_uid,selfuid,isMove:false},
         this.login_status)
     
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .insert(insert_obj)
@@ -36,7 +36,7 @@ async function  list (ctx){
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
         this.login_status)
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find(query_obj,{content:0,history:false})
@@ -77,7 +77,7 @@ async function  update (ctx){
         }
     }
 
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
@@ -96,7 +96,7 @@ async function  remove (ctx){
         {selfuid},
         this.login_status)
 
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(query_obj,
@@ -129,7 +129,7 @@ function* _getContent(){
         {selfuid,isMove:{$ne:true}},
         this.login_status)
 
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(query_obj)
@@ -147,7 +147,7 @@ async function  content (ctx){
     //     {selfuid,isMove:{$ne:true}},
     //     this.login_status)
 
-    // let res = await this.mongo
+    // let res = await ctx.mongo
     //                     .db(CONFIG.dbName)
     //                     .collection(MODULE_CONFIG.COLLECTION)
     //                     .findOne(query_obj)

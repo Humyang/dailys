@@ -29,7 +29,7 @@ async function list (ctx){
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
         this.login_status)
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find(query_obj,{content:0})
@@ -49,7 +49,7 @@ function* _getContent(){
         {selfuid,isMove:{$ne:true}},
         this.login_status)
 
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(query_obj)
@@ -66,7 +66,7 @@ async function content (ctx){
     //     {selfuid,isMove:{$ne:true}},
     //     this.login_status)
 
-    // let res = await this.mongo
+    // let res = await ctx.mongo
     //                     .db(CONFIG.dbName)
     //                     .collection(MODULE_CONFIG.COLLECTION)
     //                     .findOne(query_obj)

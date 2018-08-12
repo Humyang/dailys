@@ -11,7 +11,7 @@ async function floderSortTypeUpdate (ctx){
     // let obj = objectAssign({
     //                         floder_sort_type:type
     //                     },this.login_status)
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .update(
@@ -27,7 +27,7 @@ async function floderSortTypeUpdate (ctx){
 }
 async function getAll (ctx){
 
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(this.login_status)

@@ -10,7 +10,7 @@ async function search (ctx){
 	// console.log(keywords
 	// 	)
 	// let filter_object = objectAssign(this.login_status,{isMove:{$ne:true}})
-    let res = await this.mongo
+    let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find({$or:[{content:{$regex:".*"+keywords+".*"}},{title:{$regex:".*"+keywords+".*"}}]},	
