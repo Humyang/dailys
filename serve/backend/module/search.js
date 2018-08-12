@@ -6,10 +6,10 @@ var MODULE_CONFIG = {
 // 搜索目录和文章
 
 async function search (ctx){
-	let keywords = this.request.fields.keywords
+	let keywords = ctx.request.fields.keywords
 	// console.log(keywords
 	// 	)
-	// let filter_object = objectAssign(this.login_status,{isMove:{$ne:true}})
+	// let filter_object = objectAssign(ctx.LOGIN_STATUS,{isMove:{$ne:true}})
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
@@ -23,7 +23,7 @@ async function search (ctx){
                     		  // { score: { $meta: "textScore" },content:0,history:false})
                         // .sort( { score: { $meta: "textScore" }})
                         // .toArray()
-    this.body = {
+    ctx.body = {
         status:true,
         result:res
     }

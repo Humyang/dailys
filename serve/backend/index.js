@@ -1,11 +1,11 @@
-var app = require('koa')()
+var koa = require('koa')
 var body = require('koa-better-body')
 var router = require('koa-router')()
 var cors = require('koa-cors')
 var mongo = require('koa-mongo')
 
 
-
+const app = new koa();
 // var CONSTANT = require('../PREDEFINED/CONSTANT.js')
 var objectAssign = require('object-assign')
 
@@ -52,7 +52,7 @@ router.post('/floder/remove',OAUTCH_CLIENT.login_check_remote(),FLODER.remove)
 // router.post('/regiest',/*LOGIN.verify_code(),*/LOGIN.regiest)
 // router.post('/login',/*LOGIN.verify_code(),*/LOGIN.login)
 // router.post('/login_status_check',OAUTCH_CLIENT.login_check_remote(),function *ctx{
-//     this.body = {
+//     ctx.body = {
 //         status:true,
 //         msg:'在线'
 //     }
@@ -60,12 +60,15 @@ router.post('/floder/remove',OAUTCH_CLIENT.login_check_remote(),FLODER.remove)
 
     
 // 个人配置
-router.post('/config/getAll',OAUTCH_CLIENT.login_check_remote(),USERCONFIG.getAll)
+router.post('/config/getAll',async function(ctx,next){
+    console.log(ctx.header._token)
+    await next()
+},OAUTCH_CLIENT.login_check_remote(),USERCONFIG.getAll)
 router.post('/config/floder_sort_type_update',OAUTCH_CLIENT.login_check_remote(),USERCONFIG.floderSortTypeUpdate)
 
 // 上传
 router.options('/upload', async function(ctx,next){
-//   this.body=true
+//   ctx.body=true
   ctx.body = true
   await next()
 })
@@ -77,7 +80,7 @@ app.use(mongo())
 app.use(body({textLimit:'10000kb',formLimit:'10000kb',jsonLimit:'10000kb'}))
 app.use(async function (ctx,next){
     try{
-        // console.log('this.LOGIN_CONFIG',this.LOGIN_CONFIG)
+        // console.log('ctx.LOGIN_CONFIG',ctx.LOGIN_CONFIG)
         // await next
         await next()
     }catch (err) {
@@ -88,10 +91,10 @@ app.use(async function (ctx,next){
             ctx.body = {
                 status:false,
                 msg:err.message,
-                path:this.request.url
+                path:ctx.request.url
             }
         }
-        console.log(err)
+        console.log('catch',err)
     }
 })
 app.use(router.routes()).use(router.allowedMethods());

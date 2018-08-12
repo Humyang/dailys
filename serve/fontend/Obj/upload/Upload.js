@@ -26,7 +26,7 @@ var Upload = function(options){
       onProcess:undefined
     },options)
 
-    this.serve_url = IP + ":8202/upload"
+    this.serve_url = IP + "/upload"
 
     this.fd = new FormData();
     
@@ -75,9 +75,10 @@ var Upload = function(options){
 }
 Upload.prototype.start = function(file){
   this.fd.append("file", file);
-  this.fd.append("token", BASE.getToken());
+//   this.fd.append("token", BASE.getToken());
   
   this.xhr.open("post",this.serve_url,true);
+  this.xhr.setRequestHeader('_token', BASE.getToken());
   this.xhr.send(this.fd);
   this.fd.delete("file")
   this.fd.delete("token")

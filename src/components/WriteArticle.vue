@@ -135,7 +135,7 @@ import '../../node_modules/highlight.js/styles/pojoaque.css'
 import '../css/custom_markdown_preview.css'
 
 import {
-   IP as PREDEFINEDIP
+   IP
 } from '../../serve/PREDEFINED/CONSTANT.js'
 var marked = require('marked');
 var renderer = new marked.Renderer();
@@ -250,13 +250,13 @@ export default {
             }
             
         },
-        // article_markdown_preview:function(){
-        //     if(this.page_mode === 1){
-        //         this.page_mode = 0
-        //         return 
-        //     }
-        //     this.page_mode = 1
-        // },
+        article_markdown_preview:function(){
+            if(this.page_mode === 1){
+                this.page_mode = 0
+                return 
+            }
+            this.page_mode = 1
+        },
         search_mode_show:function(){
             this.search_mode_show_flag = !this.search_mode_show_flag
         },
@@ -689,14 +689,10 @@ export default {
         // serve_url:'http://localhost:8202/upload',
         onSuccess:function(res){
             // console.log('res',res)
-            
             let current_line = self.editor.getCursor().line
             // console.log(self.editor.getCursor())
-            
-            console.log(PREDEFINEDIP)
-
-            let img = "![](" + res.img_url.replace("IPADDRESS",PREDEFINEDIP) + ")"
-
+            // console.log(PREDEFINEDIP)
+            let img = "![](" + res.img_url.replace("IPADDRESS",IP) + ")"
             self.editor.replaceRange("\r\n\r\n"+img+"\r\n\r\n",{line:current_line,ch:0})
         }
     })

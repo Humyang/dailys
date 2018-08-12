@@ -8,8 +8,8 @@ var MODULE_CONFIG = {
 /*添加文集*/
 async function add (ctx){
 
-    let name = this.request.fields.name
-    let token = this.request.fields.token
+    let name = ctx.request.fields.name
+    let token = ctx.request.fields.token
     let floder_uid = uid(40)
     let insert_obj = objectAssign({
                             name,
@@ -17,16 +17,16 @@ async function add (ctx){
                             isMove:false,
                             timemap:(new Date()).getTime(),
                             timemapTotal:0
-                        },this.login_status)
-    // let logined_uid = this.login_status.uid
+                        },ctx.LOGIN_STATUS)
+    // let logined_uid = ctx.LOGIN_STATUS.uid
     
-    // let insert_obj = objectAssign({word,describe,sentence,end_time,is_move:false},this.login_status)
+    // let insert_obj = objectAssign({word,describe,sentence,end_time,is_move:false},ctx.LOGIN_STATUS)
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .insert(insert_obj)
 
-    this.body = {
+    ctx.body = {
         status:true,
         msg:'更新成功',
         id:res.insertedIds[1],
@@ -35,25 +35,25 @@ async function add (ctx){
 }
 /*返回列表*/
 async function list (ctx){
-    let filter_object = objectAssign(this.login_status,{isMove:{$ne:true}})
+    let filter_object = objectAssign(ctx.LOGIN_STATUS,{isMove:{$ne:true}})
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .find(filter_object,{history:false})
                         .sort({_id:-1})
                         .toArray()
-    this.body = {
+    ctx.body = {
         status:true,
         result:res
     }
 }
 async function remove (ctx){
-    let floder_uid = this.request.fields.floder_uid
-    // let logined_uid = this.login_status.uid
+    let floder_uid = ctx.request.fields.floder_uid
+    // let logined_uid = ctx.LOGIN_STATUS.uid
 
     let query_obj = objectAssign(
         {floder_uid},
-        this.login_status)
+        ctx.LOGIN_STATUS)
 
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
@@ -62,19 +62,19 @@ async function remove (ctx){
                             {'$set':{isMove:true}}
                             )
     // console.log(query_obj)
-    this.body = {
+    ctx.body = {
         status:true,
         result:res
     }
 }
 
-function* _findOne(){
+async function  _findOne(ctx){
 
-    let floder_uid = this.request.fields.floder_uid
+    let floder_uid = ctx.request.fields.floder_uid
 
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
-        this.login_status)
+        ctx.LOGIN_STATUS)
 
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
@@ -84,17 +84,17 @@ function* _findOne(){
     return res
 }
 function Mfloder_list_modify(){
-    return async function plugin (ctx) {
+    return async function plugin (ctx,next) {
 
         // 为 floder 添加一个最后修改日期，用来排序
         // var timemap = (new Date()).timemap
 
-        let floder_uid = this.request.fields.floder_uid
+        let floder_uid = ctx.request.fields.floder_uid
 
-        let timemap = this.request.fields.timemap
+        let timemap = ctx.request.fields.timemap
 
         let timemapTotal = 0
-        let findone = await _findOne.call(this)
+        let findone = await _findOne(ctx)
         if(findone.timemapTotal){
             timemapTotal = findone.timemapTotal
         }
@@ -103,7 +103,7 @@ function Mfloder_list_modify(){
         // console.log(timemap)
         let query_obj = objectAssign(
         {floder_uid},
-        this.login_status)
+        ctx.LOGIN_STATUS)
 
         let res = await ctx.mongo
                         .db(CONFIG.dbName)
@@ -118,9 +118,9 @@ function Mfloder_list_modify(){
 
 // console.log(query_obj)
 
-        // let token = this.request.fields.token
+        // let token = ctx.request.fields.token
         // let _login_check_res = await ctx.mongo
-        //             .db(this.LOGIN_CONFIG.dbname)
+        //             .db(ctx.LOGIN_CONFIG.dbname)
         //             .collection('logined_token')
         //             .findOne({token:token})
         // if(_login_check_res === null){
@@ -136,14 +136,14 @@ function Mfloder_list_modify(){
         // // _login_check_res.username
         // // 获取 user 的资料
         // let userinfo = await ctx.mongo
-        //                         .db(this.LOGIN_CONFIG.dbname)
+        //                         .db(ctx.LOGIN_CONFIG.dbname)
         //                         .collection('user')
         //                         .findOne({username:_login_check_res.username})
 
-        // this.login_status = {
+        // ctx.LOGIN_STATUS = {
         //     uid:userinfo.uid
         // }
-        await next
+        await next()
     } 
 }
 

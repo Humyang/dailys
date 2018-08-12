@@ -34,13 +34,13 @@ function pathCheckAndCreate(path){
 }
 /* 上传 */
 async function upload (ctx){
-    debugger;
+    // debugger;
     // console.log(123)
-    // console.log(this.request.token)
-    var file = this.request.files[0]
-    // './upload/'+ this.login_status.uid
+    // console.log(ctx.request.token)
+    var file = ctx.request.files[0]
+    // './upload/'+ ctx.LOGIN_STATUS.uid
     var root_path = process.cwd()
-    var path = root_path + '/upload/'+ this.login_status.uid
+    var path = root_path + '/upload/'+ ctx.LOGIN_STATUS.uid
     pathCheckAndCreate(path)
     // var file_exits = await accessPath(path)
     // if(!file_exits){
@@ -55,12 +55,12 @@ async function upload (ctx){
     // });
 
     // console.log(file_exits)
-
+    console.log(file.path,path +'/'+file.name)
     var obj = await moveFile(file.path, path +'/'+file.name)
 
-    this.body = {
+    ctx.body = {
       status:1,
-      img_url:"IPADDRESS:"+CONFIG.servePort+"/"+this.login_status.uid+'/'+file.name,
+      img_url:"IPADDRESS/"+ctx.LOGIN_STATUS.uid+'/'+file.name,
       size:file.size
     }
 }

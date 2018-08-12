@@ -11,24 +11,24 @@ var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 
 /*插入和更新文章*/
 async function content (ctx){
-    let res = await _getContent.call(this)
+    let res = await _getContent.call(ctx)
     
     // 渲染
     res.content
     // 写入
     res.history=[]
-    this.body = {
+    ctx.body = {
         status:true,
         result:res
     }
 }
 /*返回列表*/
 async function list (ctx){
-    let floder_uid = this.request.fields.floder_uid
+    let floder_uid = ctx.request.fields.floder_uid
 
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
-        this.login_status)
+        ctx.LOGIN_STATUS)
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
@@ -36,18 +36,18 @@ async function list (ctx){
                         .sort({_id:-1})
                         .toArray()
 
-    this.body = {
+    ctx.body = {
         status:true,
         result:res
     }
 }
-function* _getContent(){
+async function  _getContent(){
 
-    let selfuid = this.request.fields.selfuid
+    let selfuid = ctx.request.fields.selfuid
 
     let query_obj = objectAssign(
         {selfuid,isMove:{$ne:true}},
-        this.login_status)
+        ctx.LOGIN_STATUS)
 
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
@@ -64,16 +64,16 @@ async function content (ctx){
 
     // let query_obj = objectAssign(
     //     {selfuid,isMove:{$ne:true}},
-    //     this.login_status)
+    //     ctx.LOGIN_STATUS)
 
     // let res = await ctx.mongo
     //                     .db(CONFIG.dbName)
     //                     .collection(MODULE_CONFIG.COLLECTION)
     //                     .findOne(query_obj)
 
-    let res = await _getContent.call(this)
+    let res = await _getContent.call(ctx)
     res.history=[]
-    this.body = {
+    ctx.body = {
         status:true,
         result:res
     }

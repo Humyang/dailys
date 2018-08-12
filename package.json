@@ -11,7 +11,7 @@
     "e2e": "node test/e2e/runner.js",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "serve": "node serve/backend/index.js",
-    "serve_debug":"node --inspect serve/backend/index.js",
+    "serve_debug": "node --inspect-brk serve/backend/index.js",
     "test_article": "mocha --compilers js:babel-register --recursive serve/test/article.js",
     "test_floder": "mocha --compilers js:babel-register --recursive serve/test/floder.js",
     "test_login": "mocha --compilers js:babel-register --recursive serve/test/login.js",
@@ -23,6 +23,8 @@
     "css-loader": "^0.26.2",
     "flogin": "^0.1.2",
     "highlight.js": "^9.10.0",
+    "koa": "^2.5.2",
+    "koa-router": "^7.4.0",
     "marked": "^0.3.6",
     "md5": "^2.2.1",
     "vue": "^2.2.1",
@@ -95,7 +97,8 @@
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
-    "webpack-merge": "^2.6.1"
+    "webpack-merge": "^2.6.1",
+    "koa-router": "^7.2.1"
   },
   "engines": {
     "node": ">= 4.0.0",
