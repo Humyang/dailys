@@ -10,8 +10,8 @@ let Host1 = ''
 
 if (process.env.NODE_ENV === 'production') {
 
-  setip = 'http://daily.api.dve2.com'
-  Host1 = 'http://daily.dve2.com'
+  setip = 'http://dailys.api.dve2.com'
+  Host1 = 'http://dailys.dve2.com'
  
  }else{
  
