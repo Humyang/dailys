@@ -211,7 +211,8 @@ export default {
         editor:"",
         Delay:"",
         onEditorChange:"",
-        EVA:""
+        EVA:"",
+        article_markdown_preview_text:""
     }
   },
   methods:{
@@ -517,11 +518,11 @@ export default {
         }
   },
   computed: {
-    article_markdown_preview_text:function(){
-        let title = "# " + this.article_title+"\n"
-        // self.EVA.value = self.editor.getValue()
-        return marked(title+this.article_content)
-    },
+    // article_markdown_preview_text:function(){
+    //     let title = "# " + this.article_title+"\n"
+    //     // self.EVA.value = self.editor.getValue()
+    //     return marked(title+this.article_content)
+    // },
     floder_list_computed:function(){
         // let new_list = Object.assign({},this.floder_list) 
         // 直接赋值是引用方式
@@ -655,8 +656,10 @@ export default {
         // let new_text = self.editor.getValue()
         self.EVA.value = self.editor.getValue()
         // console.log(self.EVA.diff_result)
-
+        console.log(123)
+        self.article_markdown_preview_text=marked(self.EVA.value)
         self.article_content_save(self.EVA.patch_list,self.article_title,self.article_active,self.floder_active)
+        
     })
 
 
