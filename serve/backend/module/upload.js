@@ -6,10 +6,13 @@ var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 
 const Path = require('path');
 
-var moveFile = function(oldPath,newPath) {
-  return function(fn) {
-    fs.rename(oldPath, newPath,fn)
-  }
+function moveFile(oldPath,newPath) {
+    return new Promise((reslove,reject)=>{
+      fs.rename(oldPath, newPath,function(err,res){
+        if(err){reslove(false)}
+        reslove(true)
+      })
+    })
 }
 
 /*
@@ -34,6 +37,7 @@ function pathCheckAndCreate(path){
 }
 /* 上传 */
 async function upload (ctx){
+  debugger
     // debugger;
     // console.log(123)
     // console.log(ctx.request.token)
@@ -55,8 +59,9 @@ async function upload (ctx){
     // });
 
     // console.log(file_exits)
-    console.log(file.path,path +'/'+file.name)
-    var obj = await moveFile(file.path, path +'/'+file.name)
+    let now=(new Date()).getTime()
+    console.log(file.path,path +'/'+now+file.name)
+    var obj = await moveFile(file.path, path +'/'+now+file.name)
 
     ctx.body = {
       status:1,

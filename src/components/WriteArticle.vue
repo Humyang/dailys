@@ -691,10 +691,7 @@ export default {
     var dnd_upload = new dndUpload(document.getElementsByClassName("article")[0],{
         // serve_url:'http://localhost:8202/upload',
         onSuccess:function(res){
-            // console.log('res',res)
             let current_line = self.editor.getCursor().line
-            // console.log(self.editor.getCursor())
-            // console.log(PREDEFINEDIP)
             let img = "![](" + res.img_url.replace("IPADDRESS",IP) + ")"
             self.editor.replaceRange("\r\n\r\n"+img+"\r\n\r\n",{line:current_line,ch:0})
         }

@@ -16,6 +16,7 @@ if (process.env.NODE_ENV === 'production') {
  }else{
  
   setip = 'http://localhost:8202'
+  // setip = 'http://dailys.api.dve2.com'
   Host1 = 'http://localhost:8090'
  }
 export const IP = setip
