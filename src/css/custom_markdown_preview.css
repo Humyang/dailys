@@ -42,5 +42,5 @@
 #markdown_parse_preview .lang-raw { background-color: initial; font-weight: 500; line-height: 29px }
 #markdown_parse_preview .lang-raw code { background-color: initial; color: #77a6cb; padding: 0; margin: 0; display: inline-block }
 #markdown_parse_preview img{
-    width: 100%;
+    max-width: 100%;
 }
