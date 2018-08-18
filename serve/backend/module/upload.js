@@ -60,12 +60,13 @@ async function upload (ctx){
 
     // console.log(file_exits)
     let now=(new Date()).getTime()
+  
     console.log(file.path,path +'/'+now+file.name)
     var obj = await moveFile(file.path, path +'/'+now+file.name)
 
     ctx.body = {
       status:1,
-      img_url:"IPADDRESS/"+ctx.LOGIN_STATUS.uid+'/'+file.name,
+      img_url:"IPADDRESS/"+ctx.LOGIN_STATUS.uid+'/'+now+file.name,
       size:file.size
     }
 }
