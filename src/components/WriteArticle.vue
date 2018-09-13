@@ -53,6 +53,7 @@
                 <ul class="item">
                     <li v-for="(item,index) in floder_list_computed"
                         :class="{active:floder_active === floder_list[index].floder_uid,editor:floder_edit_index===index}"
+                        :key="index"
                         @click="floder_item_active(index)" >
                         <template v-if="index!=floder_edit_index">
                             {{index+1+'、'+item.name}}
@@ -80,6 +81,7 @@
                 <ul >
                     <template v-for="(item,index) in article_list">
                         <li @click="article_item_active(index)"
+                            :key="index"
                             :class="{active:article_active === article_list[index].selfuid,editor:article_edit_index===index}">
                             <i class="i1"></i>
                             <p class="p1">{{item.title}}</p>
@@ -326,36 +328,14 @@ export default {
 
             this.editor.off("change",this.onEditorChange)
             this.article_edit_index = index
-            // this.article_active =  this.article_list[index].selfuid
             self.EVA.reset()
-            
             self._acticle_load(article_uid,function(){
                 self.$router.push({ name: 'WriteArticle2', 
                 params: { 
                     floderid: self.floder_active,
                     articleid:self.article_active }
                 })
-
             })
-
-
-            // co(function*(){
-            //     let article_obj = yield API.ARTICLE.content(self.article_active,self.article_active)
-
-            //     self.article_title = article_obj.result.title
-            //     self.EVA.value = article_obj.result.content
-
-            //     self.editor.setValue(self.EVA.value)
-            //     self.article_content = article_obj.result.content
-            //     // self.old_text = article_obj.result.content
-
-            //     self.article_content_style.changed = false
-            //     self.editor.on("change",self.onEditorChange)
-
-            // })
-            // .catch(function(err){
-                
-            // })
         },
         _acticle_load:function(article_uid,callback){
             let self = this
@@ -367,6 +347,10 @@ export default {
 
                 self.editor.setValue(self.EVA.value)
                 self.article_content = article_obj.result.content
+                setTimeout(() => {
+                    self.article_markdown_preview_text=marked(self.article_content)
+                }, 100);
+                
                 // self.old_text = article_obj.result.content
 
                 self.article_content_style.changed = false
