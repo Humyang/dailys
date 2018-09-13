@@ -105,6 +105,8 @@
                 <i  @click="visible_only_editor" 
                     class="iconfont icon-quanping i i2 "
                     :class="{active:visible.page_mode===2}"></i>
+                <i  @click="article_deploy"
+                    class="iconfont icon-yijingfabu i i1 animated" ></i>
                 <i  @click="article_content_execute"
                     class="iconfont icon-baocun i i1 animated" 
                     :class="{saving:article_content_style.saving,
@@ -218,6 +220,11 @@ export default {
     }
   },
   methods:{
+    //   发布文章
+      article_deploy(){
+          API.ARTICLE.deploy(this.article_active)
+      },
+
         visible_only_editor:function(){
             if(this.visible.page_mode!=2){
                 this.visible = {

@@ -69,3 +69,10 @@ export const remove = function(selfuid){
     }
     return mFetch('/article/remove',data)
 }
+// 发布文章
+export const deploy = function(selfuid){
+    let data={
+        selfuid
+    }
+    return mFetch('/deploy/update',data)
+}

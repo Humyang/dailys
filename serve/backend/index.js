@@ -56,7 +56,10 @@ router.post('/floder/remove',OAUTCH_CLIENT.login_check_remote(),FLODER.remove)
 
 // 发布
 var DEPLOY = require('./module/deploy.js')
+
 router.get('/t/:id',DEPLOY.t)
+router.get('/t',DEPLOY.getIndex)
+router.post('/deploy/update',OAUTCH_CLIENT.login_check_remote(),DEPLOY.update)
 
 // 登陆注册
 // router.all('/username/valid/:username',LOGIN.username_repeat)

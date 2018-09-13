@@ -154,5 +154,6 @@ module.exports = {
     list,
     update,
     content,
-    remove
+    remove,
+    _getContent
 }
