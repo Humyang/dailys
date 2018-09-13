@@ -141,17 +141,6 @@ async function _getContent(ctx){
 }
 
 async function  content (ctx){
-    
-
-    // let query_obj = objectAssign(
-    //     {selfuid,isMove:{$ne:true}},
-    //     {uid:ctx.LOGIN_STATUS.uid})
-
-    // let res = await ctx.mongo
-    //                     .db(CONFIG.dbName)
-    //                     .collection(MODULE_CONFIG.COLLECTION)
-    //                     .findOne(query_obj)
-
     let res = await _getContent(ctx)
     res.history=[]
     ctx.body = {

@@ -26,26 +26,37 @@ var serve = require('koa-static');
 var root_path = process.cwd()
 app.use(serve(root_path+"/upload",{maxage:3153600000}))
 
+const render = require('koa-ejs')
+const path = require('path');
+render(app, {
+    root: path.join(__dirname, 'views'),
+    layout: false,
+    viewExt: 'ejs',
+    cache: true,
+    debug: false
+  });
 
 app.use(cors())
 
 // 搜索
 router.post('/search',OAUTCH_CLIENT.login_check_remote(),SEARCH.search)
 
-// 添加文章
+// 文章
 router.post('/article/add',OAUTCH_CLIENT.login_check_remote(),FLODER.Mfloder_list_modify(),ARTICLE.add)
 router.post('/article/list',OAUTCH_CLIENT.login_check_remote(),ARTICLE.list)
 router.post('/article/update',OAUTCH_CLIENT.login_check_remote(),FLODER.Mfloder_list_modify(),ARTICLE.update)
 router.post('/article/content',OAUTCH_CLIENT.login_check_remote(),ARTICLE.content)
 router.post('/article/remove',OAUTCH_CLIENT.login_check_remote(),ARTICLE.remove)
 
-
-
-// 添加目录
+// 目录
 router.post('/floder/add',OAUTCH_CLIENT.login_check_remote(),FLODER.add)
 router.post('/floder/list',OAUTCH_CLIENT.login_check_remote(),FLODER.list)
 router.post('/floder/remove',OAUTCH_CLIENT.login_check_remote(),FLODER.remove)
 // router.post('/floder/sorttype',OAUTCH_CLIENT.login_check_remote(),FLODER.sorttype)
+
+// 发布
+var DEPLOY = require('./module/deploy.js')
+router.get('/t/:id',DEPLOY.t)
 
 // 登陆注册
 // router.all('/username/valid/:username',LOGIN.username_repeat)
