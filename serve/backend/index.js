@@ -32,7 +32,7 @@ render(app, {
     root: path.join(__dirname, 'views'),
     layout: false,
     viewExt: 'ejs',
-    cache: true,
+    cache: false,
     debug: false
   });
 
