@@ -2,14 +2,20 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Template</title>
+    <link href="/css/pojoaque.css" type="text/css" rel="stylesheet"></link>
+    <link href="/css/index.css" type="text/css" rel="stylesheet"></link>
+    <title><%= title %></title>
 </head>
 <style >
 
 </style>
-<body>
-<h1><%= title %></h1>
-<%= content %>
-	
+<body >
+    <div id="markdown_parse_preview">
+<h1 class="title"><%= title %></h1>
+<div class="content">
+    <%- content %>
+</div>
+</div>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ var SEARCH = require('./module/search.js')
 
 var serve = require('koa-static');
 var root_path = process.cwd()
-app.use(serve(root_path+"/upload",{maxage:3153600000}))
+// serve(root_path+"/upload",{maxage:3153600000})
 
 const render = require('koa-ejs')
 const path = require('path');
@@ -59,6 +59,10 @@ var DEPLOY = require('./module/deploy.js')
 
 router.get('/t/:id',DEPLOY.t)
 router.get('/t',DEPLOY.getIndex)
+// var serve = require('koa-static');
+// var server = serve(__dirname+'/views',{maxage:3153600000})
+router.get('/css/*',serve(__dirname+'/views',{maxage:3153600000}))
+
 router.post('/deploy/update',OAUTCH_CLIENT.login_check_remote(),DEPLOY.update)
 
 // 登陆注册
@@ -87,7 +91,8 @@ router.options('/upload', async function(ctx,next){
   await next()
 })
 router.post('/upload', OAUTCH_CLIENT.login_check_remote(), UPLOAD.upload)
-
+router.get('/upload/*/*', serve(root_path+"/",{maxage:3153600000}))
+// app.use()
 // app.use(LOGIN.set({dbname:CONFIG.dbName,port:CONFIG.dbPort}))
 
 app.use(mongo())

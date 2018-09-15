@@ -1,4 +1,7 @@
 
+
+
+
 #markdown_parse_preview h1{
     line-height: 44px;
 }
@@ -25,13 +28,14 @@
     padding: 1em;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: #ffffff;
+    background-color: #232020;
     color: #1a1a1a;
-    border-radius: 2px;
+    /* border-radius: 2px; */
     font-size: 16px;
     font-weight: 500;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 10px; */
+    color: #fbfbfb;
     overflow-x: auto; 
 }
 #markdown_parse_preview p { margin: 0; margin-bottom: 14px; line-height: 28px }
