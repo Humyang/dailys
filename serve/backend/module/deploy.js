@@ -96,6 +96,7 @@ async function _getContentByTopicId(ctx,id){
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
                         .findOne(query_obj)
+    
     if(res){
         return res
     }else{
