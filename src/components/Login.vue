@@ -19,7 +19,7 @@ export default {
       if(uUrl.query.t){
         //   saveUsername(username)
           BASE.saveToken(uUrl.query.t)
-          location.href="/"
+          location.href="/papers"
           self.$root.username = BASE.getUsername()
 		  self.$router.push('WriteArticle')
       }else{

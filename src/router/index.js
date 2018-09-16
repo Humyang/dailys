@@ -32,11 +32,12 @@ export default new Router({
         path:'/Login',
         name:'Login',
         component:Login
-    },
-    {   
-        path:'/deploy',
-        name:'deploy',
-        component:deploy
     }
+    // ,
+    // {   
+    //     path:'/deploy',
+    //     name:'deploy',
+    //     component:deploy
+    // }
   ]
 })
