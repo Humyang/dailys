@@ -58,7 +58,7 @@ router.post('/floder/remove',OAUTCH_CLIENT.login_check_remote(),FLODER.remove)
 var DEPLOY = require('./module/deploy.js')
 
 router.get('/t/:id',DEPLOY.t)
-router.get('/t',DEPLOY.getIndex)
+router.get('/',DEPLOY.getIndex)
 // var serve = require('koa-static');
 // var server = serve(__dirname+'/views',{maxage:3153600000})
 router.get('/css/*',serve(__dirname+'/views',{maxage:3153600000}))

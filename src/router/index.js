@@ -9,22 +9,22 @@ export default new Router({
   mode:"history",
   routes: [
     {
-      path: '/',
+      path: '/papers',
       name: 'WriteArticle',
       component: WriteArticle
     },
       {   
-        path:'/WriteArticle',
+        path:'/papers',
         name:'WriteArticle',
         component:WriteArticle
     },
     {   
-        path:'/WriteArticle/:floderid',
+        path:'/papers/:floderid',
         name:'WriteArticle',
         component:WriteArticle
     },
     {   
-        path:'/WriteArticle/:floderid/article/:articleid',
+        path:'/papers/:floderid/article/:articleid',
         name:'WriteArticle2',
         component:WriteArticle
     },

@@ -24,7 +24,7 @@
         </div>
         <template v-if="visible.treeview===1">
             <div class="floder">
-                <a class="btn back_home">回到首页</a>
+                <a class="btn back_home" href="/">回到首页</a>
                 <p class="p_add" @click="floder_add_show"><i class="i_add">+</i>新建文集</p>
                 <p class="list_mode">
                     <i @click="floder_mode_show" class="iconfont icon-zhankai"></i>
@@ -136,7 +136,7 @@ import '../css/CodeMirror_Theme.css'
 
 // ../node_modules/highlight.js/styles/pojoaque.css
 import '../../node_modules/highlight.js/styles/pojoaque.css'
-import '../../serve/backend/views/css/index.css'
+import '../../serve/backend/views/css/topic.css'
 
 import {
    IP
