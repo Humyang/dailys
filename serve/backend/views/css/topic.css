@@ -12,7 +12,7 @@ body {
 }
 #markdown_parse_preview {
     /* padding: 0 120px; */
-    padding:0;
+    padding:0 10px;
     border-left: 1px solid #c5c5c5;
     background-color: #fff;
     height: 100%;
@@ -57,3 +57,8 @@ body {
 #markdown_parse_preview .hljs-number, .hljs-string, .hljs-doctag, .hljs-regexp{color: #ef8e00;}
 #markdown_parse_preview .hljs-title, .hljs-section, .hljs-built_in, .hljs-name{color: #0097ff;}
 #markdown_parse_preview .hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-addition{    color: #bd93ff;}
+#markdown_parse_preview .content {
+    word-break: break-all;
+    /* white-space: pre-wrap; */
+    word-wrap: break-word;
+}
