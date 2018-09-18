@@ -1,6 +1,8 @@
 
 
-
+body {
+    margin: 0;
+}
 
 #markdown_parse_preview h1{
     line-height: 44px;
@@ -10,6 +12,7 @@
 }
 #markdown_parse_preview {
     /* padding: 0 120px; */
+    padding:0;
     border-left: 1px solid #c5c5c5;
     background-color: #fff;
     height: 100%;
