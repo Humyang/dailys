@@ -1,0 +1,38 @@
+.header {
+    display: block;
+    /* overflow: hidden; */
+    padding: 20px 10px;
+}
+a.tag {
+    /* font-style: unset; */
+    text-decoration: double;
+    color: #ffffff;
+    background: #4CAF50;
+    padding: 3px 5px;
+    font-weight: bold;
+    /* border: 1px solid #e0e0e0; */
+}
+
+ul.list {
+    list-style: none;
+    padding-left: 0;
+}
+
+li.cell a {
+    text-decoration: blink;
+    color: #696969;
+    font-weight: bold;
+}
+li.cell {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 10px;
+}
+
+body {
+    margin: 0;
+}
+
+ul.list {
+    border-top: 1px solid #ddd;
+}

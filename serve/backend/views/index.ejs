@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%- include('template/ga'); %>
+    <%- include('template/header'); %>
     <meta charset="utf-8">
     <title>首页</title>
-    
+    <link href="/css/index.css" type="text/css" rel="stylesheet"></link>
     
 </head>
 <style >
@@ -13,12 +13,12 @@
 }
 </style>
 <body >
-    <div>
-        <a href="/papers">Paper</a>
+    <div class="header">
+        <a class="tag" href="/papers">Paper</a>
     </div>
-    <ul>
+    <ul class="list">
     <% for(i in list) {%>
-        <li><a href="/t/<%= list[i].topic_id %>"><%= list[i].title %></a></li>
+        <li class="cell"><a href="/t/<%= list[i].topic_id %>"><%= list[i].title %></a></li>
     <% } %>
     </ul>
 </body>

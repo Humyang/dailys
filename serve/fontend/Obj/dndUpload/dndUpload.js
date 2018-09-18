@@ -103,9 +103,9 @@ var dndUpload = function (element, options) {
 	}, false);
 
 	element.addEventListener('paste', function (event) {
+		console.log('paste')
 		var isChrome = false;
 		if (event.clipboardData || event.originalEvent) {
-			//not for ie11  某些chrome版本使用的是event.originalEvent
 			var clipboardData = (event.clipboardData || event.originalEvent.clipboardData);
 			console.log('clipboardData', clipboardData)
 			if (clipboardData.items) {
@@ -114,20 +114,8 @@ var dndUpload = function (element, options) {
 					len = items.length,
 					blob = null;
 				isChrome = true;
-				//items.length比较有意思，初步判断是根据mime类型来的，即有几种mime类型，长度就是几（待验证）
-				//如果粘贴纯文本，那么len=1，如果粘贴网页图片，len=2, items[0].type = 'text/plain', items[1].type = 'image/*'
-				//如果使用截图工具粘贴图片，len=1, items[0].type = 'image/png'
-				//如果粘贴纯文本+HTML，len=2, items[0].type = 'text/plain', items[1].type = 'text/html'
-				// console.log('len:' + len);
-				// console.log(items[0]);
-				// console.log(items[1]);
-				// console.log( 'items[0] kind:', items[0].kind );
-				// console.log( 'items[0] MIME type:', items[0].type );
-				// console.log( 'items[1] kind:', items[1].kind );
-				// console.log( 'items[1] MIME type:', items[1].type );
 
-				//阻止默认行为即不让剪贴板内容在div中显示出来
-				event.preventDefault();
+				
 
 				//在items里找粘贴的image,据上面分析,需要循环  
 				for (var i = 0; i < len; i++) {
@@ -140,6 +128,9 @@ var dndUpload = function (element, options) {
 					}
 				}
 				if (blob !== null) {
+					//阻止默认行为即不让剪贴板内容在div中显示出来
+					event.preventDefault();
+					
 					// var file=blobToFile(blob,'111.jpg')
 					console.log('file',blob)
 
