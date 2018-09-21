@@ -66,7 +66,7 @@ async function upload (ctx){
 
     ctx.body = {
       status:1,
-      img_url:"IPADDRESS/"+ctx.LOGIN_STATUS.uid+'/'+now+file.name,
+      img_url:"IPADDRESS/upload/"+ctx.LOGIN_STATUS.uid+'/'+now+file.name,
       size:file.size
     }
 }
