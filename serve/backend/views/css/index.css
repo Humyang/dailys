@@ -2,11 +2,11 @@
     display: block;
     /* overflow: hidden; */
     padding: 8px 0;
-    background: white;
-    max-width: 780px;
+    /* background: white; */
+    max-width: 800px;
     margin: 0 auto;
     /* margin-left: 20px; */
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 a.tag {
     /* font-style: unset; */
@@ -29,9 +29,11 @@ li.cell a {
     font-weight: bold;
 }
 li.cell {
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     border-bottom: 1px solid #f1f1f1;
-    padding: 20px 10px;
+    padding: 40px 10px;
+    margin-bottom: 5px;
+    background-color: white;
 }
 
 body {
@@ -44,7 +46,7 @@ ul.list {
     margin: 0 auto;
     border-bottom: 0;
     margin-top: 20px;
-    background: white;
+    /* background: white; */
 }
 body {
     background-color: #f5f5f5;
