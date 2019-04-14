@@ -123,13 +123,7 @@
       :class="{md_preview:visible.markdown === 1,
                     full:visible.page_mode === 2}"
     >
-      <input
-        v-if="visible.page_mode!=2"
-        class="i1"
-        type="text"
-        placeholder="无标题文章"
-        v-model="article_title"
-      >
+      <input v-if="visible.page_mode!=2" class="i1" type="text" placeholder="无标题文章" v-model="article_title">
       <p class="p1">
         <!-- 预览 -->
         <i
@@ -143,12 +137,6 @@
           class="iconfont icon-quanping i i2"
           :class="{active:visible.page_mode===2}"
         ></i>
-        <!-- 切换编辑器 -->
-        <i
-          @click="change_edtior"
-          class="iconfont icon-quanping i i2"
-          :class="{active:visible.page_mode===2}"
-        ></i>
         <i @click="article_deploy" class="iconfont icon-yijingfabu i i1 animated"></i>
         <i
           @click="article_content_execute"
@@ -158,8 +146,11 @@
         ></i>
         <i @click="article_markdown_preview" class="iconfont icon-fabu i i2"></i>
       </p>
-      <editor v-if="editorQuery==='editor'" ref="editor" :data="article_content" @save="article_content_save"/>
-      <editor-codemirror v-if="editorQuery==='codemirror'" ref="editorCodeMirror" :data="article_content" @save="article_content_save"/>
+      <!-- <textarea ref="ta1" name id="ta1" cols="30" rows="10"></textarea> -->
+      <div id="ta1" style="height: 100%;overflow: auto;"></div>
+    </div>
+    <div v-show="visible.markdown===1" class="markdown_parse_preview_wrap">
+      <div id="markdown_parse_preview" v-html="article_markdown_preview_text"></div>
     </div>
   </div>
 </template>
@@ -179,26 +170,53 @@ import "../../node_modules/highlight.js/styles/pojoaque.css";
 import "../../serve/backend/views/css/topic.css";
 
 import { IP } from "../../serve/PREDEFINED/CONSTANT.js";
+var marked = require("marked");
+var renderer = new marked.Renderer();
+var radCode = renderer.code;
+renderer.code = function(code, lang, escaped) {
+  if (lang === "raw") {
+    return '<p class="lang-raw">' + code + "</p>";
+  }
+  var self = this;
+  return radCode.call(self, code, lang, escaped);
+};
+marked.setOptions({
+  gfm: true,
+  tables: true,
+  breaks: true,
+  pedantic: true,
+  sanitize: true,
+  smartLists: true,
+  smartypants: true,
+  highlight: function(code, type, sss) {
+    return require("highlight.js").highlightAuto(code).value;
+  },
+  renderer: renderer
+});
 
 import * as API from "../../serve/fontend/index.js";
 import co from "co";
+import CodeMirror from "codemirror";
+import "codemirror/mode/gfm/gfm.js";
+import Delay from "../../serve/fontend/Obj/Delay.js";
+import dndUpload from "../../serve/fontend/Obj/dndUpload/dndUpload.js";
+// import DMP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
+// import TDP from '../../serve/fontend/Obj/Text_Diff_Patch.js'
 
-// import EVA from "../../serve/fontend/Obj/EditorValueAdvance.js";
+import EVA from "../../serve/fontend/Obj/EditorValueAdvance.js";
 
 import SwitchF from "../../vendors/ytool.switch.js";
 
 var LOGIN_CODE = require("flogin").CODE;
-import editor from "./editor";
-import editorCodemirror from "./CodeMirror"
+
+const EditorJS = require("@editorjs/editorjs");
+const Header = require('@editorjs/header');
+const Marker = require('@editorjs/marker');
+const RawTool = require('@editorjs/raw');
 export default {
-  components:{
-    editor,
-    editorCodemirror
-  },
   data() {
     return {
-      editorQuery:"codemirror",
-      is_listen_change: false,
+        is_listen_change:false,
       floder_list: [],
       visible: {
         page_mode: 0, //0:normal:treeview editor markdown 1:editor & markdown preview 2 only editor
@@ -232,47 +250,123 @@ export default {
       editor: "sb",
       Delay: "",
       onEditorChange: "",
-      // EVA: "",
+      EVA: "",
       article_markdown_preview_text: ""
     };
   },
   methods: {
-    change_edtior:function(){
-      // this.$route.push()
-      // console.log("this.$route.query",this.$route.query)
-      let currentEditor = this.$route.query.editor
-      if(currentEditor == "editor"){
-
-        this.$router.push({ query: { editor: 'codemirror' }})
-        this.editorQuery =  'codemirror'
-        return 
-      }else{
-        this.$router.push({ query: { editor: 'editor' }})
-        this.editorQuery =  'editor'
-        return
+    renderEditor(data){
+      console.log('renderEditor',data)
+      var self = this
+      if(data&&data!=[]){
+        try{
+          data= JSON.parse(data)
+        }catch(e){
+          data = [{"type":"paragraph","data":{"text":data}}]
+        }
       }
+      if(this.editor.destroy){
+        this.editor.destroy()
+      }
+      // if(this.editor!="sb"){
+      //   this.editor.destroy()
+      // }
+this.editor = new EditorJS({
+      /**
+       * Wrapper of Editor
+       */
+      holderId: 'ta1',
+      /**
+       * Tools list
+       */
+      tools: {
+        /**
+         * Each Tool is a Plugin. Pass them via 'class' option with necessary settings {@link docs/tools.md}
+         */
+        header: {
+          class: Header,
+          inlineToolbar: ['link'],
+          config: {
+            placeholder: 'Header'
+          },
+          shortcut: 'CMD+SHIFT+H'
+        },
+        /**
+         * Or pass class directly without any configuration
+         */
+        image: {
+          class: SimpleImage,
+          inlineToolbar: ['link'],
+        },
+        list: {
+          class: List,
+          inlineToolbar: true,
+          shortcut: 'CMD+SHIFT+L'
+        },
+        checklist: {
+          class: Checklist,
+          inlineToolbar: true,
+        },
+        quote: {
+          class: Quote,
+          inlineToolbar: true,
+          config: {
+            quotePlaceholder: 'Enter a quote',
+            captionPlaceholder: 'Quote\'s author',
+          },
+          shortcut: 'CMD+SHIFT+O'
+        },
+        warning: Warning,
+        marker: {
+          class:  Marker,
+          shortcut: 'CMD+SHIFT+M'
+        },
+        code: {
+          class:  CodeTool,
+          shortcut: 'CMD+SHIFT+C'
+        },
+        delimiter: Delimiter,
+        inlineCode: {
+          class: InlineCode,
+          shortcut: 'CMD+SHIFT+C'
+        },
+        linkTool: LinkTool,
+        embed: Embed,
+        table: {
+          class: Table,
+          inlineToolbar: true,
+          shortcut: 'CMD+ALT+T'
+        },
+        raw: RawTool,
+      },
+      /**
+       * This Tool will be used as default
+       */
+      // initialBlock: 'paragraph',
+      /**
+       * Initial Editor data
+       */
+      data: {blocks:data},
+      onReady: function(){
+        // saveButton.click();
+      },
+      onChange: function() {
+        
+        console.log('something changed');
+        if(self.is_listen_change){
+            self.onEditorChange()
+        }
+      }
+    });
+    window.editor = this.editor
     },
-    article_content_save: function(value) {
-      let self = this;
-
-      co(function*() {
-        self.article_content_style.saving = true;
-        let update = yield API.ARTICLE.update(
-          value,
-          self.article_title,
-          self.article_active,
-          self.floder_active
-        );
-
-        self.article_content_style.saving = false;
-        self.article_content_style.changed = false;
-
-        self.floder_sort_refresh();
-
-        self.article_list_refresh();
-      }).catch(function(err) {
-        alert(err.MSG);
-      });
+    saveP(){
+      return new Promise((reslove,reject)=>{
+        this.editor.save().then((savedData) => {
+          reslove(savedData)
+          // cPreview.show(savedData, document.getElementById("output"));
+        });
+      })
     },
     //   发布文章
     article_deploy() {
@@ -352,10 +446,31 @@ export default {
       });
     },
     article_content_execute: function() {
-      // this.Delay.execute();
-      this.$refs.editor.Delay.execute()
+      this.Delay.execute();
     },
+    article_content_save: function(value, title, article_active, floder_uid) {
+      let self = this;
 
+      co(function*() {
+        self.article_content_style.saving = true;
+
+        let update = yield API.ARTICLE.update(
+          value,
+          title,
+          article_active,
+          floder_uid
+        );
+
+        self.article_content_style.saving = false;
+        self.article_content_style.changed = false;
+
+        self.floder_sort_refresh();
+
+        self.article_list_refresh();
+      }).catch(function(err) {
+        alert(err.MSG);
+      });
+    },
     article_item_rename: function(index) {
       this.article_edit_index = index;
     },
@@ -364,19 +479,16 @@ export default {
       let self = this;
 
       let article_uid = this.article_list[index].selfuid;
-      self.is_listen_change = false;
-      //   this.editor.off("change", this.onEditorChange);
+        self.is_listen_change = false
+    //   this.editor.off("change", this.onEditorChange);
       this.article_edit_index = index;
-      // self.EVA.reset();
+      self.EVA.reset();
       self._acticle_load(article_uid, function() {
         self.$router.push({
           name: "WriteArticle2",
           params: {
             floderid: self.floder_active,
             articleid: self.article_active
-          },
-          query:{
-            editor:self.editorQuery
           }
         });
       });
@@ -385,17 +497,17 @@ export default {
       let self = this;
       co(function*() {
         let article_obj = yield API.ARTICLE.content(article_uid);
-
-        console.log("article load", article_obj);
+        
+        console.log("article load",article_obj)
         self.article_title = article_obj.result.title;
-        // self.EVA.value = article_obj.result.content;
+        self.EVA.value = article_obj.result.content;
 
         // self.editor.setValue(self.EVA.value);
         // let saverData = yield self.saveP();
         // self.editor.configuration.blocks = saverData
         self.article_content = article_obj.result.content;
         // self.editor.render(JSON.parse(self.article_content))
-        // self.renderEditor(self.article_content);
+        self.renderEditor(self.article_content)
         // setTimeout(() => {
         //   self.article_markdown_preview_text = marked(self.article_content);
         // }, 100);
@@ -403,15 +515,14 @@ export default {
         // self.old_text = article_obj.result.content
 
         self.article_content_style.changed = false;
-        self.is_listen_change = true;
+        self.is_listen_change = true
         // self.editor.on("change", self.onEditorChange);
         self.floder_active = article_obj.result.floder_uid;
         self.article_active = article_uid;
-        if (callback) {
-          callback();
-        }
+
+        callback();
       }).catch(function(err) {
-        console.log("err", err);
+        console.log('err',err)
       });
     },
     article_edit_cancel(index) {
@@ -627,8 +738,10 @@ export default {
   mounted() {
     let self = this;
     // var e = this.$refs.ta1;
-    // const saveButton = document.getElementById("saveButton");
+    const saveButton = document.getElementById('saveButton');
     // this.renderEditor()
+    
+
 
     // this.editor = CodeMirror.fromTextArea(e, {
     //   mode: "gfm",
@@ -685,16 +798,76 @@ export default {
     //     }
     //   }
     // });
+    this.Delay = new Delay(5000, async function() {
+      // self.old_text =""
+      // let new_text = self.editor.getValue()
+    //   self.EVA.value = self.editor.getValue();
+      // self.EVA.value =JSON.stringify( self.editor.configuration.data.blocks)
+      
+      // let saverData = yield self.editor.save()
+      let saverData = await self.saveP()
+      // self.editor.configuration.blocks = saverData
+      self.EVA.value = JSON.stringify(saverData.blocks)
+      // console.log(self.EVA.diff_result)
+    //   console.log(123);
+    //   self.article_markdown_preview_text = marked(self.EVA.value);
+      self.article_content_save(
+        self.EVA.patch_list,
+        self.article_title,
+        self.article_active,
+        self.floder_active
+      );
+    });
 
+    this.onEditorChange = async function() {
+      // 为了使 editor off 执行生效，只能将push操作封装起来
+      // 因为 on 和 off 是根据 function 来的
+      // 如果使用匿名函数 function(){self.Delay.push()}
+      // 会无法 off 回失效
+      self.article_content_style.changed = true;
+
+      // 为 article_markdown_preview_text 属性提供变量
+      let saverData = await self.saveP()
+      self.article_content = JSON.stringify(saverData.blocks)
+      // self.article_content = self.editor.getValue()
+      // self.EVA.value = self.editor.getValue()
+      // console.log(self.EVA.diff_result)
+      self.Delay.push();
+    };
+
+    this.EVA = new EVA();
+
+    // var code_mirror = document.getElementsByClassName("CodeMirror")[0];
+    // code_mirror.style.height = window.innerHeight - 106 + "px";
+    // window.onresize = function() {
+    //   code_mirror.style.height = window.innerHeight - 106 + "px";
+    // };
+    var dnd_upload = new dndUpload(
+      document.getElementsByClassName("article")[0],
+      {
+        // serve_url:'http://localhost:8202/upload',
+        onSuccess: function(res) {
+          let current_line = self.editor.getCursor().line;
+          let img = "![](" + res.img_url.replace("IPADDRESS", IP) + ")";
+          self.editor.replaceRange("\r\n\r\n" + img + "\r\n\r\n", {
+            line: current_line,
+            ch: 0
+          });
+        }
+      }
+    );
+
+    // this.floder_add_show_switch = SwitchF([function(){
+    //     self.floder_add_show_flag = true
+    // },
+    // function(){
+    //     self.floder_add_show_flag = false
+    // }]
+    // )
     API.CONFIG.getAll().then(function(res) {
       // console.log(res)
       self.floder_mode_show_type = res.result.floder_sort_type;
     });
-  },
-  watch:{
-    $route:function(){
-      console.log("this.$route.query",this.$route.query)
-    }
   }
 };
 </script>
