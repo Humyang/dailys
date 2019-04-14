@@ -211,9 +211,7 @@ export default {
         alert(err.MSG);
       });
     },
-    article_item_rename: function(index) {
-      this.article_edit_index = index;
-    },
+    
 
     
     floder_sort_refresh: function() {
