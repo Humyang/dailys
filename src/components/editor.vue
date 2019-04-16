@@ -35,6 +35,30 @@ const EditorJS = require("@editorjs/editorjs");
 const Header = require("@editorjs/header");
 const Marker = require("@editorjs/marker");
 const RawTool = require("@editorjs/raw");
+
+const SimpleImage = require("@editorjs/simple-image");
+const List = require("@editorjs/list");
+const Checklist = require("@editorjs/checklist");
+const Quote = require("@editorjs/quote");
+const Warning = require("@editorjs/warning");
+const CodeTool = require("@editorjs/code");
+const Delimiter = require("@editorjs/delimiter");
+const InlineCode = require("@editorjs/inline-code");
+const LinkTool = require("@editorjs/link");
+const Embed = require("@editorjs/embed");
+const Table = require("@editorjs/table");
+
+
+
+
+
+
+
+
+
+
+
+
 export default {
     props:["data"],
   data() {
@@ -188,29 +212,7 @@ export default {
         });
       });
     },
-    article_content_save: function(value, title, article_active, floder_uid) {
-      let self = this;
-
-      co(function*() {
-        self.article_content_style.saving = true;
-
-        let update = yield API.ARTICLE.update(
-          value,
-          title,
-          article_active,
-          floder_uid
-        );
-
-        self.article_content_style.saving = false;
-        self.article_content_style.changed = false;
-
-        self.floder_sort_refresh();
-
-        self.article_list_refresh();
-      }).catch(function(err) {
-        alert(err.MSG);
-      });
-    },
+    
     
 
     
@@ -234,8 +236,9 @@ export default {
   watch:{
       data:{
           handler:function(){
+            console.log("watch data")
               this.EVA.reset();
-              this.EVA.value = this.data
+              this.EVA.value = this.data || ""
               this.renderEditor(this.data)
           }
       }
@@ -252,6 +255,7 @@ export default {
       // let saverData = yield self.editor.save()
       let saverData = await self.saveP();
       // self.editor.configuration.blocks = saverData
+      console.log('delay')
       self.EVA.value = JSON.stringify(saverData.blocks);
       // console.log(self.EVA.diff_result)
       //   console.log(123);
@@ -262,7 +266,9 @@ export default {
     //     self.article_active,
     //     self.floder_active
     //   );
-        self.$emit("save",self.EVA.patch_list)
+        // self.$emit("save",self.EVA.patch_list)
+        
+        self.$emit("save",{content:self.EVA.patch_list,editor:"editor"})
     });
 
     this.onEditorChange = async function() {
@@ -270,11 +276,12 @@ export default {
       // 因为 on 和 off 是根据 function 来的
       // 如果使用匿名函数 function(){self.Delay.push()}
       // 会无法 off 回失效
-      self.article_content_style.changed = true;
+      // self.article_content_style.changed = true;
+      self.$emit('changed')
 
       // 为 article_markdown_preview_text 属性提供变量
       let saverData = await self.saveP();
-      self.article_content = JSON.stringify(saverData.blocks);
+      // self.article_content = JSON.stringify(saverData.blocks);
       // self.article_content = self.editor.getValue()
       // self.EVA.value = self.editor.getValue()
       // console.log(self.EVA.diff_result)

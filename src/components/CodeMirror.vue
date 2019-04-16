@@ -5,7 +5,7 @@
       :class="{md_preview:visible.markdown === 1,
                     full:visible.page_mode === 2}"
     >-->
-    <div id="ta1" style="height: 100%;overflow: auto;"></div>
+    <textarea ref="ta1" name="" id="ta1" cols="30" rows="10"></textarea>
   </div>
 </template>
 <script>
@@ -143,8 +143,22 @@ export default {
   watch: {
     data: {
       handler: function() {
-        this.EVA.reset();
-        this.EVA.value = this.data;
+        let self = this;
+        console.log("watch")
+        if (self.editor) {
+          self.editor.off("change", this.onEditorChange);
+        }
+        self.EVA.reset();
+        self.EVA.value = self.data||"";
+        // setTimeout(() => {
+          if (self.editor) {
+              console.log("self.editor",self.editor)
+            
+            
+            self.editor.setValue(self.EVA.value);
+            self.editor.on("change", self.onEditorChange);
+          }
+        // }, 100);
         // this.renderEditor(this.data);
       }
     }
@@ -152,6 +166,7 @@ export default {
   mounted() {
     let self = this;
     var e = this.$refs.ta1;
+
     this.editor = CodeMirror.fromTextArea(e, {
       mode: "gfm",
       theme: "zenburn",
@@ -207,19 +222,43 @@ export default {
         }
       }
     });
-    this.Delay = new Delay(5000, function() {
+    // this.Delay = new Delay(5000, function() {
+    //   // self.old_text =""
+    //   // let new_text = self.editor.getValue()
+    //   self.EVA.value = self.editor.getValue();
+    //   // console.log(self.EVA.diff_result)
+    //   console.log(123);
+    //   self.article_markdown_preview_text = marked(self.EVA.value);
+    //   self.article_content_save(
+    //     self.EVA.patch_list,
+    //     self.article_title,
+    //     self.article_active,
+    //     self.floder_active
+    //   );
+    // });
+
+    this.Delay = new Delay(5000, async function() {
       // self.old_text =""
       // let new_text = self.editor.getValue()
+      //   self.EVA.value = self.editor.getValue();
+      // self.EVA.value =JSON.stringify( self.editor.configuration.data.blocks)
+
+      // let saverData = yield self.editor.save()
       self.EVA.value = self.editor.getValue();
+      // self.editor.configuration.blocks = saverData
+      // self.EVA.value = saverData
+      // console.log('saverData',saverData)
+    //   self.article_markdown_preview_text = marked(self.EVA.value);
       // console.log(self.EVA.diff_result)
-      console.log(123);
-      self.article_markdown_preview_text = marked(self.EVA.value);
-      self.article_content_save(
-        self.EVA.patch_list,
-        self.article_title,
-        self.article_active,
-        self.floder_active
-      );
+      //   console.log(123);
+      //   self.article_markdown_preview_text = marked(self.EVA.value);
+    //   self.article_content_save(
+    //     self.EVA.patch_list,
+    //     self.article_title,
+    //     self.article_active,
+    //     self.floder_active
+    //   );
+        self.$emit("save",{content:self.EVA.patch_list,editor:"codemirror"})
     });
 
     this.onEditorChange = function() {
@@ -228,10 +267,11 @@ export default {
       // 如果使用匿名函数 function(){self.Delay.push()}
       // 会无法 off 回失效
 
-      self.article_content_style.changed = true;
+      // self.article_content_style.changed = true;
+       self.$emit('changed')
 
       // 为 article_markdown_preview_text 属性提供变量
-      self.article_content = self.editor.getValue();
+      // self.article_content = self.editor.getValue();
       // self.article_content = self.editor.getValue()
       // self.EVA.value = self.editor.getValue()
       // console.log(self.EVA.diff_result)

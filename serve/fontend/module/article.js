@@ -21,24 +21,25 @@ export const search = function(keywords){
             )
 }
 // 更新文章
-export const update = function(content,title,selfuid,floder_uid){
+export const update = function(content,title,selfuid,floder_uid,editor){
     let timemap = (new Date()).getTime()
     let data={
         content,
         title,
         selfuid,
         floder_uid,
-        timemap
+        timemap,
+        editor
     }
     return mFetch('/article/update'
             ,data
             )
 }
 // 查询文章
-export const content = function(selfuid){
-    
+export const content = function(selfuid,editor){
     let data={
-        selfuid
+        selfuid,
+        editor
     }
     return mFetch('/article/content'
             ,data

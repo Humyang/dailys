@@ -158,8 +158,20 @@
         ></i>
         <i @click="article_markdown_preview" class="iconfont icon-fabu i i2"></i>
       </p>
-      <editor v-if="editorQuery==='editor'" ref="editor" :data="article_content" @save="article_content_save"/>
-      <editor-codemirror v-if="editorQuery==='codemirror'" ref="editorCodeMirror" :data="article_content" @save="article_content_save"/>
+      <editor
+        v-if="editorQuery==='editor'"
+        ref="editor"
+        :data="article_content"
+        @save="article_content_save"
+        @changed="article_content_style.changed=true"
+      />
+      <editor-codemirror
+        v-if="editorQuery==='codemirror'"
+        ref="codemirror"
+        :data="article_content"
+        @save="article_content_save"
+        @changed="article_content_style.changed=true"
+      />
     </div>
   </div>
 </template>
@@ -189,15 +201,15 @@ import SwitchF from "../../vendors/ytool.switch.js";
 
 var LOGIN_CODE = require("flogin").CODE;
 import editor from "./editor";
-import editorCodemirror from "./CodeMirror"
+import editorCodemirror from "./CodeMirror";
 export default {
-  components:{
+  components: {
     editor,
     editorCodemirror
   },
   data() {
     return {
-      editorQuery:"codemirror",
+      editorQuery: "codemirror",
       is_listen_change: false,
       floder_list: [],
       visible: {
@@ -237,31 +249,31 @@ export default {
     };
   },
   methods: {
-    change_edtior:function(){
+    change_edtior: function() {
       // this.$route.push()
       // console.log("this.$route.query",this.$route.query)
-      let currentEditor = this.$route.query.editor
-      if(currentEditor == "editor"){
-
-        this.$router.push({ query: { editor: 'codemirror' }})
-        this.editorQuery =  'codemirror'
-        return 
-      }else{
-        this.$router.push({ query: { editor: 'editor' }})
-        this.editorQuery =  'editor'
-        return
+      let currentEditor = this.$route.query.editor;
+      if (currentEditor == "editor") {
+        this.$router.push({ query: { editor: "codemirror" } });
+        this.editorQuery = "codemirror";
+        return;
+      } else {
+        this.$router.push({ query: { editor: "editor" } });
+        this.editorQuery = "editor";
+        return;
       }
     },
-    article_content_save: function(value) {
+    article_content_save: function(obj) {
       let self = this;
-
+      console.log("article_content_save",obj)
       co(function*() {
         self.article_content_style.saving = true;
         let update = yield API.ARTICLE.update(
-          value,
+          obj.content,
           self.article_title,
           self.article_active,
-          self.floder_active
+          self.floder_active,
+          self.editorQuery
         );
 
         self.article_content_style.saving = false;
@@ -353,7 +365,12 @@ export default {
     },
     article_content_execute: function() {
       // this.Delay.execute();
-      this.$refs.editor.Delay.execute()
+      if(this.editorQuery=='editor'){
+        this.$refs.editor.Delay.execute();
+      }
+      if(this.editorQuery=='codemirror'){
+        this.$refs.codemirror.Delay.execute();
+      }
     },
 
     article_item_rename: function(index) {
@@ -375,16 +392,17 @@ export default {
             floderid: self.floder_active,
             articleid: self.article_active
           },
-          query:{
-            editor:self.editorQuery
+          query: {
+            editor: self.editorQuery
           }
         });
       });
     },
     _acticle_load: function(article_uid, callback) {
       let self = this;
+
       co(function*() {
-        let article_obj = yield API.ARTICLE.content(article_uid);
+        let article_obj = yield API.ARTICLE.content(article_uid,self.editorQuery);
 
         console.log("article load", article_obj);
         self.article_title = article_obj.result.title;
@@ -393,7 +411,7 @@ export default {
         // self.editor.setValue(self.EVA.value);
         // let saverData = yield self.saveP();
         // self.editor.configuration.blocks = saverData
-        self.article_content = article_obj.result.content;
+        self.article_content = article_obj.result[self.editorQuery].content;
         // self.editor.render(JSON.parse(self.article_content))
         // self.renderEditor(self.article_content);
         // setTimeout(() => {
@@ -501,8 +519,14 @@ export default {
     },
     _floder_load: function(floder_uid, callback) {
       let self = this;
-
+      // if(this.editorQuery=='editor'){
+      //   this.$refs.editor.EVA.reset();
+      // }
+      // if(this.editorQuery=='codemirror'){
+      //   this.$refs.codemirror.EVA.reset();
+      // }
       co(function*() {
+
         let article_list = yield API.ARTICLE.list(floder_uid);
 
         self.article_list = article_list.result;
@@ -597,6 +621,10 @@ export default {
     }
   },
   created() {
+    let currentEditor = this.$route.query.editor;
+    if (currentEditor) {
+      this.editorQuery = currentEditor;
+    }
     let self = this;
 
     co(function*() {
@@ -691,9 +719,9 @@ export default {
       self.floder_mode_show_type = res.result.floder_sort_type;
     });
   },
-  watch:{
-    $route:function(){
-      console.log("this.$route.query",this.$route.query)
+  watch: {
+    $route: function() {
+      console.log("this.$route.query", this.$route.query);
     }
   }
 };
