@@ -36,17 +36,17 @@ if sync_github == 1:
         # build new code
         # print 'build production -- begin'
         # build_code = run_command('npm run build')
-        if build_code == 1:
-            print 'build production -- success'
+        # if build_code == 1:
+            # print 'build production -- success'
             # close static serve and api serve
-            print 'close serve -- begin'
-            close_static = get_pid_close(8200)
-            close_api = get_pid_close(8202)
-            if close_static == 1 and close_api == 1:
-                print 'close serve -- success'
-            else:
-                print 'close serve -- faile'
-            print 'start serve'
-            # start server
-            subprocess_command('nohup node ./serve/backend/index.js &')
-            subprocess_command('nohup node ./dist_serve/static.js &')
+        print 'close serve -- begin'
+        close_static = get_pid_close(8200)
+        close_api = get_pid_close(8202)
+        if close_static == 1 and close_api == 1:
+            print 'close serve -- success'
+        else:
+            print 'close serve -- faile'
+        print 'start serve'
+        # start server
+        subprocess_command('nohup node ./serve/backend/index.js &')
+        subprocess_command('nohup node ./dist_serve/static.js &')
