@@ -182,12 +182,37 @@ async function  content (ctx){
         result:res
     }
 }
-
+async function alterDatabase(ctx, next) {
+    let all = await ctx.mongo.db(CONFIG.dbName)
+      .collection(MODULE_CONFIG.COLLECTION).find({}).toArray()
+  
+    for (let index = 0; index < all.length; index++) {
+      const element = all[index];
+      let query_obj = {
+        selfuid: element.selfuid
+      }
+      let setObj = {
+        codemirror: {
+          content: element.content,
+          history: element.history
+        },
+        editor: {
+          history: [],
+          content: []
+        }
+      }
+      await ctx.mongo.db(CONFIG.dbName)
+        .collection(MODULE_CONFIG.COLLECTION).update(query_obj, {
+          '$set': setObj
+        })
+    }
+  }
 module.exports = {
     add,
     list,
     update,
     content,
     remove,
+    alterDatabase,
     _getContent
 }

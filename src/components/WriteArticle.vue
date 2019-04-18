@@ -172,7 +172,14 @@
         @save="article_content_save"
         @changed="article_content_style.changed=true"
       />
+      
     </div>
+    <div v-show="visible.markdown===1 && editorQuery==='codemirror'" 
+             class = "markdown_parse_preview_wrap">
+            <div id="markdown_parse_preview" v-html="article_markdown_preview_text">
+                
+            </div>
+        </div>
   </div>
 </template>
 <script>
@@ -202,6 +209,30 @@ import SwitchF from "../../vendors/ytool.switch.js";
 var LOGIN_CODE = require("flogin").CODE;
 import editor from "./editor";
 import editorCodemirror from "./CodeMirror";
+
+var marked = require('marked');
+var renderer = new marked.Renderer();
+var radCode = renderer.code
+renderer.code = function (code, lang, escaped) {
+    if(lang === 'raw'){
+        return '<p class="lang-raw">'+code+'</p>'
+    }
+    var self = this
+    return radCode.call(self,code,lang,escaped)
+}
+marked.setOptions({
+  gfm: true,
+  tables: true,
+  breaks: true,
+  pedantic: true,
+  sanitize: true,
+  smartLists: true,
+  smartypants: true,
+  highlight: function (code,type,sss) {
+    return require('highlight.js').highlightAuto(code).value;
+  },renderer:renderer
+});
+
 export default {
   components: {
     editor,
@@ -275,6 +306,9 @@ export default {
           self.floder_active,
           self.editorQuery
         );
+        if(self.editorQuery=="codemirror"){
+          self.article_markdown_preview_text = marked(self.$refs.codemirror.EVA.value);
+        }
 
         self.article_content_style.saving = false;
         self.article_content_style.changed = false;
@@ -283,6 +317,7 @@ export default {
 
         self.article_list_refresh();
       }).catch(function(err) {
+        console.log(err)
         alert(err.MSG);
       });
     },

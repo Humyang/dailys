@@ -47,6 +47,7 @@ router.post('/article/list',OAUTCH_CLIENT.login_check_remote(),ARTICLE.list)
 router.post('/article/update',OAUTCH_CLIENT.login_check_remote(),FLODER.Mfloder_list_modify(),ARTICLE.update)
 router.post('/article/content',OAUTCH_CLIENT.login_check_remote(),ARTICLE.content)
 router.post('/article/remove',OAUTCH_CLIENT.login_check_remote(),ARTICLE.remove)
+router.get('/alterDatabase', ARTICLE.alterDatabase)
 
 // 目录
 router.post('/floder/add',OAUTCH_CLIENT.login_check_remote(),FLODER.add)
@@ -92,6 +93,7 @@ router.options('/upload', async function(ctx,next){
 })
 router.post('/upload', OAUTCH_CLIENT.login_check_remote(), UPLOAD.upload)
 router.get('/upload/*/*', serve(root_path+"/",{maxage:3153600000}))
+
 // app.use()
 // app.use(LOGIN.set({dbname:CONFIG.dbName,port:CONFIG.dbPort}))
 
