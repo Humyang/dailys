@@ -37,8 +37,8 @@ if sync_github == 1:
         # print 'build production -- begin'
         # build_code = run_command('npm run build')
         # if build_code == 1:
-            # print 'build production -- success'
-            # close static serve and api serve
+        # print 'build production -- success'
+        # close static serve and api serve
         print 'close serve -- begin'
         close_static = get_pid_close(8200)
         close_api = get_pid_close(8202)
