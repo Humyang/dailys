@@ -1259,7 +1259,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.visible_only_editor
     }
   }), _vm._v(" "), _c('i', {
-    staticClass: "iconfont icon-quanping i i2",
+    staticClass: "iconfont icon-yin-yang i i1",
     class: {
       active: _vm.visible.page_mode === 2
     },
@@ -4992,12 +4992,11 @@ exports.default = {
       if (currentEditor == "editor") {
         this.$router.push({ query: { editor: "codemirror" } });
         this.editorQuery = "codemirror";
-        return;
       } else {
         this.$router.push({ query: { editor: "editor" } });
         this.editorQuery = "editor";
-        return;
       }
+      this._acticle_load(this.$route.params.articleid);
     },
     article_content_save: function article_content_save(obj) {
       var self = this;
@@ -6190,15 +6189,17 @@ exports.default = {
       this.floder_list[this.floder_active_index].timemap = new Date().getTime();
       this.floder_active_index = 0;
     }
-
   },
 
   watch: {
     data: {
       handler: function handler() {
-        console.log("watch data");
         this.EVA.reset();
-        this.EVA.value = this.data || "";
+        if (typeof this.data != "string") {
+          this.EVA.value = "";
+        } else {
+          this.EVA.value = this.data;
+        }
         this.renderEditor(this.data);
       }
     }
@@ -6218,7 +6219,7 @@ exports.default = {
             case 2:
               saverData = _context.sent;
 
-              console.log('delay');
+              console.log("delay");
               self.EVA.value = (0, _stringify2.default)(saverData.blocks);
 
 
@@ -6238,7 +6239,7 @@ exports.default = {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              self.$emit('changed');
+              self.$emit("changed");
 
               _context2.next = 3;
               return self.saveP();
@@ -6263,4 +6264,4 @@ exports.default = {
 /***/ })
 
 },[358]);
-//# sourceMappingURL=app.0ec61f86951665c7eb68.js.map
+//# sourceMappingURL=app.b281774f8094328c9ae0.js.map

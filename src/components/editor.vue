@@ -4,9 +4,9 @@
       class="article"
       :class="{md_preview:visible.markdown === 1,
                     full:visible.page_mode === 2}"
-    > -->
-      <div id="ta1" style="height: 100%;overflow: auto;"></div>
-    </div>
+    >-->
+    <div id="ta1" style="height: 100%;overflow: auto;"></div>
+  </div>
   <!-- </div> -->
 </template>
 <script>
@@ -48,22 +48,11 @@ const LinkTool = require("@editorjs/link");
 const Embed = require("@editorjs/embed");
 const Table = require("@editorjs/table");
 
-
-
-
-
-
-
-
-
-
-
-
 export default {
-    props:["data"],
+  props: ["data"],
   data() {
     return {
-    //   is_listen_change: false,
+      //   is_listen_change: false,
       floder_list: [],
       visible: {
         page_mode: 0, //0:normal:treeview editor markdown 1:editor & markdown preview 2 only editor
@@ -193,13 +182,12 @@ export default {
          * Initial Editor data
          */
         data: { blocks: data },
-        onReady: function() {
-        },
+        onReady: function() {},
         onChange: function() {
           console.log("something changed");
-        //   if (self.is_listen_change) {
-            self.onEditorChange();
-        //   }
+          //   if (self.is_listen_change) {
+          self.onEditorChange();
+          //   }
         }
       });
       window.editor = this.editor;
@@ -212,36 +200,28 @@ export default {
         });
       });
     },
-    
-    
 
-    
     floder_sort_refresh: function() {
       // console.log(123)
       // debugger;
       // this.floder_list[this.floder_active_index].timemap
       this.floder_list[this.floder_active_index].timemap = new Date().getTime();
       this.floder_active_index = 0;
-    },
-    
-    
-    
-    
-    
-    
-    
+    }
   },
-    
-    
-  watch:{
-      data:{
-          handler:function(){
-            console.log("watch data")
-              this.EVA.reset();
-              this.EVA.value = this.data || ""
-              this.renderEditor(this.data)
-          }
+
+  watch: {
+    data: {
+      handler: function() {
+        this.EVA.reset();
+        if (typeof this.data != "string") {
+          this.EVA.value = "";
+        } else {
+          this.EVA.value = this.data;
+        }
+        this.renderEditor(this.data);
       }
+    }
   },
   mounted() {
     let self = this;
@@ -255,20 +235,20 @@ export default {
       // let saverData = yield self.editor.save()
       let saverData = await self.saveP();
       // self.editor.configuration.blocks = saverData
-      console.log('delay')
+      console.log("delay");
       self.EVA.value = JSON.stringify(saverData.blocks);
       // console.log(self.EVA.diff_result)
       //   console.log(123);
       //   self.article_markdown_preview_text = marked(self.EVA.value);
-    //   self.article_content_save(
-    //     self.EVA.patch_list,
-    //     self.article_title,
-    //     self.article_active,
-    //     self.floder_active
-    //   );
-        // self.$emit("save",self.EVA.patch_list)
-        
-        self.$emit("save",{content:self.EVA.patch_list,editor:"editor"})
+      //   self.article_content_save(
+      //     self.EVA.patch_list,
+      //     self.article_title,
+      //     self.article_active,
+      //     self.floder_active
+      //   );
+      // self.$emit("save",self.EVA.patch_list)
+
+      self.$emit("save", { content: self.EVA.patch_list, editor: "editor" });
     });
 
     this.onEditorChange = async function() {
@@ -277,7 +257,7 @@ export default {
       // 如果使用匿名函数 function(){self.Delay.push()}
       // 会无法 off 回失效
       // self.article_content_style.changed = true;
-      self.$emit('changed')
+      self.$emit("changed");
 
       // 为 article_markdown_preview_text 属性提供变量
       let saverData = await self.saveP();
@@ -289,8 +269,6 @@ export default {
     };
 
     this.EVA = new EVA();
-
-    
   }
 };
 </script>

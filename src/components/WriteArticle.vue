@@ -146,10 +146,12 @@
         <!-- 切换编辑器 -->
         <i
           @click="change_edtior"
-          class="iconfont icon-quanping i i2"
+          class="iconfont icon-yin-yang i i1"
           :class="{active:visible.page_mode===2}"
         ></i>
+        <!-- 发布 -->
         <i @click="article_deploy" class="iconfont icon-yijingfabu i i1 animated"></i>
+        <!-- 保存 -->
         <i
           @click="article_content_execute"
           class="iconfont icon-baocun i i1 animated"
@@ -287,12 +289,15 @@ export default {
       if (currentEditor == "editor") {
         this.$router.push({ query: { editor: "codemirror" } });
         this.editorQuery = "codemirror";
-        return;
+
+        // return;
       } else {
         this.$router.push({ query: { editor: "editor" } });
         this.editorQuery = "editor";
-        return;
+        // return;
       }
+      this._acticle_load(this.$route.params.articleid);
+
     },
     article_content_save: function(obj) {
       let self = this;
