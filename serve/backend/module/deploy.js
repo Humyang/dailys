@@ -50,7 +50,7 @@ async function update(ctx){
         .db(CONFIG.dbName)
         .collection(MODULE_CONFIG.COLLECTION)
         .update(query_obj,
-            {'$set':{content:marked(article.content),title:article.title,article_selfuid:article.selfuid,topic_id:topic_id}},
+            {'$set':{content:marked(article["codemirror"].content),title:article.title,article_selfuid:article.selfuid,topic_id:topic_id}},
             {'upsert':true}
         )
     ctx.body = {
