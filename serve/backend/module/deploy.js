@@ -29,7 +29,7 @@ var ARTICLE = require('./article.js')
 var objectAssign = require('object-assign')
 // 发布文章
 async function update(ctx){
-    debugger
+    // debugger
     let selfuid = ctx.request.fields.selfuid
     let query_obj = objectAssign({uid:ctx.LOGIN_STATUS.uid,selfuid})
     // 获取文章内容
@@ -50,12 +50,37 @@ async function update(ctx){
         .db(CONFIG.dbName)
         .collection(MODULE_CONFIG.COLLECTION)
         .update(query_obj,
-            {'$set':{content:marked(article["codemirror"].content),title:article.title,article_selfuid:article.selfuid,topic_id:topic_id}},
+            {'$set':{createAt:(new Date()).getTime(),content:marked(article["codemirror"].content),title:article.title,article_selfuid:article.selfuid,topic_id:topic_id}},
             {'upsert':true}
         )
     ctx.body = {
         status:true,
         msg:'发布成功'
+    }
+}
+async function  updateDepoly (ctx){
+    let selfuid = ctx.request.fields.selfuid
+    let preView = ctx.request.fields.preView
+    let tags = ctx.request.fields.tags
+    let titleImage = ctx.request.fields.titleImage
+    let title = ctx.request.fields.title
+    
+    let query_obj = objectAssign(
+        {selfuid,isMove:{$ne:true}},
+        {uid:ctx.LOGIN_STATUS.uid})
+
+    let setObj = {preView,tags,titleImage,title}
+
+    let res = await ctx.mongo
+                        .db(CONFIG.dbName)
+                        .collection(MODULE_CONFIG.COLLECTION)
+                        .update(query_obj,
+                            {'$set':setObj},
+                            {'upsert':true}
+                        )
+    ctx.body = {
+        status:true,
+        result:res
     }
 }
 async function _getMaxTopicId(ctx){
@@ -112,7 +137,11 @@ async function t (ctx){
     }else{
         await ctx.render('topic',{
             title:res.title,
-            content:res.content
+            content:res.content,
+            preView:res.preView,
+            tags:res.tags,
+            titleImage:res.titleImage,
+            createAt:res.createAt
         });
     }
 }
@@ -120,7 +149,11 @@ async function getIndex(ctx){
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .find({},{_id:false,topic_id:true,title:true})
+                        .find({},{_id:false,topic_id:true,title:true,
+                            preView:true,
+                            tags:true,
+                            titleImage:true,
+                            createAt:true})
                         .sort({_id:-1})
                         .toArray()
     console.log(res)
@@ -131,5 +164,6 @@ async function getIndex(ctx){
 module.exports = {
     t,
     update,
-    getIndex
+    getIndex,
+    updateDepoly
 }

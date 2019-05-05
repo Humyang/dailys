@@ -121,15 +121,9 @@
     <div
       class="article"
       :class="{md_preview:visible.markdown === 1,
-                    full:visible.page_mode === 2}"
+                    full:visible.page_mode === 2,
+                    depoly:visible.page_mode===3}"
     >
-      <input
-        v-if="visible.page_mode!=2"
-        class="i1"
-        type="text"
-        placeholder="无标题文章"
-        v-model="article_title"
-      >
       <p class="p1">
         <!-- 预览 -->
         <i
@@ -142,6 +136,12 @@
           @click="visible_only_editor"
           class="iconfont icon-quanping i i2"
           :class="{active:visible.page_mode===2}"
+        ></i>
+        <!-- 发布设置 -->
+        <i
+          @click="deploy_setting"
+          class="iconfont icon-quanping i i2"
+          :class="{active:visible.page_mode===3}"
         ></i>
         <!-- 切换编辑器 -->
         <i
@@ -174,14 +174,54 @@
         @save="article_content_save"
         @changed="article_content_style.changed=true"
       />
-      
     </div>
-    <div v-show="visible.markdown===1 && editorQuery==='codemirror'" 
-             class = "markdown_parse_preview_wrap">
-            <div id="markdown_parse_preview" v-html="article_markdown_preview_text">
-                
-            </div>
-        </div>
+    <div
+      v-show="visible.markdown===1 && editorQuery==='codemirror'"
+      class="markdown_parse_preview_wrap"
+    >
+      <div id="markdown_parse_preview" v-html="article_markdown_preview_text"></div>
+    </div>
+    <div
+      v-show="visible.deploy===1 && editorQuery==='codemirror'"
+      class="depoly_wrap"
+    >
+    <h2>标题</h2>
+    <input
+    id="depoly_title"
+        v-if="visible.page_mode!=2"
+        class="i1 depoly_title"
+        type="text"
+        placeholder="文章标题"
+        v-model="article_title"
+      >
+
+      ---------------------------------
+      <h2>标签</h2>
+      <input
+      id="depoly_title"
+          v-if="visible.page_mode!=2"
+          class="i1 "
+          type="text"
+          placeholder="标签"
+          v-model="depoly.tags"
+        >
+        <h2>预览内容</h2>
+        <textarea v-model="depoly.preView" name="" id="" cols="30" rows="10"></textarea>
+
+        <h2>题图</h2>
+        <input
+      id="depoly_title"
+          v-if="visible.page_mode!=2"
+          class="i1 "
+          type="text"
+          placeholder="题图连接"
+          v-model="depoly.titleImage"
+        >
+        <br />
+        <h2>保存</h2>
+        <button @click="updateDepoly">保存</button>
+    </div>
+    
   </div>
 </template>
 <script>
@@ -212,16 +252,16 @@ var LOGIN_CODE = require("flogin").CODE;
 import editor from "./editor";
 import editorCodemirror from "./CodeMirror";
 
-var marked = require('marked');
+var marked = require("marked");
 var renderer = new marked.Renderer();
-var radCode = renderer.code
-renderer.code = function (code, lang, escaped) {
-    if(lang === 'raw'){
-        return '<p class="lang-raw">'+code+'</p>'
-    }
-    var self = this
-    return radCode.call(self,code,lang,escaped)
-}
+var radCode = renderer.code;
+renderer.code = function(code, lang, escaped) {
+  if (lang === "raw") {
+    return '<p class="lang-raw">' + code + "</p>";
+  }
+  var self = this;
+  return radCode.call(self, code, lang, escaped);
+};
 marked.setOptions({
   gfm: true,
   tables: true,
@@ -230,9 +270,10 @@ marked.setOptions({
   sanitize: true,
   smartLists: true,
   smartypants: true,
-  highlight: function (code,type,sss) {
-    return require('highlight.js').highlightAuto(code).value;
-  },renderer:renderer
+  highlight: function(code, type, sss) {
+    return require("highlight.js").highlightAuto(code).value;
+  },
+  renderer: renderer
 });
 
 export default {
@@ -242,6 +283,11 @@ export default {
   },
   data() {
     return {
+      depoly:{
+        tags:[],
+        preView:null,
+          titleImage:null
+      },
       editorQuery: "codemirror",
       is_listen_change: false,
       floder_list: [],
@@ -282,6 +328,9 @@ export default {
     };
   },
   methods: {
+    updateDepoly(){
+      API.ARTICLE.updateDepoly(this.article_active,this.depoly.preView,this.depoly.tags,this.depoly.titleImage,this.article_title)
+    },
     change_edtior: function() {
       // this.$route.push()
       // console.log("this.$route.query",this.$route.query)
@@ -297,11 +346,10 @@ export default {
         // return;
       }
       this._acticle_load(this.$route.params.articleid);
-
     },
     article_content_save: function(obj) {
       let self = this;
-      console.log("article_content_save",obj)
+      console.log("article_content_save", obj);
       co(function*() {
         self.article_content_style.saving = true;
         let update = yield API.ARTICLE.update(
@@ -311,8 +359,10 @@ export default {
           self.floder_active,
           self.editorQuery
         );
-        if(self.editorQuery=="codemirror"){
-          self.article_markdown_preview_text = marked(self.$refs.codemirror.EVA.value);
+        if (self.editorQuery == "codemirror") {
+          self.article_markdown_preview_text = marked(
+            self.$refs.codemirror.EVA.value
+          );
         }
 
         self.article_content_style.saving = false;
@@ -322,7 +372,7 @@ export default {
 
         self.article_list_refresh();
       }).catch(function(err) {
-        console.log(err)
+        console.log(err);
         alert(err.MSG);
       });
     },
@@ -330,21 +380,41 @@ export default {
     article_deploy() {
       API.ARTICLE.deploy(this.article_active);
     },
-
-    visible_only_editor: function() {
-      if (this.visible.page_mode != 2) {
+    deploy_setting: function() {
+      if (this.visible.page_mode != 3) {
         this.visible = {
-          page_mode: 2,
+          page_mode: 3,
           treeview: 0,
           editor: 1,
-          markdown: 0
+          markdown: 0,
+          deploy: 1
         };
       } else {
         this.visible = {
           page_mode: 0,
           treeview: 1,
           editor: 1,
-          markdown: 0
+          markdown: 0,
+          deploy: 0
+        };
+      }
+    },
+    visible_only_editor: function() {
+      if (this.visible.page_mode != 2) {
+        this.visible = {
+          page_mode: 2,
+          treeview: 0,
+          editor: 1,
+          markdown: 0,
+          deploy: 0
+        };
+      } else {
+        this.visible = {
+          page_mode: 0,
+          treeview: 1,
+          editor: 1,
+          markdown: 0,
+          deploy: 0
         };
       }
     },
@@ -354,14 +424,16 @@ export default {
           page_mode: 1,
           treeview: 0,
           editor: 1,
-          markdown: 1
+          markdown: 1,
+          deploy: 0
         };
       } else {
         this.visible = {
           page_mode: 0,
           treeview: 1,
           editor: 1,
-          markdown: 0
+          markdown: 0,
+          deploy: 0
         };
       }
     },
@@ -405,10 +477,10 @@ export default {
     },
     article_content_execute: function() {
       // this.Delay.execute();
-      if(this.editorQuery=='editor'){
+      if (this.editorQuery == "editor") {
         this.$refs.editor.Delay.execute();
       }
-      if(this.editorQuery=='codemirror'){
+      if (this.editorQuery == "codemirror") {
         this.$refs.codemirror.Delay.execute();
       }
     },
@@ -442,7 +514,10 @@ export default {
       let self = this;
 
       co(function*() {
-        let article_obj = yield API.ARTICLE.content(article_uid,self.editorQuery);
+        let article_obj = yield API.ARTICLE.content(
+          article_uid,
+          self.editorQuery
+        );
 
         console.log("article load", article_obj);
         self.article_title = article_obj.result.title;
@@ -566,7 +641,6 @@ export default {
       //   this.$refs.codemirror.EVA.reset();
       // }
       co(function*() {
-
         let article_list = yield API.ARTICLE.list(floder_uid);
 
         self.article_list = article_list.result;

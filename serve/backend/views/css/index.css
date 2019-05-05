@@ -69,6 +69,8 @@ body {
     /* width: 90%; */
     background: url('./images.jpg');
     width: 100%;
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
 }
 .article-row div.s-1 {
     /* margin-right: 2em; */
@@ -140,4 +142,9 @@ body {
     box-shadow: 0px 1px 20px 0px #636363;
     /* margin: 0 auto; */
     /* margin-top: 50px; */
+}
+.surprise{
+    font-family: 楷体;
+    /* color: #c7c7c7; */
+    color: #c7c7c7;
 }

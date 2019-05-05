@@ -16,24 +16,25 @@
 <body >
     
     <div class="header">
-        <div><span id="jinrishici-sentence" class="shici"></span></div>
+        <div class="surprise"><span id="jinrishici-sentence" class="shici"></span></div>
         <div><a class="tag" href="/papers">写文章</a></div>
     </div>
     <% for(i in list) {%>
+    
     <div class="article-row flex row around <%= i%2===0?'to-left':'to-right' %>">
         <div class="s-0 flex row">
-            <div class="article-images">
+            <div class="article-images" style="background:url(<%= list[i].titleImage %>)">
             </div>
         </div>
 
         <div class="s-1 flex column between">
-            <div class="s-1-0 flex column">标签1、标签2、标签3；2019-05-05 </div>
+            <div class="s-1-0 flex column"><%= list[i].tags %>；2019-05-05 </div>
 
             <div class="s-1-1 flex column"><%= list[i].title %></div>
 
             <div class="s-1-2 flex column">------------------------------------------------------------------------</div>
 
-            <div class="s-1-3 flex column">这里是文章预览</div>
+            <div class="s-1-3 flex column"><%= list[i].preView %></div>
 
             <div class="s-1-4 flex column">
                 <a class="button" href="/t/<%= list[i].topic_id %>">详细阅读</a>

@@ -1,4 +1,15 @@
 import mFetch from '../ajax.js'
+
+// 新建文章
+export const updateDepoly = function(selfuid,preView,tags,titleImage,title){
+    // let timemap = (new Date()).getTime()
+    let data={
+        selfuid,preView,tags,titleImage,title
+    }
+    return mFetch('/deploy/update_depoly'
+            ,data
+            )
+}
 // 新建文章
 export const add = function(title,floder_uid){
     let timemap = (new Date()).getTime()

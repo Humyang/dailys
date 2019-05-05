@@ -8,6 +8,9 @@ var MODULE_CONFIG = {
 }
 var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
+
+
+
 /*插入和更新文章*/
 async function add (ctx){
 
@@ -88,7 +91,7 @@ async function  update (ctx){
                 throwError(ERROR_CODE.CODE.ARTICLE_SAVE_ERROR)
             }
         }
-        setObj = {"codemirror":{content:dmp_patch_result_codemirror[0],history:query_content["codemirror"].history}}
+        setObj = {"codemirror":{content:dmp_patch_result_codemirror[0],history:query_content["codemirror"].history},title}
     }
     if(editor=="editor"){
         let patches = content
@@ -103,9 +106,9 @@ async function  update (ctx){
                 throwError(ERROR_CODE.CODE.ARTICLE_SAVE_ERROR)
             }
         }
-        setObj = {"editor":{content:dmp_patch_result_editor[0],history:query_content["editor"].history}}
+        setObj = {"editor":{content:dmp_patch_result_editor[0],history:query_content["editor"].history},title}
     }
-
+    
 
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
@@ -119,6 +122,7 @@ async function  update (ctx){
         result:res
     }
 }
+
 async function  remove (ctx){
     let selfuid = ctx.request.fields.selfuid
 

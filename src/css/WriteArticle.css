@@ -100,6 +100,9 @@ i.iconfont.i.i2.active {
 .article.md_preview {
     width: 50%;
 }
+.article.depoly {
+    width: 50%;
+}
 .article.full {
     width: 100%;
 }
@@ -108,6 +111,22 @@ div.markdown_parse_preview_wrap {
     float: left;
     height: 100%;
     text-align: left;
+}
+.depoly_wrap{
+    width: 50%;
+    float: left;
+    height: 100%;
+    text-align: left;
+}
+input.i1.depoly_title {
+    width: 100%;
+    font-size: 40px;
+    line-height: 120px;
+    border: 0;
+    padding: 0 15px;
+    text-align: left;
+    padding-right: 0;
+    box-sizing: border-box;
 }
 /**/
 p.list_mode i {

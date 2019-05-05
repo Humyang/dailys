@@ -281,9 +281,9 @@ export default {
     this.EVA = new EVA();
 
     var code_mirror = document.getElementsByClassName("CodeMirror")[0];
-    code_mirror.style.height = window.innerHeight - 106 + "px";
+    code_mirror.style.height = window.innerHeight+ "px";
     window.onresize = function() {
-      code_mirror.style.height = window.innerHeight - 106 + "px";
+      code_mirror.style.height = window.innerHeight + "px";
     };
     var dnd_upload = new dndUpload(
       document.getElementsByClassName("article")[0],
