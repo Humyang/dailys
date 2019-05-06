@@ -9,7 +9,7 @@ var MODULE_CONFIG = {
 var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 
-// var DEPLOY = require("./deploy.js")
+var DEPLOY_MIDDLE = require("./deploy_middle.js")
 
 /*插入和更新文章*/
 async function add (ctx){
@@ -138,6 +138,8 @@ async function  remove (ctx){
                         .update(query_obj,
                             {'$set':{isMove:true}}
                             )
+
+
     ctx.body = {
         status:true,
         result:res
@@ -175,8 +177,8 @@ async function _getContent(ctx){
     if(res && res.history === undefined){
         res.history = []
     }
-    // let deploy = await DEPLOY._getContentArticleSelfUid(ctx,selfuid)
-    // res.deploy = deploy
+    let deploy = await DEPLOY_MIDDLE._getContentArticleSelfUid(ctx,selfuid)
+    res.deploy = deploy
     return res
 }
 
@@ -229,6 +231,7 @@ async function alterDatabase(ctx, next) {
         {uid:ctx.LOGIN_STATUS.uid})
 
     let setObj = {deploy_setting:{preView,tags,titleImage,title}}
+
 
     let res = await ctx.mongo
                         .db(CONFIG.dbName)

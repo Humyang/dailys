@@ -68,6 +68,9 @@ router.get('/',DEPLOY.getIndex)
 router.get('/css/*',serve(__dirname+'/views',{maxage:3153600000}))
 
 router.post('/deploy/update',OAUTCH_CLIENT.login_check_remote(),DEPLOY.update)
+router.post('/deploy/list',OAUTCH_CLIENT.login_check_remote(),DEPLOY.list)
+router.post('/deploy/down',OAUTCH_CLIENT.login_check_remote(),DEPLOY.down)
+router.post('/deploy/remove',OAUTCH_CLIENT.login_check_remote(),DEPLOY.remove)
 // 登陆注册
 // router.all('/username/valid/:username',LOGIN.username_repeat)
 // router.post('/regiest',/*LOGIN.verify_code(),*/LOGIN.regiest)

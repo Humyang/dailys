@@ -31,6 +31,23 @@ export const search = function(keywords){
             ,data
             )
 }
+export const allDepolied = function(){
+    let data={
+        
+    }
+    return mFetch('/deploy/list'
+            ,data
+            )
+}
+export const downDeploied = function(selfuid){
+    let data={
+        selfuid
+    }
+    return mFetch('/deploy/down'
+            ,data
+            )
+}
+
 // 更新文章
 export const update = function(content,title,selfuid,floder_uid,editor){
     let timemap = (new Date()).getTime()
@@ -80,6 +97,13 @@ export const remove = function(selfuid){
         selfuid
     }
     return mFetch('/article/remove',data)
+}
+export const removeDeploy = function(selfuid){
+    
+    let data={
+        selfuid
+    }
+    return mFetch('/deploy/remove',data)
 }
 // 发布文章
 export const deploy = function(selfuid){

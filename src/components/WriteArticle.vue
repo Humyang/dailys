@@ -43,6 +43,7 @@
         <p class="list_mode">
           <i @click="floder_mode_show" class="iconfont icon-zhankai"></i>
           <i @click="search_mode_show" class="iconfont icon-icon1460187848267"></i>
+          <i @click="search_mode_show_deploy=!search_mode_show_deploy" class="iconfont icon-icon1460187848267"></i>
         </p>
         <div v-show="floder_add_show_flag" class="list_mode_group">
           <p class="p1">文集排序方式</p>
@@ -56,6 +57,10 @@
           <p class="p1">搜索</p>
           <input v-model="search_mode_content" class="search" type="text" placeholder="搜索文集和文章">
           <a @click="search_mode_ok" class="btn btn_ok" href="#">确定</a>
+        </div>
+        <div v-show="search_mode_show_deploy" class="list_mode_group">
+          
+          <a @click="get_deployed_list" class="btn btn_ok" href="#">已发布文章</a>
         </div>
         <template v-if="floder_add_visible">
           <div class="add_wrap">
@@ -182,6 +187,7 @@
       <div id="markdown_parse_preview" v-html="article_markdown_preview_text"></div>
     </div>
     <div v-show="visible.deploy===1 && editorQuery==='codemirror'" class="deploy_wrap">
+      <!-- {{deploy.isDown}} -->
       <div class="deploy_setting flex column">
         <div class="s-0 flex row">
           <div class="s-0-0 flex row">标题</div>
@@ -236,7 +242,9 @@
           
         <button class="button" @click="updatedeploy">保存</button>
         <button class="button" @click="article_deploy">发布</button>
-        <button class="button" @click="updatedeploy">下架</button>
+        <!-- {{deploy.isDown}} -->
+        <button v-if="deploy.isDown===false" class="button" @click="down_deploied">下架</button>
+        
       </div>
     </div>
   </div>
@@ -300,20 +308,22 @@ export default {
   },
   data() {
     return {
+      search_mode_show_deploy:false,
       deploy: {
         tags: [],
         preView: null,
-        titleImage: null
+        titleImage: null,
+        isDown:null
       },
       editorQuery: "codemirror",
       is_listen_change: false,
       floder_list: [],
       visible: {
-        page_mode: 3, //0:normal:treeview editor markdown 1:editor & markdown preview 2 only editor
-        treeview: 0,
+        page_mode: 0, //0:normal:treeview editor markdown 1:editor & markdown preview 2 only editor
+        treeview: 1,
         editor: 1,
         markdown: 0,
-        deploy:1
+        deploy:0
       },
       search_mode_show_flag: false,
       search_mode_content: "",
@@ -346,6 +356,21 @@ export default {
     };
   },
   methods: {
+    down_deploied(){
+      API.ARTICLE.downDeploied(this.article_active,).then(function(res) {
+        // console.log(res)
+        // self.article_list = res.result;
+        alert('下架成功')
+      });
+    },
+    get_deployed_list(){
+      var self = this;
+      API.ARTICLE.allDepolied().then(function(res) {
+        // console.log(res)
+        self.article_list = res.result;
+      });
+    },
+
     updatedeploy() {
       API.ARTICLE.updatedeploy(
         this.article_active,
@@ -492,6 +517,11 @@ export default {
         self.article_list_refresh();
         self.article_item_more_crud_element_visible = false;
       });
+      API.ARTICLE.removeDeploy(this.article_active).then(function() {
+        self.article_list_refresh();
+        self.article_item_more_crud_element_visible = false;
+      });
+      
     },
     article_list_refresh: function() {
       let self = this;
@@ -568,11 +598,13 @@ if(article_obj.result.deploy_setting){
         self.deploy.tags = article_obj.result.deploy_setting.tags
         self.deploy.preView = article_obj.result.deploy_setting.preView
         self.deploy.titleImage = article_obj.result.deploy_setting.titleImage
+        
         }else{
           self.deploy.tags = ""
           self.deploy.preView = ""
           self.deploy.titleImage = ""
         }
+        self.deploy.isDown = article_obj.result.deploy && article_obj.result.deploy.isDown
 
         if (callback) {
           callback();
