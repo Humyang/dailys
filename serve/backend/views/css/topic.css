@@ -4,9 +4,9 @@ body {
     margin: 0;
     background: url('./lilypads.png');
 }
-html,body,.markdown_parse_preview{
+/* html,body,.markdown_parse_preview{
     height:100%;
-}
+} */
 #markdown_parse_preview h1{
     line-height: 44px;
 }
