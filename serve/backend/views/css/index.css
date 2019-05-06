@@ -148,3 +148,30 @@ body {
     /* color: #c7c7c7; */
     color: #c7c7c7;
 }
+
+
+@media screen and (max-width: 1024px) {
+    .article-row div.s-1{
+        margin: 30px 0;
+        text-align: center;
+    }
+    .article-row div.s-0{
+        display: none;
+    }
+    .article-row div.s-1 div.s-1-4{
+        justify-content: center;
+        flex-direction: row;
+    }
+    .article-row.flex.row{
+        margin: 10px !important;
+        /* overflow: hidden; */
+        width: auto;
+        border: 0 !important;
+    }
+    .article-row.flex.row.to-left{
+        margin: 0;
+    }
+    .article-row.flex.row.to-right{
+        margin: 0;
+    }
+}
