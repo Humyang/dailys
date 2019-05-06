@@ -243,7 +243,7 @@
         <button class="button" @click="updatedeploy">保存</button>
         <button class="button" @click="article_deploy">发布</button>
         <!-- {{deploy.isDown}} -->
-        <button v-if="deploy.isDown===false" class="button" @click="down_deploied">下架</button>
+        <button v-if="deploy.isDown!=true" class="button" @click="down_deploied">下架</button>
         
       </div>
     </div>
