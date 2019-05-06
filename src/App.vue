@@ -6,6 +6,8 @@
 
 <script>
 import './css/common.css'
+import './css/flex.css'
+import './css/scroll.css'
 export default {
   name: 'app',
   data () {

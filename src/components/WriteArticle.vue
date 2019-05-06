@@ -107,7 +107,7 @@
             >
               <i class="i1"></i>
               <p class="p1">{{item.title}}</p>
-              <p class="p2">------</p>
+              <p class="p2">{{item.deploy_setting&&item.deploy_setting.preView}}</p>
               <i
                 v-if="article_edit_index === index"
                 @click="article_item_more_crud_enter($event,index)"
@@ -122,7 +122,7 @@
       class="article"
       :class="{md_preview:visible.markdown === 1,
                     full:visible.page_mode === 2,
-                    depoly:visible.page_mode===3}"
+                    deploy:visible.page_mode===3}"
     >
       <p class="p1">
         <!-- 预览 -->
@@ -150,7 +150,7 @@
           :class="{active:visible.page_mode===2}"
         ></i>
         <!-- 发布 -->
-        <i @click="article_deploy" class="iconfont icon-yijingfabu i i1 animated"></i>
+        <!-- <i @click="article_deploy" class="iconfont icon-yijingfabu i i1 animated"></i> -->
         <!-- 保存 -->
         <i
           @click="article_content_execute"
@@ -181,47 +181,64 @@
     >
       <div id="markdown_parse_preview" v-html="article_markdown_preview_text"></div>
     </div>
-    <div
-      v-show="visible.deploy===1 && editorQuery==='codemirror'"
-      class="depoly_wrap"
-    >
-    <h2>标题</h2>
-    <input
-    id="depoly_title"
-        v-if="visible.page_mode!=2"
-        class="i1 depoly_title"
-        type="text"
-        placeholder="文章标题"
-        v-model="article_title"
-      >
+    <div v-show="visible.deploy===1 && editorQuery==='codemirror'" class="deploy_wrap">
+      <div class="deploy_setting flex column">
+        <div class="s-0 flex row">
+          <div class="s-0-0 flex row">标题</div>
+          <div class="s-0-1 flex row">
+            <input
+              
+              v-if="visible.page_mode!=2"
+              class="i1"
+              type="text"
+              placeholder="文章标题"
+              v-model="article_title"
+            >
+          </div>
+        </div>
+        <div class="s-0 flex row">
+          <div class="s-0-0 flex row">标签</div>
 
-      ---------------------------------
-      <h2>标签</h2>
-      <input
-      id="depoly_title"
-          v-if="visible.page_mode!=2"
-          class="i1 "
-          type="text"
-          placeholder="标签"
-          v-model="depoly.tags"
-        >
-        <h2>预览内容</h2>
-        <textarea v-model="depoly.preView" name="" id="" cols="30" rows="10"></textarea>
+          <div class="s-0-1 flex row">
+            <input
+              
+              v-if="visible.page_mode!=2"
+              class="i1"
+              type="text"
+              placeholder="标签"
+              v-model="deploy.tags"
+            >
+          </div>
+        </div>
+        <div class="s-0 flex row">
+          <div class="s-0-0 flex row">预览内容</div>
 
-        <h2>题图</h2>
-        <input
-      id="depoly_title"
-          v-if="visible.page_mode!=2"
-          class="i1 "
-          type="text"
-          placeholder="题图连接"
-          v-model="depoly.titleImage"
-        >
-        <br />
-        <h2>保存</h2>
-        <button @click="updateDepoly">保存</button>
+          <div class="s-0-1 flex row">
+            <textarea v-model="deploy.preView" name id cols="30" rows="10"></textarea>
+          </div>
+        </div>
+        <div class="s-0 flex row">
+          <div class="s-0-0 flex row">题图</div>
+
+          <div class="s-0-1 flex row">
+            <input
+              
+              v-if="visible.page_mode!=2"
+              class="i1"
+              type="text"
+              placeholder="题图连接"
+              v-model="deploy.titleImage"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="flex row">
+          
+        <button class="button" @click="updatedeploy">保存</button>
+        <button class="button" @click="article_deploy">发布</button>
+        <button class="button" @click="updatedeploy">下架</button>
+      </div>
     </div>
-    
   </div>
 </template>
 <script>
@@ -283,19 +300,20 @@ export default {
   },
   data() {
     return {
-      depoly:{
-        tags:[],
-        preView:null,
-          titleImage:null
+      deploy: {
+        tags: [],
+        preView: null,
+        titleImage: null
       },
       editorQuery: "codemirror",
       is_listen_change: false,
       floder_list: [],
       visible: {
-        page_mode: 0, //0:normal:treeview editor markdown 1:editor & markdown preview 2 only editor
-        treeview: 1,
+        page_mode: 3, //0:normal:treeview editor markdown 1:editor & markdown preview 2 only editor
+        treeview: 0,
         editor: 1,
-        markdown: 0
+        markdown: 0,
+        deploy:1
       },
       search_mode_show_flag: false,
       search_mode_content: "",
@@ -328,8 +346,14 @@ export default {
     };
   },
   methods: {
-    updateDepoly(){
-      API.ARTICLE.updateDepoly(this.article_active,this.depoly.preView,this.depoly.tags,this.depoly.titleImage,this.article_title)
+    updatedeploy() {
+      API.ARTICLE.updatedeploy(
+        this.article_active,
+        this.deploy.preView,
+        this.deploy.tags,
+        this.deploy.titleImage,
+        this.article_title
+      );
     },
     change_edtior: function() {
       // this.$route.push()
@@ -540,6 +564,16 @@ export default {
         // self.editor.on("change", self.onEditorChange);
         self.floder_active = article_obj.result.floder_uid;
         self.article_active = article_uid;
+if(article_obj.result.deploy_setting){
+        self.deploy.tags = article_obj.result.deploy_setting.tags
+        self.deploy.preView = article_obj.result.deploy_setting.preView
+        self.deploy.titleImage = article_obj.result.deploy_setting.titleImage
+        }else{
+          self.deploy.tags = ""
+          self.deploy.preView = ""
+          self.deploy.titleImage = ""
+        }
+
         if (callback) {
           callback();
         }

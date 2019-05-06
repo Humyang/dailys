@@ -9,7 +9,7 @@ var MODULE_CONFIG = {
 var throwError = require('./throwError.js')
 var ERROR_CODE = require('../../PREDEFINED/ERROR_CODE.js')
 
-
+// var DEPLOY = require("./deploy.js")
 
 /*插入和更新文章*/
 async function add (ctx){
@@ -48,7 +48,7 @@ async function  list (ctx){
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)
-                        .find(query_obj,{content:0,history:false})
+                        .find(query_obj,{content:0,history:false,})
                         .sort({_id:-1})
                         .toArray()
 
@@ -108,7 +108,6 @@ async function  update (ctx){
         }
         setObj = {"editor":{content:dmp_patch_result_editor[0],history:query_content["editor"].history},title}
     }
-    
 
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
@@ -117,6 +116,9 @@ async function  update (ctx){
                             {'$set':setObj},
                             {'upsert':true}
                         )
+
+    
+
     ctx.body = {
         status:true,
         result:res
@@ -173,6 +175,8 @@ async function _getContent(ctx){
     if(res && res.history === undefined){
         res.history = []
     }
+    // let deploy = await DEPLOY._getContentArticleSelfUid(ctx,selfuid)
+    // res.deploy = deploy
     return res
 }
 
@@ -181,6 +185,8 @@ async function  content (ctx){
     if(res){res.history=[]}else{
         
     }
+    
+
     ctx.body = {
         status:true,
         result:res
@@ -211,6 +217,31 @@ async function alterDatabase(ctx, next) {
         })
     }
   }
+  async function  updatedeploy (ctx){
+    let selfuid = ctx.request.fields.selfuid
+    let preView = ctx.request.fields.preView
+    let tags = ctx.request.fields.tags
+    let titleImage = ctx.request.fields.titleImage
+    let title = ctx.request.fields.title
+    
+    let query_obj = objectAssign(
+        {selfuid,isMove:{$ne:true}},
+        {uid:ctx.LOGIN_STATUS.uid})
+
+    let setObj = {deploy_setting:{preView,tags,titleImage,title}}
+
+    let res = await ctx.mongo
+                        .db(CONFIG.dbName)
+                        .collection(MODULE_CONFIG.COLLECTION)
+                        .update(query_obj,
+                            {'$set':setObj},
+                            {'upsert':true}
+                        )
+    ctx.body = {
+        status:true,
+        result:res
+    }
+}
 module.exports = {
     add,
     list,
@@ -218,5 +249,6 @@ module.exports = {
     content,
     remove,
     alterDatabase,
-    _getContent
+    _getContent,
+    updatedeploy
 }

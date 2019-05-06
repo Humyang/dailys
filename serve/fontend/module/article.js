@@ -1,12 +1,12 @@
 import mFetch from '../ajax.js'
 
 // 新建文章
-export const updateDepoly = function(selfuid,preView,tags,titleImage,title){
+export const updatedeploy = function(selfuid,preView,tags,titleImage,title){
     // let timemap = (new Date()).getTime()
     let data={
         selfuid,preView,tags,titleImage,title
     }
-    return mFetch('/deploy/update_depoly'
+    return mFetch('/article/update_deploy'
             ,data
             )
 }

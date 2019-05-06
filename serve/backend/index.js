@@ -47,7 +47,7 @@ router.post('/article/list',OAUTCH_CLIENT.login_check_remote(),ARTICLE.list)
 router.post('/article/update',OAUTCH_CLIENT.login_check_remote(),FLODER.Mfloder_list_modify(),ARTICLE.update)
 router.post('/article/content',OAUTCH_CLIENT.login_check_remote(),ARTICLE.content)
 router.post('/article/remove',OAUTCH_CLIENT.login_check_remote(),ARTICLE.remove)
-
+router.post('/article/update_deploy',OAUTCH_CLIENT.login_check_remote(),ARTICLE.updatedeploy)
 
 // router.get('/alterDatabase', ARTICLE.alterDatabase)
 
@@ -68,7 +68,6 @@ router.get('/',DEPLOY.getIndex)
 router.get('/css/*',serve(__dirname+'/views',{maxage:3153600000}))
 
 router.post('/deploy/update',OAUTCH_CLIENT.login_check_remote(),DEPLOY.update)
-router.post('/deploy/update_depoly',OAUTCH_CLIENT.login_check_remote(),DEPLOY.updateDepoly)
 // 登陆注册
 // router.all('/username/valid/:username',LOGIN.username_repeat)
 // router.post('/regiest',/*LOGIN.verify_code(),*/LOGIN.regiest)
