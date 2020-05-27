@@ -47,6 +47,34 @@ const getUsername = function(){
 
 /***/ }),
 
+/***/ 134:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 135:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 136:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 137:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 138:
 /***/ (function(module, exports) {
 
@@ -82,10 +110,81 @@ const getUsername = function(){
 
 /***/ }),
 
-/***/ 143:
-/***/ (function(module, exports) {
+/***/ 18:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_js__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PREDEFINED_CONSTANT_js__ = __webpack_require__(2);
+
+__webpack_require__(133).polyfill();
+var fetch = __webpack_require__(322);
+
+var CODE = __webpack_require__(2).CODE
+var CONFIG = __webpack_require__(349)
+
+
+
+// 业务逻辑错误处理
+
+// 对返回报文进行预处理
+// 返回 false 表示发生业务逻辑问题
+// 返回 true 表示未发生业务逻辑问题，继续执行
+const preProcessRsp = function(store,reslove,reject) {
+    if (!store.status) {
+        reject(store)
+        return false
+    }
+    return true;
+};
+
+const mFetch = function(path,data,token) {
+    return new Promise(function(reslove,reject){
+        let comb_data = {}
+        if(data===undefined){
+            data = {}
+        }else{
+            comb_data = data
+            if(data.token === undefined){
+                // console.log(123123)
+                comb_data = Object.assign(data,{token:__WEBPACK_IMPORTED_MODULE_0__base_js__["getToken"]()})
+            }
+        }
+        let root = this
+        console.log('token')
+        fetch(__WEBPACK_IMPORTED_MODULE_1__PREDEFINED_CONSTANT_js__["IP"]+path,
+        {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            "_token":token || data.token || comb_data.token ||__WEBPACK_IMPORTED_MODULE_0__base_js__["getToken"]()||'unkonw'
+          },
+          body: JSON.stringify(comb_data)
+        })
+        .then(function(response) {
+            // HTTP 错误处理
+            if (response.status != 200) {
+                // throw new Error("Bad response from server: status",response.status);
+                reject("Bad response from server: status",response.status)
+            }
+            return response.json();
+        })
+        .then(function(res) {
+            if(preProcessRsp(res,reslove,reject)){
+                reslove(res)
+            }else{
+                reject(res.msg)
+            }
+        })
+        .catch(function(ex){
+            reject({
+                MSG:ex.message
+            })
+        });
+    })   
+};
+/* harmony default export */ __webpack_exports__["a"] = mFetch;
 
 /***/ }),
 
@@ -156,186 +255,54 @@ const DAY = 86399500
 
 /***/ }),
 
-/***/ 20:
+/***/ 31:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 21:
+/***/ 32:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 22:
+/***/ 33:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 23:
-/***/ (function(module, exports) {
+/***/ 332:
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+var Component = __webpack_require__(4)(
+  /* script */
+  __webpack_require__(82),
+  /* template */
+  __webpack_require__(338),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
 
-/***/ }),
+module.exports = Component.exports
 
-/***/ 24:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 26:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_js__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PREDEFINED_CONSTANT_js__ = __webpack_require__(2);
-
-__webpack_require__(137).polyfill();
-var fetch = __webpack_require__(323);
-
-var CODE = __webpack_require__(2).CODE
-var CONFIG = __webpack_require__(352)
-
-
-
-// 业务逻辑错误处理
-
-// 对返回报文进行预处理
-// 返回 false 表示发生业务逻辑问题
-// 返回 true 表示未发生业务逻辑问题，继续执行
-const preProcessRsp = function(store,reslove,reject) {
-    if (!store.status) {
-        reject(store)
-        return false
-    }
-    return true;
-};
-
-const mFetch = function(path,data,token) {
-    return new Promise(function(reslove,reject){
-        let comb_data = {}
-        if(data===undefined){
-            data = {}
-        }else{
-            comb_data = data
-            if(data.token === undefined){
-                // console.log(123123)
-                comb_data = Object.assign(data,{token:__WEBPACK_IMPORTED_MODULE_0__base_js__["getToken"]()})
-            }
-        }
-        let root = this
-        console.log('token')
-        fetch(__WEBPACK_IMPORTED_MODULE_1__PREDEFINED_CONSTANT_js__["IP"]+path,
-        {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            "_token":token || data.token || comb_data.token ||__WEBPACK_IMPORTED_MODULE_0__base_js__["getToken"]()||'unkonw'
-          },
-          body: JSON.stringify(comb_data)
-        })
-        .then(function(response) {
-            // HTTP 错误处理
-            if (response.status != 200) {
-                // throw new Error("Bad response from server: status",response.status);
-                reject("Bad response from server: status",response.status)
-            }
-            return response.json();
-        })
-        .then(function(res) {
-            if(preProcessRsp(res,reslove,reject)){
-                reslove(res)
-            }else{
-                reject(res.msg)
-            }
-        })
-        .catch(function(ex){
-            reject({
-                MSG:ex.message
-            })
-        });
-    })   
-};
-/* harmony default export */ __webpack_exports__["a"] = mFetch;
-
-/***/ }),
-
-/***/ 27:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__module_article_js__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__module_floder_js__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__module_login_js__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__module_userCOnfig_js__ = __webpack_require__(357);
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "ARTICLE", function() { return __WEBPACK_IMPORTED_MODULE_0__module_article_js__; });
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "FLODER", function() { return __WEBPACK_IMPORTED_MODULE_1__module_floder_js__; });
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "LOGIN", function() { return __WEBPACK_IMPORTED_MODULE_2__module_login_js__; });
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "CONFIG", function() { return __WEBPACK_IMPORTED_MODULE_3__module_userCOnfig_js__; });
-// import mFetch from './ajax.js'
-// 添加单词
-// export const articleUpdate = function(title,content){
-    
-//     let data={
-//         title,
-//         content
-//     }
-//     return mFetch('/article/update'
-//             ,data
-//             )
-// }
-
-
-
-
-
-
-/***/ }),
-
-/***/ 28:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-var SwitchF = function(s){
-	// var s=Object.assign({
-	// 	f1:function(){},
-	// 	f2:function(){}
-	// },settings);
-	var flag = false
-	return function(){
-		if(!flag){
-			console.log(1)
-			s[0].call()
-		}else{
-			console.log(2)
-			s[1].call()
-		}
-		flag=!flag
-	}
-}
-/* harmony default export */ __webpack_exports__["default"] = SwitchF;
 
 /***/ }),
 
 /***/ 333:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(3)(
+var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(86),
+  __webpack_require__(83),
   /* template */
-  __webpack_require__(341),
+  __webpack_require__(342),
   /* scopeId */
   null,
   /* cssModules */
@@ -350,13 +317,17 @@ module.exports = Component.exports
 /***/ 334:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(3)(
+
+/* styles */
+__webpack_require__(142)
+
+var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(87),
+  __webpack_require__(84),
   /* template */
-  __webpack_require__(345),
+  __webpack_require__(343),
   /* scopeId */
-  null,
+  "data-v-58029bca",
   /* cssModules */
   null
 )
@@ -371,15 +342,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(143)
+__webpack_require__(140)
 
-var Component = __webpack_require__(3)(
+var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(88),
+  __webpack_require__(85),
   /* template */
-  __webpack_require__(346),
+  __webpack_require__(339),
   /* scopeId */
-  "data-v-58029bca",
+  "data-v-26306532",
   /* cssModules */
   null
 )
@@ -392,17 +363,13 @@ module.exports = Component.exports
 /***/ 336:
 /***/ (function(module, exports, __webpack_require__) {
 
-
-/* styles */
-__webpack_require__(141)
-
-var Component = __webpack_require__(3)(
+var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(89),
+  __webpack_require__(86),
   /* template */
-  __webpack_require__(342),
+  __webpack_require__(344),
   /* scopeId */
-  "data-v-26306532",
+  null,
   /* cssModules */
   null
 )
@@ -415,28 +382,9 @@ module.exports = Component.exports
 /***/ 337:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(3)(
+var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(90),
-  /* template */
-  __webpack_require__(347),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 338:
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(3)(
-  /* script */
-  __webpack_require__(91),
+  __webpack_require__(87),
   /* template */
   __webpack_require__(340),
   /* scopeId */
@@ -450,368 +398,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 339:
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(3)(
-  /* script */
-  __webpack_require__(92),
-  /* template */
-  __webpack_require__(343),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 340:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "write_article_wrap"
-  }, [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.floder_item_more_crud_element_visible),
-      expression: "floder_item_more_crud_element_visible"
-    }],
-    ref: "floder_item_more",
-    staticClass: "floder-cover",
-    attrs: {
-      "id": "floder_item_more"
-    },
-    on: {
-      "mouseleave": function($event) {
-        _vm.floder_item_more_crud_out($event)
-      }
-    }
-  }, [_c('div', {
-    staticClass: "background"
-  }), _vm._v(" "), _c('ul', {
-    staticClass: "subitem"
-  }, [_vm._m(0), _vm._v(" "), _c('li', {
-    on: {
-      "click": _vm.floder_delete
-    }
-  }, [_c('i', {
-    staticClass: "iconfont icon-shanchu"
-  })])])]), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.article_item_more_crud_element_visible),
-      expression: "article_item_more_crud_element_visible"
-    }],
-    ref: "article_item_more",
-    staticClass: "floder-cover",
-    attrs: {
-      "id": "article_item_more"
-    },
-    on: {
-      "mouseleave": function($event) {
-        _vm.article_item_more_crud_out($event)
-      }
-    }
-  }, [_c('div', {
-    staticClass: "background"
-  }), _vm._v(" "), _c('ul', {
-    staticClass: "subitem"
-  }, [_vm._m(1), _vm._v(" "), _c('li', {
-    on: {
-      "click": _vm.article_delete
-    }
-  }, [_c('i', {
-    staticClass: "iconfont icon-shanchu"
-  })])])]), _vm._v(" "), (_vm.page_mode === 0) ? [_c('div', {
-    staticClass: "floder"
-  }, [_c('a', {
-    staticClass: "btn back_home"
-  }, [_vm._v("回到首页")]), _vm._v(" "), _c('p', {
-    staticClass: "p_add",
-    on: {
-      "click": _vm.floder_add_show
-    }
-  }, [_c('i', {
-    staticClass: "i_add"
-  }, [_vm._v("+")]), _vm._v("新建文集")]), _vm._v(" "), _c('p', {
-    staticClass: "list_mode"
-  }, [_c('i', {
-    staticClass: "iconfont icon-zhankai",
-    on: {
-      "click": _vm.floder_mode_show
-    }
-  })]), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.floder_add_show_flag),
-      expression: "floder_add_show_flag"
-    }],
-    staticClass: "list_mode_group"
-  }, [_c('p', {
-    staticClass: "p1"
-  }, [_vm._v("文集排序方式")]), _vm._v(" "), _c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.floder_mode_show_type),
-      expression: "floder_mode_show_type"
-    }],
-    attrs: {
-      "name": "",
-      "id": ""
-    },
-    on: {
-      "change": [function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.floder_mode_show_type = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }, _vm.Mfloder_mode_show_type_change]
-    }
-  }, [_c('option', {
-    attrs: {
-      "value": "1"
-    }
-  }, [_vm._v("创建日期")]), _vm._v(" "), _c('option', {
-    attrs: {
-      "value": "2"
-    }
-  }, [_vm._v("最近使用")]), _vm._v(" "), _c('option', {
-    attrs: {
-      "value": "3"
-    }
-  }, [_vm._v("使用频率")])])]), _vm._v(" "), (_vm.floder_add_visible) ? [_c('div', {
-    staticClass: "add_wrap"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.floder_add_input),
-      expression: "floder_add_input"
-    }],
-    attrs: {
-      "placeholder": "输入文集名称",
-      "type": "",
-      "name": ""
-    },
-    domProps: {
-      "value": (_vm.floder_add_input)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.floder_add_input = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('a', {
-    staticClass: "btn btn_ok",
-    on: {
-      "click": _vm.floder_add_ok
-    }
-  }, [_vm._v("保存")]), _vm._v(" "), _c('a', {
-    staticClass: "btn btn_cancel",
-    on: {
-      "click": _vm.floder_add_cancel
-    }
-  }, [_vm._v("取消")])])] : _vm._e(), _vm._v(" "), _c('ul', {
-    staticClass: "item"
-  }, _vm._l((_vm.floder_list_computed), function(item, index) {
-    return _c('li', {
-      class: {
-        active: _vm.floder_active === _vm.floder_list[index].floder_uid, editor: _vm.floder_edit_index === index
-      },
-      on: {
-        "click": function($event) {
-          _vm.floder_item_active(index)
-        }
-      }
-    }, [(index != _vm.floder_edit_index) ? [_vm._v("\n                        " + _vm._s(index + 1 + '、' + item.name) + "\n                       "), _vm._v(" "), _c('i', {
-      staticClass: "iconfont icon-gengduo i1",
-      on: {
-        "click": function($event) {
-          _vm.floder_item_more_crud_enter($event, index)
-        }
-      }
-    })] : _vm._e(), _vm._v(" "), (index === _vm.floder_edit_index) ? [_c('input', {
-      attrs: {
-        "placeholder": item.name,
-        "type": "",
-        "name": ""
-      }
-    }), _vm._v(" "), _c('a', {
-      staticClass: "btn btn_ok",
-      on: {
-        "click": _vm.floder_edit_ok
-      }
-    }, [_vm._v("保存")]), _vm._v(" "), _c('a', {
-      staticClass: "btn btn_cancel",
-      on: {
-        "click": function($event) {
-          _vm.floder_edit_cancel(index)
-        }
-      }
-    }, [_vm._v("取消")])] : _vm._e()], 2)
-  }))], 2), _vm._v(" "), _c('div', {
-    staticClass: "document"
-  }, [_c('p', {
-    staticClass: "p_add",
-    on: {
-      "click": _vm.article_add_show
-    }
-  }, [_c('i', {
-    staticClass: "i_add"
-  }, [_vm._v("+")]), _vm._v("新建文章")]), _vm._v(" "), (_vm.article_add_visible) ? [_c('div', {
-    staticClass: "add_wrap"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.article_add_input),
-      expression: "article_add_input"
-    }],
-    attrs: {
-      "placeholder": "输入文章名称",
-      "type": "",
-      "name": ""
-    },
-    domProps: {
-      "value": (_vm.article_add_input)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.article_add_input = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('a', {
-    staticClass: "btn btn_ok",
-    on: {
-      "click": _vm.article_add_ok
-    }
-  }, [_vm._v("保存")]), _vm._v(" "), _c('a', {
-    staticClass: "btn btn_cancel",
-    on: {
-      "click": _vm.article_add_cancel
-    }
-  }, [_vm._v("取消")])])] : _vm._e(), _vm._v(" "), _c('ul', [_vm._l((_vm.article_list), function(item, index) {
-    return [_c('li', {
-      class: {
-        active: _vm.article_active === _vm.article_list[index].selfuid, editor: _vm.article_edit_index === index
-      },
-      on: {
-        "click": function($event) {
-          _vm.article_item_active(index)
-        }
-      }
-    }, [_c('i', {
-      staticClass: "i1"
-    }), _vm._v(" "), _c('p', {
-      staticClass: "p1"
-    }, [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('p', {
-      staticClass: "p2"
-    }, [_vm._v("------")]), _vm._v(" "), (_vm.article_edit_index === index) ? _c('i', {
-      staticClass: "iconfont icon-gengduo i2",
-      on: {
-        "click": function($event) {
-          _vm.article_item_more_crud_enter($event, index)
-        }
-      }
-    }) : _vm._e()])]
-  })], 2)], 2)] : _vm._e(), _vm._v(" "), _c('div', {
-    staticClass: "article",
-    class: {
-      md_preview: _vm.page_mode === 1
-    }
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.article_title),
-      expression: "article_title"
-    }],
-    staticClass: "i1",
-    attrs: {
-      "type": "text",
-      "placeholder": "无标题文章"
-    },
-    domProps: {
-      "value": (_vm.article_title)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.article_title = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('p', {
-    staticClass: "p1"
-  }, [_c('i', {
-    staticClass: "iconfont icon-shu i i2 ",
-    on: {
-      "click": _vm.article_markdown_preview
-    }
-  }), _vm._v(" "), _c('i', {
-    staticClass: "iconfont icon-baocun i i1 animated",
-    class: {
-      saving: _vm.article_content_style.saving,
-        changed: _vm.article_content_style.changed
-    },
-    on: {
-      "click": _vm.article_content_execute
-    }
-  }), _vm._v(" "), _c('i', {
-    staticClass: "iconfont icon-fabu i i2 ",
-    on: {
-      "click": _vm.article_markdown_preview
-    }
-  })]), _vm._v(" "), _c('textarea', {
-    ref: "ta1",
-    attrs: {
-      "name": "",
-      "id": "ta1",
-      "cols": "30",
-      "rows": "10"
-    }
-  })]), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.page_mode === 1),
-      expression: "page_mode===1"
-    }],
-    staticClass: "markdown_parse_preview_wrap"
-  }, [_c('div', {
-    attrs: {
-      "id": "markdown_parse_preview"
-    },
-    domProps: {
-      "innerHTML": _vm._s(_vm.article_markdown_preview_text)
-    }
-  })])], 2)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', [_c('i', {
-    staticClass: "iconfont icon-xiugai"
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', [_c('i', {
-    staticClass: "iconfont icon-xiugai"
-  })])
-}]}
-
-/***/ }),
-
-/***/ 341:
+/***/ 338:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -830,7 +417,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 342:
+/***/ 339:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -845,7 +432,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 343:
+/***/ 34:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 340:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -866,7 +460,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 344:
+/***/ 341:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -879,7 +473,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 345:
+/***/ 342:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -908,7 +502,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 346:
+/***/ 343:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -919,7 +513,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 347:
+/***/ 344:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1145,6 +739,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.floder_add_cancel
     }
   }, [_vm._v("取消")])])] : _vm._e(), _vm._v(" "), _c('ul', {
+    ref: "ulScroll",
     staticClass: "item"
   }, _vm._l((_vm.floder_list_computed), function(item, index) {
     return _c('li', {
@@ -1491,7 +1086,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 352:
+/***/ 349:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1502,7 +1097,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 353:
+/***/ 35:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 350:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1599,12 +1201,12 @@ Upload.prototype.abort = function(){
 
 /***/ }),
 
-/***/ 354:
+/***/ 351:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ajax_js__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ajax_js__ = __webpack_require__(18);
 
 
 // 新建文章
@@ -1744,12 +1346,12 @@ const deploy = function(selfuid){
 
 /***/ }),
 
-/***/ 355:
+/***/ 352:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ajax_js__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ajax_js__ = __webpack_require__(18);
 
 // 新建文章
 const add = function(name){
@@ -1782,13 +1384,13 @@ const remove = function(floder_uid){
 
 /***/ }),
 
-/***/ 356:
+/***/ 353:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ajax_js__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_md5__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ajax_js__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_md5__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_md5__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__base_js__ = __webpack_require__(12);
 
@@ -1832,12 +1434,12 @@ const login_status_check = function(token){
 
 /***/ }),
 
-/***/ 357:
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ajax_js__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ajax_js__ = __webpack_require__(18);
 
 
 const floder_sort_type = function(type){
@@ -1856,7 +1458,7 @@ const getAll = function(){
 
 /***/ }),
 
-/***/ 358:
+/***/ 355:
 /***/ (function(module, exports) {
 
 /**
@@ -4056,40 +3658,40 @@ this['DIFF_EQUAL'] = DIFF_EQUAL;
 
 /***/ }),
 
-/***/ 359:
+/***/ 356:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 360:
+/***/ 357:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _promise = __webpack_require__(29);
+var _promise = __webpack_require__(19);
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _vue = __webpack_require__(45);
+var _vue = __webpack_require__(40);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _App = __webpack_require__(69);
+var _App = __webpack_require__(65);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _router = __webpack_require__(67);
+var _router = __webpack_require__(63);
 
 var _router2 = _interopRequireDefault(_router);
 
-var _vuex = __webpack_require__(6);
+var _vuex = __webpack_require__(9);
 
 var _vuex2 = _interopRequireDefault(_vuex);
 
-__webpack_require__(68);
+__webpack_require__(64);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4183,14 +3785,73 @@ window.$vmm = new _vue2.default({
 
 /***/ }),
 
-/***/ 39:
+/***/ 36:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 42:
+/***/ 38:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__module_article_js__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__module_floder_js__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__module_login_js__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__module_userCOnfig_js__ = __webpack_require__(354);
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "ARTICLE", function() { return __WEBPACK_IMPORTED_MODULE_0__module_article_js__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "FLODER", function() { return __WEBPACK_IMPORTED_MODULE_1__module_floder_js__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "LOGIN", function() { return __WEBPACK_IMPORTED_MODULE_2__module_login_js__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "CONFIG", function() { return __WEBPACK_IMPORTED_MODULE_3__module_userCOnfig_js__; });
+// import mFetch from './ajax.js'
+// 添加单词
+// export const articleUpdate = function(title,content){
+    
+//     let data={
+//         title,
+//         content
+//     }
+//     return mFetch('/article/update'
+//             ,data
+//             )
+// }
+
+
+
+
+
+
+/***/ }),
+
+/***/ 39:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var SwitchF = function(s){
+	// var s=Object.assign({
+	// 	f1:function(){},
+	// 	f2:function(){}
+	// },settings);
+	var flag = false
+	return function(){
+		if(!flag){
+			console.log(1)
+			s[0].call()
+		}else{
+			console.log(2)
+			s[1].call()
+		}
+		flag=!flag
+	}
+}
+/* harmony default export */ __webpack_exports__["default"] = SwitchF;
+
+/***/ }),
+
+/***/ 60:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4213,12 +3874,12 @@ Delay.prototype.execute = function(){
 
 /***/ }),
 
-/***/ 43:
+/***/ 61:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-var GDMP = __webpack_require__(358)
+var GDMP = __webpack_require__(355)
 
 
 // 编辑器增量更新
@@ -4300,12 +3961,12 @@ function EditorValueAdvance(){
 
 /***/ }),
 
-/***/ 44:
+/***/ 62:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__upload_Upload_js__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__upload_Upload_js__ = __webpack_require__(350);
 /*
 封装的目的是什么？
 
@@ -4483,28 +4144,7 @@ var dndUpload = function (element, options) {
 
 /***/ }),
 
-/***/ 62:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 63:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 64:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 67:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4514,29 +4154,25 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _vue = __webpack_require__(45);
+var _vue = __webpack_require__(40);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _vueRouter = __webpack_require__(348);
+var _vueRouter = __webpack_require__(345);
 
 var _vueRouter2 = _interopRequireDefault(_vueRouter);
 
-var _Hello = __webpack_require__(335);
+var _Hello = __webpack_require__(334);
 
 var _Hello2 = _interopRequireDefault(_Hello);
 
-var _WriteArticle = __webpack_require__(337);
+var _WriteArticle = __webpack_require__(336);
 
 var _WriteArticle2 = _interopRequireDefault(_WriteArticle);
 
-var _Login = __webpack_require__(336);
+var _Login = __webpack_require__(335);
 
 var _Login2 = _interopRequireDefault(_Login);
-
-var _deploy = __webpack_require__(338);
-
-var _deploy2 = _interopRequireDefault(_deploy);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4568,25 +4204,25 @@ exports.default = new _vueRouter2.default({
 
 /***/ }),
 
-/***/ 68:
+/***/ 64:
 /***/ (function(module, exports) {
 
 module.exports = "data:image/x-icon;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJmYXZpY29uLmljbyI7"
 
 /***/ }),
 
-/***/ 69:
+/***/ 65:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(142)
+__webpack_require__(141)
 
-var Component = __webpack_require__(3)(
+var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(85),
+  __webpack_require__(81),
   /* template */
-  __webpack_require__(344),
+  __webpack_require__(341),
   /* scopeId */
   null,
   /* cssModules */
@@ -4598,7 +4234,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 85:
+/***/ 81:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4608,11 +4244,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+__webpack_require__(137);
+
 __webpack_require__(138);
 
 __webpack_require__(139);
-
-__webpack_require__(140);
 
 exports.default = {
   name: 'app',
@@ -4631,7 +4267,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 86:
+/***/ 82:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4641,63 +4277,63 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _asyncToGenerator2 = __webpack_require__(46);
+var _asyncToGenerator2 = __webpack_require__(41);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-var _regenerator = __webpack_require__(13);
+var _regenerator = __webpack_require__(20);
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _vuex = __webpack_require__(6);
+var _vuex = __webpack_require__(9);
 
-__webpack_require__(23);
+__webpack_require__(35);
 
-__webpack_require__(20);
+__webpack_require__(31);
 
-__webpack_require__(24);
+__webpack_require__(36);
 
-__webpack_require__(22);
+__webpack_require__(34);
 
-__webpack_require__(62);
+__webpack_require__(134);
 
-__webpack_require__(63);
+__webpack_require__(135);
 
-__webpack_require__(64);
+__webpack_require__(136);
 
-__webpack_require__(21);
+__webpack_require__(32);
 
-__webpack_require__(39);
+__webpack_require__(33);
 
 var _CONSTANT = __webpack_require__(2);
 
-var _index = __webpack_require__(27);
+var _index = __webpack_require__(38);
 
 var API = _interopRequireWildcard(_index);
 
-var _co = __webpack_require__(14);
+var _co = __webpack_require__(21);
 
 var _co2 = _interopRequireDefault(_co);
 
-var _codemirror = __webpack_require__(4);
+var _codemirror = __webpack_require__(5);
 
 var _codemirror2 = _interopRequireDefault(_codemirror);
 
-__webpack_require__(48);
+__webpack_require__(92);
 
-var _Delay = __webpack_require__(42);
+var _Delay = __webpack_require__(60);
 
 var _Delay2 = _interopRequireDefault(_Delay);
 
-var _dndUpload = __webpack_require__(44);
+var _dndUpload = __webpack_require__(62);
 
 var _dndUpload2 = _interopRequireDefault(_dndUpload);
 
-var _EditorValueAdvance = __webpack_require__(43);
+var _EditorValueAdvance = __webpack_require__(61);
 
 var _EditorValueAdvance2 = _interopRequireDefault(_EditorValueAdvance);
 
-var _ytoolSwitch = __webpack_require__(28);
+var _ytoolSwitch = __webpack_require__(39);
 
 var _ytoolSwitch2 = _interopRequireDefault(_ytoolSwitch);
 
@@ -4705,7 +4341,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var marked = __webpack_require__(41);
+var marked = __webpack_require__(57);
 var renderer = new marked.Renderer();
 var radCode = renderer.code;
 renderer.code = function (code, lang, escaped) {
@@ -4724,12 +4360,12 @@ marked.setOptions({
   smartLists: true,
   smartypants: true,
   highlight: function highlight(code, type, sss) {
-    return __webpack_require__(40).highlightAuto(code).value;
+    return __webpack_require__(56).highlightAuto(code).value;
   },
   renderer: renderer
 });
 
-var LOGIN_CODE = __webpack_require__(25).CODE;
+var LOGIN_CODE = __webpack_require__(37).CODE;
 
 exports.default = {
   props: ["data"],
@@ -4943,7 +4579,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 87:
+/***/ 83:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4953,11 +4589,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(95);
+var _extends2 = __webpack_require__(90);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _vuex = __webpack_require__(6);
+var _vuex = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4990,7 +4626,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 88:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5000,7 +4636,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Count = __webpack_require__(334);
+var _Count = __webpack_require__(333);
 
 var _Count2 = _interopRequireDefault(_Count);
 
@@ -5021,7 +4657,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 89:
+/***/ 85:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5031,7 +4667,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _url = __webpack_require__(331);
+var _url = __webpack_require__(330);
 
 var _url2 = _interopRequireDefault(_url);
 
@@ -5062,7 +4698,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 90:
+/***/ 86:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5072,43 +4708,43 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _regenerator = __webpack_require__(13);
+var _regenerator = __webpack_require__(20);
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _vuex = __webpack_require__(6);
+var _vuex = __webpack_require__(9);
 
-__webpack_require__(23);
+__webpack_require__(35);
 
-__webpack_require__(20);
+__webpack_require__(31);
 
-__webpack_require__(24);
+__webpack_require__(36);
 
-__webpack_require__(22);
+__webpack_require__(34);
 
-__webpack_require__(21);
+__webpack_require__(32);
 
-__webpack_require__(39);
+__webpack_require__(33);
 
 var _CONSTANT = __webpack_require__(2);
 
-var _index = __webpack_require__(27);
+var _index = __webpack_require__(38);
 
 var API = _interopRequireWildcard(_index);
 
-var _co = __webpack_require__(14);
+var _co = __webpack_require__(21);
 
 var _co2 = _interopRequireDefault(_co);
 
-var _ytoolSwitch = __webpack_require__(28);
+var _ytoolSwitch = __webpack_require__(39);
 
 var _ytoolSwitch2 = _interopRequireDefault(_ytoolSwitch);
 
-var _editor = __webpack_require__(339);
+var _editor = __webpack_require__(337);
 
 var _editor2 = _interopRequireDefault(_editor);
 
-var _CodeMirror = __webpack_require__(333);
+var _CodeMirror = __webpack_require__(332);
 
 var _CodeMirror2 = _interopRequireDefault(_CodeMirror);
 
@@ -5116,10 +4752,10 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var LOGIN_CODE = __webpack_require__(25).CODE;
+var LOGIN_CODE = __webpack_require__(37).CODE;
 
 
-var marked = __webpack_require__(41);
+var marked = __webpack_require__(57);
 var renderer = new marked.Renderer();
 var radCode = renderer.code;
 renderer.code = function (code, lang, escaped) {
@@ -5138,7 +4774,7 @@ marked.setOptions({
   smartLists: true,
   smartypants: true,
   highlight: function highlight(code, type, sss) {
-    return __webpack_require__(40).highlightAuto(code).value;
+    return __webpack_require__(56).highlightAuto(code).value;
   },
   renderer: renderer
 });
@@ -5494,9 +5130,11 @@ exports.default = {
       });
     },
     floder_item_more_crud_enter: function floder_item_more_crud_enter(event, index) {
+
+      console.log('floder_item_more_crud_enter', event);
       this.floder_item_more_crud_element_visible = true;
       this.$refs.floder_item_more.style.left = event.target.offsetLeft - 35 + "px";
-      this.$refs.floder_item_more.style.top = event.target.offsetParent.offsetTop - 29 + "px";
+      this.$refs.floder_item_more.style.top = event.target.offsetParent.offsetTop - this.$refs.ulScroll.offsetParent.scrollTop - 29 + "px";
     },
     floder_item_more_crud_out: function floder_item_more_crud_out(event, index) {
       this.floder_item_more_crud_element_visible = false;
@@ -5686,546 +5324,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 91:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _regenerator = __webpack_require__(13);
-
-var _regenerator2 = _interopRequireDefault(_regenerator);
-
-var _vuex = __webpack_require__(6);
-
-__webpack_require__(23);
-
-__webpack_require__(20);
-
-__webpack_require__(24);
-
-__webpack_require__(22);
-
-__webpack_require__(62);
-
-__webpack_require__(63);
-
-__webpack_require__(64);
-
-__webpack_require__(21);
-
-var _CONSTANT = __webpack_require__(2);
-
-var _index = __webpack_require__(27);
-
-var API = _interopRequireWildcard(_index);
-
-var _co = __webpack_require__(14);
-
-var _co2 = _interopRequireDefault(_co);
-
-var _codemirror = __webpack_require__(4);
-
-var _codemirror2 = _interopRequireDefault(_codemirror);
-
-__webpack_require__(48);
-
-var _Delay = __webpack_require__(42);
-
-var _Delay2 = _interopRequireDefault(_Delay);
-
-var _dndUpload = __webpack_require__(44);
-
-var _dndUpload2 = _interopRequireDefault(_dndUpload);
-
-var _EditorValueAdvance = __webpack_require__(43);
-
-var _EditorValueAdvance2 = _interopRequireDefault(_EditorValueAdvance);
-
-var _ytoolSwitch = __webpack_require__(28);
-
-var _ytoolSwitch2 = _interopRequireDefault(_ytoolSwitch);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var marked = __webpack_require__(41);
-var renderer = new marked.Renderer();
-
-var radCode = renderer.code;
-renderer.code = function (code, lang, escaped) {
-    if (lang === 'raw') {
-        return '<p class="lang-raw">' + code + '</p>';
-    }
-    var self = this;
-
-    return radCode.call(self, code, lang, escaped);
-};
-marked.setOptions({
-
-    gfm: true,
-    tables: true,
-    breaks: true,
-    pedantic: true,
-    sanitize: true,
-    smartLists: true,
-    smartypants: true,
-    highlight: function highlight(code, type, sss) {
-        return __webpack_require__(40).highlightAuto(code).value;
-    }, renderer: renderer
-});
-
-var LOGIN_CODE = __webpack_require__(25).CODE;
-
-exports.default = {
-    data: function data() {
-        return {
-            page_mode: 0,
-            floder_list: [],
-            floder_mode_show_type: "1",
-            floder_add_show_switch: function floder_add_show_switch() {},
-            floder_add_show_flag: false,
-            floder_active: "",
-            floder_active_index: 0,
-            floder_edit_index: -1,
-            floder_add_visible: false,
-            floder_add_input: "",
-            floder_item_more_crud_element_visible: false,
-
-            article_item_more_crud_element_visible: false,
-            article_list: [],
-            article_active: "",
-            article_edit_index: -1,
-            article_add_visible: false,
-            article_add_input: "",
-            article_title: "",
-            article_content: "",
-            article_content_style: {
-                changed: false,
-                saving: false,
-                error: false
-            },
-            editor: "",
-            Delay: "",
-            onEditorChange: "",
-            EVA: ""
-        };
-    },
-
-    methods: {
-        floder_mode_show: function floder_mode_show() {
-            this.floder_add_show_switch();
-        },
-        article_markdown_preview: function article_markdown_preview() {
-            if (this.page_mode === 1) {
-                this.page_mode = 0;
-                return;
-            }
-            this.page_mode = 1;
-        },
-        article_delete: function article_delete() {
-            var self = this;
-            API.ARTICLE.remove(this.article_active).then(function () {
-                self.article_list_refresh();
-                self.article_item_more_crud_element_visible = false;
-            });
-        },
-        article_list_refresh: function article_list_refresh() {
-            var self = this;
-            API.ARTICLE.list(this.floder_active).then(function (res) {
-                self.article_list = res.result;
-            });
-        },
-        article_content_execute: function article_content_execute() {
-            this.Delay.execute();
-        },
-        article_content_save: function article_content_save(value, title, article_active, floder_uid) {
-            var self = this;
-
-            (0, _co2.default)(_regenerator2.default.mark(function _callee() {
-                var update;
-                return _regenerator2.default.wrap(function _callee$(_context) {
-                    while (1) {
-                        switch (_context.prev = _context.next) {
-                            case 0:
-
-                                self.article_content_style.saving = true;
-
-                                _context.next = 3;
-                                return API.ARTICLE.update(value, title, article_active, floder_uid);
-
-                            case 3:
-                                update = _context.sent;
-
-
-                                self.article_content_style.saving = false;
-                                self.article_content_style.changed = false;
-
-                                self.floder_sort_refresh();
-
-                                self.article_list_refresh();
-
-                            case 8:
-                            case 'end':
-                                return _context.stop();
-                        }
-                    }
-                }, _callee, this);
-            })).catch(function (err) {
-                alert(err.MSG);
-            });
-        },
-        article_item_rename: function article_item_rename(index) {
-            this.article_edit_index = index;
-        },
-
-        article_item_active: function article_item_active(index) {
-            var self = this;
-
-            var article_uid = this.article_list[index].selfuid;
-
-            this.editor.off("change", this.onEditorChange);
-            this.article_edit_index = index;
-
-            self.EVA.reset();
-
-            self._acticle_load(article_uid, function () {
-                self.$router.push({ name: 'WriteArticle2',
-                    params: {
-                        floderid: self.floder_active,
-                        articleid: self.article_active }
-                });
-            });
-        },
-        _acticle_load: function _acticle_load(article_uid, callback) {
-            var self = this;
-            (0, _co2.default)(_regenerator2.default.mark(function _callee2() {
-                var article_obj;
-                return _regenerator2.default.wrap(function _callee2$(_context2) {
-                    while (1) {
-                        switch (_context2.prev = _context2.next) {
-                            case 0:
-                                _context2.next = 2;
-                                return API.ARTICLE.content(article_uid);
-
-                            case 2:
-                                article_obj = _context2.sent;
-
-
-                                self.article_title = article_obj.result.title;
-                                self.EVA.value = article_obj.result.content;
-
-                                self.editor.setValue(self.EVA.value);
-                                self.article_content = article_obj.result.content;
-
-
-                                self.article_content_style.changed = false;
-                                self.editor.on("change", self.onEditorChange);
-
-                                self.article_active = article_uid;
-
-                                callback();
-
-                            case 11:
-                            case 'end':
-                                return _context2.stop();
-                        }
-                    }
-                }, _callee2, this);
-            })).catch(function (err) {});
-        },
-        article_edit_cancel: function article_edit_cancel(index) {
-            this.article_edit_index = -1;
-        },
-        article_edit_ok: function article_edit_ok() {
-            this.article_edit_index = -1;
-        },
-
-        article_add_show: function article_add_show() {
-            this.article_add_visible = true;
-        },
-        article_add_ok: function article_add_ok() {
-            var self = this;
-            var floder_uid = self.floder_active;
-            API.ARTICLE.add(this.article_add_input, floder_uid).then(function () {
-                self.floder_sort_refresh();
-                self.article_list_refresh();
-
-                self.article_add_input = "";
-            }).catch(function (err) {
-                alert(err);
-            });
-            this.article_add_visible = false;
-        },
-        article_add_cancel: function article_add_cancel() {
-            this.article_add_visible = false;
-        },
-
-        article_item_more_crud_enter: function article_item_more_crud_enter() {
-            this.article_item_more_crud_element_visible = true;
-            this.$refs.article_item_more.style.left = event.target.offsetLeft + 250 + "px";
-            this.$refs.article_item_more.style.top = event.target.offsetParent.offsetTop + 52 + "px";
-        },
-        Mfloder_mode_show_type_change: function Mfloder_mode_show_type_change() {
-            API.CONFIG.floder_sort_type(this.floder_mode_show_type);
-        },
-        floder_sort_refresh: function floder_sort_refresh() {
-            this.floder_list[this.floder_active_index].timemap = new Date().getTime();
-            this.floder_active_index = 0;
-        },
-        floder_delete: function floder_delete() {
-            var self = this;
-            API.FLODER.remove(this.floder_active).then(function () {
-                self.floder_refresh();
-                self.floder_item_more_crud_element_visible = false;
-            });
-        },
-        floder_item_more_crud_enter: function floder_item_more_crud_enter(event, index) {
-            this.floder_item_more_crud_element_visible = true;
-            this.$refs.floder_item_more.style.left = event.target.offsetLeft - 35 + "px";
-            this.$refs.floder_item_more.style.top = event.target.offsetParent.offsetTop - 29 + "px";
-        },
-        floder_item_more_crud_out: function floder_item_more_crud_out(event, index) {
-            this.floder_item_more_crud_element_visible = false;
-        },
-        article_item_more_crud_out: function article_item_more_crud_out() {
-            this.article_item_more_crud_element_visible = false;
-        },
-        floder_item_rename: function floder_item_rename(index) {
-            this.floder_edit_index = index;
-        },
-        floder_item_active: function floder_item_active(index) {
-            var self = this;
-            var floder_id = self.floder_list[index].floder_uid;
-            this.floder_active_index = index;
-
-
-            this._floder_load(floder_id);
-        },
-        _floder_load: function _floder_load(floder_uid, callback) {
-            var self = this;
-
-            (0, _co2.default)(_regenerator2.default.mark(function _callee3() {
-                var article_list;
-                return _regenerator2.default.wrap(function _callee3$(_context3) {
-                    while (1) {
-                        switch (_context3.prev = _context3.next) {
-                            case 0:
-                                _context3.next = 2;
-                                return API.ARTICLE.list(floder_uid);
-
-                            case 2:
-                                article_list = _context3.sent;
-
-
-                                self.article_list = article_list.result;
-
-                                self.floder_active = floder_uid;
-
-                                callback();
-
-                            case 6:
-                            case 'end':
-                                return _context3.stop();
-                        }
-                    }
-                }, _callee3, this);
-            })).catch(function (err) {});
-        },
-        floder_edit_cancel: function floder_edit_cancel(index) {
-            this.floder_edit_index = -1;
-        },
-        floder_edit_ok: function floder_edit_ok() {
-            this.floder_edit_index = -1;
-        },
-
-        floder_add_show: function floder_add_show() {
-            this.floder_add_visible = true;
-        },
-        floder_refresh: function floder_refresh() {
-            var self = this;
-            API.FLODER.list().then(function (res) {
-                self.floder_list = res.result;
-            });
-        },
-        floder_add_ok: function floder_add_ok() {
-            var self = this;
-            API.FLODER.add(this.floder_add_input).then(function () {
-                self.floder_refresh();
-                self.floder_add_input = "";
-            }).catch(function (err) {
-                alert(err);
-            });
-            this.floder_add_visible = false;
-        },
-        floder_add_cancel: function floder_add_cancel() {
-            this.floder_add_visible = false;
-        }
-    },
-    computed: {
-        article_markdown_preview_text: function article_markdown_preview_text() {
-            var title = "# " + this.article_title + "\n";
-
-            return marked(title + this.article_content);
-        },
-        floder_list_computed: function floder_list_computed() {
-            var new_list = this.floder_list;
-
-            switch (this.floder_mode_show_type) {
-                case "1":
-                    new_list.sort(function (p1, p2) {
-                        return parseInt(p2._id, 16) - parseInt(p1._id, 16);
-                    });
-                    break;
-                case "2":
-                    new_list.sort(function (p1, p2) {
-                        if (p2.timemap === undefined) {
-                            return -1;
-                        }
-                        if (p1.timemap === undefined) {
-                            return 1;
-                        }
-                        return p2.timemap - p1.timemap;
-                    });
-                    break;
-                case "3":
-                    new_list.sort(function (p1, p2) {
-                        if (p2.timemapTotal === undefined) {
-                            return -1;
-                        }
-                        if (p1.timemapTotal === undefined) {
-                            return 1;
-                        }
-                        return p2.timemapTotal - p1.timemapTotal;
-                    });
-                    break;
-            }
-
-            return new_list;
-        }
-    },
-    created: function created() {
-        var self = this;
-
-        (0, _co2.default)(_regenerator2.default.mark(function _callee4() {
-            var floder_list, article_list;
-            return _regenerator2.default.wrap(function _callee4$(_context4) {
-                while (1) {
-                    switch (_context4.prev = _context4.next) {
-                        case 0:
-                            _context4.next = 2;
-                            return API.FLODER.list();
-
-                        case 2:
-                            floder_list = _context4.sent;
-
-                            self.floder_list = floder_list.result;
-
-                            if (!(self.$route.params.floderid != undefined)) {
-                                _context4.next = 8;
-                                break;
-                            }
-
-                            self._floder_load(self.$route.params.floderid, function () {
-                                if (self.$route.params.articleid != undefined) {
-                                    self._acticle_load(self.$route.params.articleid);
-                                }
-                            });
-                            _context4.next = 13;
-                            break;
-
-                        case 8:
-                            self.floder_active = floder_list.result[0].floder_uid;
-                            _context4.next = 11;
-                            return API.ARTICLE.list(self.floder_list[0].floder_uid);
-
-                        case 11:
-                            article_list = _context4.sent;
-
-                            self.article_list = article_list.result;
-
-                        case 13:
-                        case 'end':
-                            return _context4.stop();
-                    }
-                }
-            }, _callee4, this);
-        })).catch(function (err) {
-            if (err.STATUSCODE === LOGIN_CODE.LOGIN_NO_LOGIN.STATUSCODE) {
-                self.$router.push('login');
-            }
-        });
-    },
-    mounted: function mounted() {
-        var self = this;
-        var e = this.$refs.ta1;
-        this.editor = _codemirror2.default.fromTextArea(e, {
-            mode: 'gfm',
-            theme: "zenburn",
-            lineWrapping: true,
-            extraKeys: {
-                "Enter": "newlineAndIndentContinueMarkdownList",
-                "Ctrl-S": function CtrlS(cm) {
-                    self.Delay.execute();
-                }
-            }
-        });
-        this.Delay = new _Delay2.default(5000, function () {
-            self.EVA.value = self.editor.getValue();
-
-
-            self.article_content_save(self.EVA.patch_list, self.article_title, self.article_active, self.floder_active);
-        });
-
-        this.onEditorChange = function () {
-
-            self.article_content_style.changed = true;
-
-            self.article_content = self.editor.getValue();
-
-            self.Delay.push();
-        };
-
-        this.EVA = new _EditorValueAdvance2.default();
-
-        var code_mirror = document.getElementsByClassName('CodeMirror')[0];
-        code_mirror.style.height = window.innerHeight - 106 + "px";
-        window.onresize = function () {
-            code_mirror.style.height = window.innerHeight - 106 + "px";
-        };
-        var dnd_upload = new _dndUpload2.default(document.getElementsByClassName("article")[0], {
-            onSuccess: function onSuccess(res) {
-
-                var current_line = self.editor.getCursor().line;
-
-
-                console.log(_CONSTANT.IP);
-
-                var img = "![](" + res.img_url.replace("IPADDRESS", _CONSTANT.IP) + ")";
-
-                self.editor.replaceRange("\r\n\r\n" + img + "\r\n\r\n", { line: current_line, ch: 0 });
-            }
-        });
-
-        this.floder_add_show_switch = (0, _ytoolSwitch2.default)([function () {
-            self.floder_add_show_flag = true;
-        }, function () {
-            self.floder_add_show_flag = false;
-        }]);
-        API.CONFIG.getAll().then(function (res) {
-            self.floder_mode_show_type = res.result.floder_sort_type;
-        });
-    }
-};
-
-/***/ }),
-
-/***/ 92:
+/***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6235,59 +5334,59 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _regenerator = __webpack_require__(13);
+var _regenerator = __webpack_require__(20);
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _stringify = __webpack_require__(93);
+var _stringify = __webpack_require__(88);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
-var _asyncToGenerator2 = __webpack_require__(46);
+var _asyncToGenerator2 = __webpack_require__(41);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-var _promise = __webpack_require__(29);
+var _promise = __webpack_require__(19);
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _vuex = __webpack_require__(6);
+var _vuex = __webpack_require__(9);
 
-__webpack_require__(23);
+__webpack_require__(35);
 
-__webpack_require__(20);
+__webpack_require__(31);
 
-__webpack_require__(24);
+__webpack_require__(36);
 
-__webpack_require__(22);
+__webpack_require__(34);
 
-__webpack_require__(21);
+__webpack_require__(32);
 
-__webpack_require__(39);
+__webpack_require__(33);
 
 var _CONSTANT = __webpack_require__(2);
 
-var _index = __webpack_require__(27);
+var _index = __webpack_require__(38);
 
 var API = _interopRequireWildcard(_index);
 
-var _co = __webpack_require__(14);
+var _co = __webpack_require__(21);
 
 var _co2 = _interopRequireDefault(_co);
 
-var _Delay = __webpack_require__(42);
+var _Delay = __webpack_require__(60);
 
 var _Delay2 = _interopRequireDefault(_Delay);
 
-var _dndUpload = __webpack_require__(44);
+var _dndUpload = __webpack_require__(62);
 
 var _dndUpload2 = _interopRequireDefault(_dndUpload);
 
-var _EditorValueAdvance = __webpack_require__(43);
+var _EditorValueAdvance = __webpack_require__(61);
 
 var _EditorValueAdvance2 = _interopRequireDefault(_EditorValueAdvance);
 
-var _ytoolSwitch = __webpack_require__(28);
+var _ytoolSwitch = __webpack_require__(39);
 
 var _ytoolSwitch2 = _interopRequireDefault(_ytoolSwitch);
 
@@ -6295,23 +5394,23 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var LOGIN_CODE = __webpack_require__(25).CODE;
-var EditorJS = __webpack_require__(73);
-var Header = __webpack_require__(75);
-var Marker = __webpack_require__(79);
-var RawTool = __webpack_require__(81);
+var LOGIN_CODE = __webpack_require__(37).CODE;
+var EditorJS = __webpack_require__(69);
+var Header = __webpack_require__(71);
+var Marker = __webpack_require__(75);
+var RawTool = __webpack_require__(77);
 
-var SimpleImage = __webpack_require__(82);
-var List = __webpack_require__(78);
-var Checklist = __webpack_require__(70);
-var Quote = __webpack_require__(80);
-var Warning = __webpack_require__(84);
-var CodeTool = __webpack_require__(71);
-var Delimiter = __webpack_require__(72);
-var InlineCode = __webpack_require__(76);
-var LinkTool = __webpack_require__(77);
-var Embed = __webpack_require__(74);
-var Table = __webpack_require__(83);
+var SimpleImage = __webpack_require__(78);
+var List = __webpack_require__(74);
+var Checklist = __webpack_require__(66);
+var Quote = __webpack_require__(76);
+var Warning = __webpack_require__(80);
+var CodeTool = __webpack_require__(67);
+var Delimiter = __webpack_require__(68);
+var InlineCode = __webpack_require__(72);
+var LinkTool = __webpack_require__(73);
+var Embed = __webpack_require__(70);
+var Table = __webpack_require__(79);
 
 exports.default = {
   props: ["data"],
@@ -6527,5 +5626,5 @@ exports.default = {
 
 /***/ })
 
-},[360]);
-//# sourceMappingURL=app.3c4262aa06c41c3dba69.js.map
+},[357]);
+//# sourceMappingURL=app.e3bc65a601bc9cb4f2c4.js.map
