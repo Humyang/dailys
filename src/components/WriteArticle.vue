@@ -69,7 +69,7 @@
             <a @click="floder_add_cancel" class="btn btn_cancel">取消</a>
           </div>
         </template>
-        <ul class="item">
+        <ul class="item" ref="ulScroll">
           <li
             v-for="(item,index) in floder_list_computed"
             :class="{active:floder_active === floder_list[index].floder_uid,editor:floder_edit_index===index}"
@@ -665,11 +665,13 @@ if(article_obj.result.deploy_setting){
       });
     },
     floder_item_more_crud_enter: function(event, index) {
+      
+            console.log('floder_item_more_crud_enter',event)
       this.floder_item_more_crud_element_visible = true;
       this.$refs.floder_item_more.style.left =
         event.target.offsetLeft - 35 + "px";
       this.$refs.floder_item_more.style.top =
-        event.target.offsetParent.offsetTop - 29 + "px";
+        event.target.offsetParent.offsetTop-this.$refs.ulScroll.offsetParent.scrollTop - 29 + "px";
 
       // console.log(123)
     },

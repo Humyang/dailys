@@ -1,4 +1,5 @@
-html, body, div#app, .write_article_wrap { height: 100%; margin: 0 }
+html, body, div#app  { height: 100%; margin: 0 }
+.write_article_wrap {margin: 0;flex-grow: 1;    height: 100%;}
 ul, p { padding: 0; margin: 0 }
 li { list-style: none }
 a { text-decoration: none; color: #333 }
@@ -46,10 +47,12 @@ ul.subitem { position: absolute; z-index: 999; width: 100% }
 .document li.active i.i1 {
     left: 15px;
 }
-.article { float: left; width: 65%; height: 100%; overflow: hidden; display: block;  text-align: left }
+.article { float: left; width: 65%; height: 100%; overflow: hidden;  text-align: left;
+    display: flex;
+    flex-direction: column; }
 .article textarea { width: 100%; margin-bottom: 0; resize: none; color: #2f2f2f; font-size: 18px; font-weight: normal; line-height: 30px; -webkit-appearance: none; box-sizing: border-box; border: 0; -webkit-highlight: none; outline: none; padding: 30px; padding-bottom: 0; overflow: auto }
 .article p.p1 { 
-    height: 50px;
+    min-height: 50px;
     margin: 0;
     background-color: rgba(247, 247, 247, 0);
     margin-top: 0px;
