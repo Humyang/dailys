@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Hello from '../components/Hello'
 import WriteArticle from '../components/WriteArticle'
 import Login from '../components/Login'
-import deploy from '../components/deploy'
+// import deploy from '../components/deploy'
 Vue.use(Router)
 export default new Router({
   mode:"history",
