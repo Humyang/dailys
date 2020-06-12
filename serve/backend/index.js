@@ -1,5 +1,5 @@
 var koa = require('koa')
-var body = require('koa-better-body')
+var body = require('koa-body')
 var router = require('koa-router')()
 var cors = require('koa-cors')
 var mongo = require('koa-mongo')
@@ -103,7 +103,7 @@ router.get('/upload/*/*', serve(root_path+"/",{maxage:3153600000}))
 // app.use(LOGIN.set({dbname:CONFIG.dbName,port:CONFIG.dbPort}))
 
 app.use(mongo())
-app.use(body({textLimit:'10000kb',formLimit:'10000kb',jsonLimit:'10000kb'}))
+// app.use(body({textLimit:'10000kb',formLimit:'10000kb',jsonLimit:'10000kb'}))
 app.use(async function (ctx,next){
     try{
         // console.log('ctx.LOGIN_CONFIG',ctx.LOGIN_CONFIG)

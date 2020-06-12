@@ -24,6 +24,7 @@
     "flogin": "^0.1.2",
     "highlight.js": "^9.10.0",
     "koa": "^2.5.2",
+    "koa-body": "^4.2.0",
     "koa-compress": "^4.0.1",
     "koa-ejs": "^4.1.2",
     "koa-router": "^7.4.0",
