@@ -7,7 +7,7 @@ var MODULE_CONFIG = {
 }
 
 async function floderSortTypeUpdate (ctx){
-    let type = ctx.request.fields.type
+    let type = ctx.request.body.type
     // let obj = objectAssign({
     //                         floder_sort_type:type
     //                     },{uid:ctx.LOGIN_STATUS.uid})

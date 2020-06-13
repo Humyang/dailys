@@ -6,7 +6,7 @@ var MODULE_CONFIG = {
 // 搜索目录和文章
 
 async function search (ctx){
-	let keywords = ctx.request.fields.keywords
+	let keywords = ctx.request.body.keywords
     let res = await ctx.mongo
                         .db(CONFIG.dbName)
                         .collection(MODULE_CONFIG.COLLECTION)

@@ -14,10 +14,10 @@ var DEPLOY_MIDDLE = require("./deploy_middle.js")
 /*插入和更新文章*/
 async function add (ctx){
 
-    let title = ctx.request.fields.title
-    let floder_uid = ctx.request.fields.floder_uid
+    let title = ctx.request.body.title
+    let floder_uid = ctx.request.body.floder_uid
     let selfuid = UUID(40)
-    // let editor = ctx.request.fields.editor
+    // let editor = ctx.request.body.editor
 
     let insert_obj = objectAssign(
         {title,floder_uid,selfuid,isMove:false},
@@ -40,7 +40,7 @@ async function add (ctx){
 }
 /*返回列表*/
 async function  list (ctx){
-    let floder_uid = ctx.request.fields.floder_uid
+    let floder_uid = ctx.request.body.floder_uid
 
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
@@ -61,10 +61,10 @@ async function  list (ctx){
 
 /*更新列表*/
 async function  update (ctx){
-    let selfuid = ctx.request.fields.selfuid
-    let content = ctx.request.fields.content
-    let title = ctx.request.fields.title
-    let editor = ctx.request.fields.editor
+    let selfuid = ctx.request.body.selfuid
+    let content = ctx.request.body.content
+    let title = ctx.request.body.title
+    let editor = ctx.request.body.editor
 
     let query_obj = objectAssign(
         {selfuid,isMove:{$ne:true}},
@@ -126,7 +126,7 @@ async function  update (ctx){
 }
 
 async function  remove (ctx){
-    let selfuid = ctx.request.fields.selfuid
+    let selfuid = ctx.request.body.selfuid
 
     let query_obj = objectAssign(
         {selfuid},
@@ -161,9 +161,9 @@ async function  remove (ctx){
 
 async function _getContent(ctx){
 
-    let selfuid = ctx.request.fields.selfuid
+    let selfuid = ctx.request.body.selfuid
     
-    // let editor = ctx.request.fields.editor
+    // let editor = ctx.request.body.editor
 
     let query_obj = objectAssign(
         {selfuid,isMove:{$ne:true}},
@@ -220,11 +220,11 @@ async function alterDatabase(ctx, next) {
     }
   }
   async function  updatedeploy (ctx){
-    let selfuid = ctx.request.fields.selfuid
-    let preView = ctx.request.fields.preView
-    let tags = ctx.request.fields.tags
-    let titleImage = ctx.request.fields.titleImage
-    let title = ctx.request.fields.title
+    let selfuid = ctx.request.body.selfuid
+    let preView = ctx.request.body.preView
+    let tags = ctx.request.body.tags
+    let titleImage = ctx.request.body.titleImage
+    let title = ctx.request.body.title
     
     let query_obj = objectAssign(
         {selfuid,isMove:{$ne:true}},

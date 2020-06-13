@@ -32,7 +32,7 @@ var DEPLOY_MIDDLE = require("./deploy_middle.js")
 
 
 async function down(ctx) {
-  let selfuid = ctx.request.fields.selfuid;
+  let selfuid = ctx.request.body.selfuid;
   let query_obj = objectAssign({ uid: ctx.LOGIN_STATUS.uid, selfuid });
   let res = await ctx.mongo
     .db(CONFIG.dbName)
@@ -56,7 +56,7 @@ async function down(ctx) {
 // 发布文章
 async function update(ctx) {
   // debugger
-  let selfuid = ctx.request.fields.selfuid;
+  let selfuid = ctx.request.body.selfuid;
   let query_obj = objectAssign({ uid: ctx.LOGIN_STATUS.uid, selfuid });
   // 获取文章内容
   let article = await ARTICLE._getContent(ctx);
@@ -186,7 +186,7 @@ async function getIndex(ctx) {
 }
 /*返回列表*/
 async function list(ctx) {
-  // let floder_uid = ctx.request.fields.floder_uid
+  // let floder_uid = ctx.request.body.floder_uid
 
   let query_obj = objectAssign(
     { isMove:{$ne:true} },
@@ -206,7 +206,7 @@ async function list(ctx) {
 }
 
 async function  remove (ctx){
-    let selfuid = ctx.request.fields.selfuid
+    let selfuid = ctx.request.body.selfuid
 
     let query_obj = objectAssign(
         {selfuid},

@@ -8,8 +8,8 @@ var MODULE_CONFIG = {
 /*添加文集*/
 async function add (ctx){
 
-    let name = ctx.request.fields.name
-    let token = ctx.request.fields.token
+    let name = ctx.request.body.name
+    let token = ctx.request.body.token
     let floder_uid = uid(40)
     let insert_obj = objectAssign({
                             name,
@@ -48,7 +48,7 @@ async function list (ctx){
     }
 }
 async function remove (ctx){
-    let floder_uid = ctx.request.fields.floder_uid
+    let floder_uid = ctx.request.body.floder_uid
     // let logined_uid = {uid:ctx.LOGIN_STATUS.uid}
 
     let query_obj = objectAssign(
@@ -70,7 +70,7 @@ async function remove (ctx){
 
 async function  _findOne(ctx){
 
-    let floder_uid = ctx.request.fields.floder_uid
+    let floder_uid = ctx.request.body.floder_uid
 
     let query_obj = objectAssign(
         {floder_uid,isMove:{$ne:true}},
@@ -89,9 +89,9 @@ function Mfloder_list_modify(){
         // 为 floder 添加一个最后修改日期，用来排序
         // var timemap = (new Date()).timemap
 
-        let floder_uid = ctx.request.fields.floder_uid
+        let floder_uid = ctx.request.body.floder_uid
 
-        let timemap = ctx.request.fields.timemap
+        let timemap = ctx.request.body.timemap
 
         let timemapTotal = 0
         let findone = await _findOne(ctx)
@@ -118,7 +118,7 @@ function Mfloder_list_modify(){
 
 // console.log(query_obj)
 
-        // let token = ctx.request.fields.token
+        // let token = ctx.request.body.token
         // let _login_check_res = await ctx.mongo
         //             .db(ctx.LOGIN_CONFIG.dbname)
         //             .collection('logined_token')
