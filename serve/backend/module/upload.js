@@ -41,7 +41,7 @@ async function upload (ctx){
     // debugger;
     // console.log(123)
     // console.log(ctx.request.token)
-    var file = ctx.request.files[0]
+    var file = ctx.request.files.file
     // './upload/'+ ctx.LOGIN_STATUS.uid
     var root_path = process.cwd()
     var path = root_path + '/upload/'+ ctx.LOGIN_STATUS.uid
